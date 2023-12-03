@@ -85,6 +85,9 @@
     <Compile Include="all_don_hang.Designer.cs">
       <DependentUpon>all_don_hang.cs</DependentUpon>
     </Compile>
+    <Compile Include="AutoCompleteTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ban_hang.cs">
       <SubType>Form</SubType>
     </Compile>
