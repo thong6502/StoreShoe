@@ -48,19 +48,29 @@ namespace shoe_store_manager
 
             btn_allDonHang.ForeColor = Color.DarkGray;
             btn_nhapHang.ForeColor = Color.DarkGray;
+            btn_banHang.ForeColor = Color.DarkGray;
+
         }
 
 
 
         private void btn_donhang_Click(object sender, EventArgs e)
         {
-            label_val.Text = "Đơn hàng / Tất cả đơn hàng";
-            img_top.Image = Properties.Resources.order;
-            default_color();
-            btn_donhang.FillColor = Color.FromArgb(128, 128, 255);
-            btn_allDonHang.ForeColor = Color.White;
-            menuTransition.Start();
-            container(new all_don_hang());
+            if (menuContainer.Height >= 140)
+            {
+                menuTransition.Start();
+            }
+            else
+            {
+                label_val.Text = "Đơn hàng / Tất cả đơn hàng";
+                img_top.Image = Properties.Resources.order;
+                default_color();
+                btn_donhang.FillColor = Color.FromArgb(128, 128, 255);
+                btn_allDonHang.ForeColor = Color.White;
+                menuTransition.Start();
+                container(new all_don_hang());
+            }
+            
         }
 
         private void btn_nhacc_Click(object sender, EventArgs e)

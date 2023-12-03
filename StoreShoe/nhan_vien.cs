@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace shoe_store_manager
 {
     public partial class nhan_vien : Form
     {
+        private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
         public nhan_vien()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace shoe_store_manager
         private void nhan_vien_Load(object sender, EventArgs e)
         {
 
+            tbWarningPairs();
 
             data.Rows.Add(13);
             data.Rows[0].Cells[1].Value = "NV1";
@@ -118,44 +122,61 @@ namespace shoe_store_manager
 
         }
 
+        // Tạo một từ điển để lưu trữ các cặp Guna2TextBox và Guna2Button cảnh báo
+        private void tbWarningPairs()
+        {
+            textBoxWarningPairs = new Dictionary<Guna2TextBox, Guna2Button>()
+            {
+                { tb_name, warning1 },
+                { tb_address, warning2 },
+                { tb_phone, warning3 },
+                { tb_chucVu, warning4 }
+            };
+        }
+
         private void disabeled()
         {
-            data.Enabled = false;
-            delete.Enabled = false;
-            add.Enabled = false;
-            edit.Enabled = false;
-            search.Enabled = false;
-            btn_filter.Enabled = false;
-            arrow2.Enabled = false;
-            arrow5.Enabled = false;
+            foreach (Control c in this.Controls)
+            {
+                // Kiểm tra xem control có phải là edit_box hay không
+                if (c.Name != "edit_box")
+                {
+                    c.Enabled = false;
+                }
+            }
+
+
         }
 
         private void enabeled()
         {
-            data.Enabled = true;
-            delete.Enabled = true;
-            add.Enabled = true;
-            edit.Enabled = true;
-            search.Enabled = true;
-            btn_filter.Enabled = true;
-            arrow2.Enabled = true;
-            arrow5.Enabled = true;
+            foreach (Control c in this.Controls)
+            {
+                c.Enabled = true;
+            }
         }
 
         private void undisplay_warning()
         {
-            warning1.Visible = false;
-            warning2.Visible = false;
-            warning3.Visible = false;
-            warning4.Visible = false;
+
+            foreach(Control c in this.edit_box.Controls)
+            {
+                if(c is Guna2Button && c.Name != "xac_nhan" && c.Name != "huy")
+                {
+                    c.Visible = false;
+                }
+            }
         }
 
         private void clear_content_tb()
         {
-            tb_name.Text = "";
-            tb_address.Text = "";
-            tb_phone.Text = "";
-            tb_chucVu.Text = "";
+            foreach (Control c in this.edit_box.Controls)
+            {
+                if(c is Guna2TextBox)
+                {
+                    c.Text = "";
+                }
+            }
         }
 
         private void unVisible_boxFilter()
@@ -174,6 +195,7 @@ namespace shoe_store_manager
             edit_box.Visible = true;
             unVisible_boxFilter();
             disabeled();
+
         }
         private void huy_Click(object sender, EventArgs e)
         {
@@ -183,37 +205,32 @@ namespace shoe_store_manager
             enabeled();
         }
 
+
         private void xac_nhan_Click(object sender, EventArgs e)
         {
-            if (tb_name.Text == "") warning1.Visible = true;
-            if (tb_address.Text == "") warning2.Visible = true;
-            if (tb_phone.Text == "") warning3.Visible = true;
-            if (tb_chucVu.Text == "") warning4.Visible = true;
+
+            // Iterate over the dictionary and set the visibility of the warning buttons
+            foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
+            {
+                pair.Value.Visible = pair.Key.Text == "";
+            }
         }
 
-        private void tb_phone_TextChanged(object sender, EventArgs e)
+
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            if (tb_phone.Text != "") warning3.Visible = false;
-            else warning3.Visible = true;
+            // Lấy Guna2TextBox hiện tại
+            Guna2TextBox currentTextBox = sender as Guna2TextBox;
+
+            // Kiểm tra xem Guna2TextBox có trong từ điển không
+            if (textBoxWarningPairs.ContainsKey(currentTextBox))
+            {
+                // Đặt thuộc tính Visible của Guna2Button cảnh báo dựa trên giá trị của Guna2TextBox
+                textBoxWarningPairs[currentTextBox].Visible = currentTextBox.Text == "";
+            }
         }
 
-        private void tb_name_TextChanged(object sender, EventArgs e)
-        {
-            if (tb_name.Text != "") warning1.Visible = false;
-            else warning1.Visible = true;
-        }
-
-        private void tb_address_TextChanged(object sender, EventArgs e)
-        {
-            if (tb_address.Text != "") warning2.Visible = false;
-            else warning2.Visible = true;
-        }
-
-        private void tb_chucVu_TextChanged(object sender, EventArgs e)
-        {
-            if (tb_chucVu.Text != "") warning4.Visible = false;
-            else warning4.Visible = true;
-        }
 
         private void btn_filter_Click(object sender, EventArgs e)
         {

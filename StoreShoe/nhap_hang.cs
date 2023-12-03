@@ -20,15 +20,7 @@ namespace shoe_store_manager
             InitializeComponent();
         }
 
-
-        private void nhap_hang_Load(object sender, EventArgs e)
-        {
-           
-
-
-        }
-
-        private void tb_name_TextChanged(object sender, EventArgs e)
+        private void add_Click(object sender, EventArgs e)
         {
 
         }

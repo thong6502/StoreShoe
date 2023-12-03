@@ -94,6 +94,12 @@
     <Compile Include="ban_hang.Designer.cs">
       <DependentUpon>ban_hang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formtest.Designer.cs">
+      <DependentUpon>Formtest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FunctionP.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ban_hang.resx">
       <DependentUpon>ban_hang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formtest.resx">
+      <DependentUpon>Formtest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
