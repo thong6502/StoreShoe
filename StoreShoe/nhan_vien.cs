@@ -22,103 +22,12 @@ namespace shoe_store_manager
 
         private void nhan_vien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
 
             tbWarningPairs();
-
-            data.Rows.Add(13);
-            data.Rows[0].Cells[1].Value = "NV1";
-            data.Rows[0].Cells[2].Value = "Lê Văn Thông";
-            data.Rows[0].Cells[3].Value = "Vĩnh hưng - hoàng mai - hà nội";
-            data.Rows[0].Cells[4].Value = "O123456789";
-            data.Rows[0].Cells[5].Value = "12.000.000";
-            data.Rows[0].Cells[6].Value = "Anh thợ sửa ống nước may mắn";
-
-            data.Rows[1].Cells[1].Value = "NV2";
-            data.Rows[1].Cells[2].Value = "Nguyễn Văn B";
-            data.Rows[1].Cells[3].Value = "Quận 1 - TP.Hồ Chí Minh";
-            data.Rows[1].Cells[4].Value = "O987654321";
-            data.Rows[1].Cells[5].Value = "8.500.000";
-            data.Rows[1].Cells[6].Value = "Nhân viên kinh doanh";
-
-            data.Rows[2].Cells[1].Value = "NV3";
-            data.Rows[2].Cells[2].Value = "Trần Thị C";
-            data.Rows[2].Cells[3].Value = "Cầu Giấy - Hà Nội";
-            data.Rows[2].Cells[4].Value = "O567890123";
-            data.Rows[2].Cells[5].Value = "4.500.000";
-            data.Rows[2].Cells[6].Value = "Nhân viên hỗ trợ";
-
-            data.Rows[3].Cells[1].Value = "NV4";
-            data.Rows[3].Cells[2].Value = "Phạm Văn D";
-            data.Rows[3].Cells[3].Value = "Quận 2 - TP.Hồ Chí Minh";
-            data.Rows[3].Cells[4].Value = "O456789012";
-            data.Rows[3].Cells[5].Value = "9.500.000";
-            data.Rows[3].Cells[6].Value = "Nhân viên kỹ thuật";
-
-            data.Rows[4].Cells[1].Value = "NV5";
-            data.Rows[4].Cells[2].Value = "Lê Thị E";
-            data.Rows[4].Cells[3].Value = "Đống Đa - Hà Nội";
-            data.Rows[4].Cells[4].Value = "O345678901";
-            data.Rows[4].Cells[5].Value = "9.100.000";
-            data.Rows[4].Cells[6].Value = "Nhân viên tư vấn";
-
-            data.Rows[5].Cells[1].Value = "NV6";
-            data.Rows[5].Cells[2].Value = "Ngô Văn F";
-            data.Rows[5].Cells[3].Value = "Quận 3 - TP.Hồ Chí Minh";
-            data.Rows[5].Cells[4].Value = "O234567890";
-            data.Rows[5].Cells[5].Value = "2.100.000";
-            data.Rows[5].Cells[6].Value = "Nhân viên bán hàng";
-
-            data.Rows[6].Cells[1].Value = "NV7";
-            data.Rows[6].Cells[2].Value = "Đặng Thị G";
-            data.Rows[6].Cells[3].Value = "Hai Bà Trưng - Hà Nội";
-            data.Rows[6].Cells[4].Value = "O123456789";
-            data.Rows[6].Cells[5].Value = "8.100.000";
-            data.Rows[6].Cells[6].Value = "Nhân viên chăm sóc khách hàng";
-
-            data.Rows[7].Cells[1].Value = "NV8";
-            data.Rows[7].Cells[2].Value = "Trần Văn H";
-            data.Rows[7].Cells[3].Value = "Quận 4 - TP.Hồ Chí Minh";
-            data.Rows[7].Cells[4].Value = "O012345678";
-            data.Rows[7].Cells[5].Value = "8.210.000";
-            data.Rows[7].Cells[6].Value = "Nhân viên giao hàng";
-
-            data.Rows[8].Cells[1].Value = "NV9";
-            data.Rows[8].Cells[2].Value = "Nguyễn Thị I";
-            data.Rows[8].Cells[3].Value = "Thanh Xuân - Hà Nội";
-            data.Rows[8].Cells[4].Value = "O901234567";
-            data.Rows[8].Cells[5].Value = "3.210.000";
-            data.Rows[8].Cells[6].Value = "Nhân viên quản lý";
-
-            data.Rows[9].Cells[1].Value = "NV10";
-            data.Rows[9].Cells[2].Value = "Lê Văn J";
-            data.Rows[9].Cells[3].Value = "Quận 5 - TP.Hồ Chí Minh";
-            data.Rows[9].Cells[4].Value = "O890123456";
-            data.Rows[9].Cells[5].Value = "4.210.000";
-            data.Rows[9].Cells[6].Value = "Nhân viên phục vụ";
-
-            data.Rows[10].Cells[1].Value = "NV11";
-            data.Rows[10].Cells[2].Value = "Phạm Thị K";
-            data.Rows[10].Cells[3].Value = "Hoàn Kiếm - Hà Nội";
-            data.Rows[10].Cells[4].Value = "O789012345";
-            data.Rows[10].Cells[5].Value = "6.210.000";
-            data.Rows[10].Cells[6].Value = "Nhân viên tiếp thị";
-
-            data.Rows[11].Cells[1].Value = "NV12";
-            data.Rows[11].Cells[2].Value = "Ngô Văn L";
-            data.Rows[11].Cells[3].Value = "Quận 6 - TP.Hồ Chí Minh";
-            data.Rows[11].Cells[4].Value = "O678901234";
-            data.Rows[11].Cells[5].Value = "6.610.000";
-            data.Rows[11].Cells[6].Value = "Nhân viên lập trình";
-
-            data.Rows[12].Cells[1].Value = "NV13";
-            data.Rows[12].Cells[2].Value = "Đặng Văn M";
-            data.Rows[12].Cells[3].Value = "Tây Hồ - Hà Nội";
-            data.Rows[12].Cells[4].Value = "O567890123";
-            data.Rows[12].Cells[5].Value = "21.610.000";
-            data.Rows[12].Cells[6].Value = "Nhân viên thiết kế";
-
-
-
 
         }
 
@@ -246,6 +155,11 @@ namespace shoe_store_manager
         {
             unVisible_boxFilter();
             search.PlaceholderText = cbx_filter.Text;
+        }
+
+        private void nhanVienBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

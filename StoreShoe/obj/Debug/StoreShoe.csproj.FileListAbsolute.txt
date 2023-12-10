@@ -63,3 +63,15 @@ D:\STORE_SHOES\source\StoreShoe\StoreShoe\obj\Debug\StoreShoe.csproj.CopyComplet
 D:\STORE_SHOES\source\StoreShoe\StoreShoe\obj\Debug\shoe_store_manager.exe
 D:\STORE_SHOES\source\StoreShoe\StoreShoe\obj\Debug\shoe_store_manager.pdb
 D:\STORE_SHOES\source\StoreShoe\StoreShoe\obj\Debug\shoe_store_manager.Formtest.resources
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\obj\Debug\shoe_store_manager.bao_cao.resources
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.dll
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.WinForms.dll
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.Wpf.dll
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.pdb
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.xml
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.WinForms.pdb
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.WinForms.xml
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.Wpf.pdb
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\LiveCharts.Wpf.xml
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\Guna.Charts.WinForms.dll
+D:\STORE_SHOES\source\StoreShoe\StoreShoe\bin\Debug\Guna.Charts.WinForms.xml

@@ -22,24 +22,9 @@ namespace shoe_store_manager
 
         }
 
-        private void gunaGradientButton1_Click(object sender, EventArgs e)
-        {
-            MainForm f = new MainForm();
-            f.Show();
-            Hide();
-        }
-
-
-
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
+        
         bool check_eye = false;
-        private void btn_eye_Click(object sender, EventArgs e)
+        private void tbx_matKhau_IconRightClick(object sender, EventArgs e)
         {
             if(!check_eye)
             {
@@ -54,7 +39,20 @@ namespace shoe_store_manager
                 tbx_matKhau.UseSystemPasswordChar = true;
                 check_eye = false;
             }
-            
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            MainForm f = new MainForm();
+            f.Show();
+            Hide();
+            f.Logout += F_Logout;
+        }
+
+        private void F_Logout(object sender, EventArgs e)
+        {
+            (sender as MainForm).Close();
+            this.Show();
         }
     }
 }

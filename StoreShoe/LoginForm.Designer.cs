@@ -33,13 +33,12 @@
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.edit = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_login = new Guna.UI2.WinForms.Guna2Button();
             this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
             this.tbx_taiKhoan = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbx_matKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
-            this.btn_eye = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,29 +69,29 @@
             this.gunaLabel4.TabIndex = 3;
             this.gunaLabel4.Text = "Quên mật khẩu?";
             // 
-            // edit
+            // btn_login
             // 
-            this.edit.Animated = true;
-            this.edit.AutoRoundedCorners = true;
-            this.edit.BackColor = System.Drawing.Color.Transparent;
-            this.edit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.edit.BorderRadius = 19;
-            this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.edit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.edit.FocusedColor = System.Drawing.Color.Transparent;
-            this.edit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edit.ForeColor = System.Drawing.Color.White;
-            this.edit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.edit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.edit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.edit.Location = new System.Drawing.Point(459, 362);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(296, 41);
-            this.edit.TabIndex = 16;
-            this.edit.Text = "Đăng nhập";
-            this.edit.TextOffset = new System.Drawing.Point(5, 0);
-            this.edit.Click += new System.EventHandler(this.gunaGradientButton1_Click);
+            this.btn_login.Animated = true;
+            this.btn_login.AutoRoundedCorners = true;
+            this.btn_login.BackColor = System.Drawing.Color.Transparent;
+            this.btn_login.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.btn_login.BorderRadius = 19;
+            this.btn_login.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
+            this.btn_login.FocusedColor = System.Drawing.Color.Transparent;
+            this.btn_login.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_login.ForeColor = System.Drawing.Color.White;
+            this.btn_login.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
+            this.btn_login.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.btn_login.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_login.Location = new System.Drawing.Point(459, 362);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.Size = new System.Drawing.Size(296, 41);
+            this.btn_login.TabIndex = 16;
+            this.btn_login.Text = "Đăng nhập";
+            this.btn_login.TextOffset = new System.Drawing.Point(5, 0);
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // gunaControlBox1
             // 
@@ -157,6 +156,7 @@
             this.tbx_matKhau.IconLeftOffset = new System.Drawing.Point(-6, 0);
             this.tbx_matKhau.IconLeftSize = new System.Drawing.Size(23, 23);
             this.tbx_matKhau.IconRight = global::shoe_store_manager.Properties.Resources.eye_slash;
+            this.tbx_matKhau.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.tbx_matKhau.Location = new System.Drawing.Point(460, 272);
             this.tbx_matKhau.Margin = new System.Windows.Forms.Padding(0);
             this.tbx_matKhau.Name = "tbx_matKhau";
@@ -168,6 +168,7 @@
             this.tbx_matKhau.TabIndex = 7;
             this.tbx_matKhau.TextOffset = new System.Drawing.Point(2, 0);
             this.tbx_matKhau.UseSystemPasswordChar = true;
+            this.tbx_matKhau.IconRightClick += new System.EventHandler(this.tbx_matKhau_IconRightClick);
             // 
             // gunaPictureBox1
             // 
@@ -192,42 +193,13 @@
             this.gunaCirclePictureBox1.TabStop = false;
             this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
-            // btn_eye
-            // 
-            this.btn_eye.BackColor = System.Drawing.Color.Transparent;
-            this.btn_eye.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_eye.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_eye.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_eye.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btn_eye.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.btn_eye.DisabledState.ForeColor = System.Drawing.Color.White;
-            this.btn_eye.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.btn_eye.FillColor = System.Drawing.Color.Transparent;
-            this.btn_eye.FocusedColor = System.Drawing.Color.Transparent;
-            this.btn_eye.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_eye.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_eye.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_eye.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btn_eye.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btn_eye.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btn_eye.IndicateFocus = true;
-            this.btn_eye.Location = new System.Drawing.Point(730, 279);
-            this.btn_eye.Name = "btn_eye";
-            this.btn_eye.PressedColor = System.Drawing.Color.Transparent;
-            this.btn_eye.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_eye.Size = new System.Drawing.Size(30, 26);
-            this.btn_eye.TabIndex = 17;
-            this.btn_eye.UseTransparentBackground = true;
-            this.btn_eye.Click += new System.EventHandler(this.btn_eye_Click);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_eye);
-            this.Controls.Add(this.edit);
+            this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tbx_taiKhoan);
             this.Controls.Add(this.tbx_matKhau);
             this.Controls.Add(this.gunaPictureBox1);
@@ -239,7 +211,6 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -256,8 +227,7 @@
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI2.WinForms.Guna2TextBox tbx_taiKhoan;
         private Guna.UI2.WinForms.Guna2TextBox tbx_matKhau;
-        private Guna.UI2.WinForms.Guna2Button edit;
+        private Guna.UI2.WinForms.Guna2Button btn_login;
         private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
-        private Guna.UI2.WinForms.Guna2Button btn_eye;
     }
 }

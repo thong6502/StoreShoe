@@ -13,6 +13,7 @@ namespace shoe_store_manager
     public partial class MainForm : Form
     {
 
+        public event EventHandler Logout;
         public MainForm()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace shoe_store_manager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            container(new all_don_hang());
+            container(new bao_cao());
         }
 
         private void container(object _form)
@@ -44,21 +45,24 @@ namespace shoe_store_manager
             btn_nhanvien.FillColor = Color.Transparent;
             btn_nhacc.FillColor = Color.Transparent;
             btn_baocao.FillColor = Color.Transparent;
-            btn_taikhoan.FillColor = Color.Transparent;
+            btn_cauHinh.FillColor = Color.Transparent;
 
+            btn_taiKhoan.ForeColor = Color.DarkGray;
+            btn_dangXuat.ForeColor = Color.DarkGray;
             btn_allDonHang.ForeColor = Color.DarkGray;
             btn_nhapHang.ForeColor = Color.DarkGray;
             btn_banHang.ForeColor = Color.DarkGray;
 
+            
         }
 
 
 
         private void btn_donhang_Click(object sender, EventArgs e)
         {
-            if (menuContainer.Height >= 140)
+            if (menuContainer_donHang.Height >= 140)
             {
-                menuTransition.Start();
+                donHangTransition.Start();
             }
             else
             {
@@ -67,7 +71,7 @@ namespace shoe_store_manager
                 default_color();
                 btn_donhang.FillColor = Color.FromArgb(128, 128, 255);
                 btn_allDonHang.ForeColor = Color.White;
-                menuTransition.Start();
+                donHangTransition.Start();
                 container(new all_don_hang());
             }
             
@@ -106,36 +110,28 @@ namespace shoe_store_manager
             img_top.Image = Properties.Resources.report;
             default_color();
             btn_baocao.FillColor = Color.FromArgb(128, 128, 255);
+            container(new bao_cao());
         }
 
-        private void btn_taikhoan_Click(object sender, EventArgs e)
-        {
-            label_val.Text = "Tài khoản";
-            img_top.Image = Properties.Resources.setting;
-            default_color();
-            btn_taikhoan.FillColor = Color.FromArgb(128, 128, 255);
-            container(new tai_khoan());
-        }
-
-        bool menuExpand = true;
+        bool menuExpand_donHang = true;
         private void menuTransition_Tick(object sender, EventArgs e)
         {
-            if(menuExpand)
+            if(menuExpand_donHang)
             {
-                menuContainer.Height += 10;
-                if(menuContainer.Height >= 140)
+                menuContainer_donHang.Height += 10;
+                if(menuContainer_donHang.Height >= 140)
                 {
-                    menuTransition.Stop();
-                    menuExpand = false;
+                    donHangTransition.Stop();
+                    menuExpand_donHang = false;
                 }
             }
             else
             {
-                menuContainer.Height -= 10;
-                if (menuContainer.Height <= 35)
+                menuContainer_donHang.Height -= 10;
+                if (menuContainer_donHang.Height <= 35)
                 {
-                    menuTransition.Stop();
-                    menuExpand = true;
+                    donHangTransition.Stop();
+                    menuExpand_donHang = true;
                 }
             }
         }
@@ -174,5 +170,63 @@ namespace shoe_store_manager
             Application.Exit();
         }
 
+        bool menuExpand_cauHinh = true;
+        private void cauHinhTranstion_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand_cauHinh)
+            {
+                menuContainer_cauHinh.Height += 10;
+                if (menuContainer_cauHinh.Height >= 105)
+                {
+                    cauHinhTransition.Stop();
+                    menuExpand_cauHinh = false;
+                }
+            }
+            else
+            {
+                menuContainer_cauHinh.Height -= 10;
+                if (menuContainer_cauHinh.Height <= 35)
+                {
+                    cauHinhTransition.Stop();
+                    menuExpand_cauHinh = true;
+                }
+            }
+        }
+
+        private void btn_cauHinh_Click(object sender, EventArgs e)
+        {
+            
+
+            if (menuContainer_cauHinh.Height >= 105)
+            {
+                cauHinhTransition.Start();
+            }
+            else
+            {
+                label_val.Text = "Cấu hình / Tài khoản";
+                img_top.Image = Properties.Resources.setting;
+                default_color();
+                btn_cauHinh.FillColor = Color.FromArgb(128, 128, 255);
+                btn_taiKhoan.ForeColor = Color.White;
+                cauHinhTransition.Start();
+                container(new tai_khoan());
+            }
+        }
+
+        private void btn_taiKhoan_Click(object sender, EventArgs e)
+        {
+            label_val.Text = "Cấu hình / Tài khoản";
+            img_top.Image = Properties.Resources.setting;
+            default_color();
+            btn_cauHinh.FillColor = Color.FromArgb(128, 128, 255);
+            btn_taiKhoan.ForeColor = Color.White;
+            cauHinhTransition.Start();
+            container(new tai_khoan());
+        }
+
+        private void btn_dangXuat_Click(object sender, EventArgs e)
+        {
+            Logout(this, new EventArgs());
+        }
     }
 }
