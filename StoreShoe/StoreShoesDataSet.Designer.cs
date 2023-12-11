@@ -291,9 +291,9 @@ namespace shoe_store_manager {
             
             private global::System.Data.DataColumn columnChucVu;
             
-            private global::System.Data.DataColumn columnLuong;
-            
             private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnLuong;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -378,17 +378,17 @@ namespace shoe_store_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn LuongColumn {
+            public global::System.Data.DataColumn EmailColumn {
                 get {
-                    return this.columnLuong;
+                    return this.columnEmail;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn EmailColumn {
+            public global::System.Data.DataColumn LuongColumn {
                 get {
-                    return this.columnEmail;
+                    return this.columnLuong;
                 }
             }
             
@@ -429,7 +429,7 @@ namespace shoe_store_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public NhanVienRow AddNhanVienRow(string MaNV, string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, double Luong, string Email) {
+            public NhanVienRow AddNhanVienRow(string MaNV, string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, string Email, string Luong) {
                 NhanVienRow rowNhanVienRow = ((NhanVienRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaNV,
@@ -438,8 +438,8 @@ namespace shoe_store_manager {
                         DiaChi,
                         SDT,
                         ChucVu,
-                        Luong,
-                        Email};
+                        Email,
+                        Luong};
                 rowNhanVienRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNhanVienRow);
                 return rowNhanVienRow;
@@ -475,8 +475,8 @@ namespace shoe_store_manager {
                 this.columnDiaChi = base.Columns["DiaChi"];
                 this.columnSDT = base.Columns["SDT"];
                 this.columnChucVu = base.Columns["ChucVu"];
-                this.columnLuong = base.Columns["Luong"];
                 this.columnEmail = base.Columns["Email"];
+                this.columnLuong = base.Columns["Luong"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -494,10 +494,10 @@ namespace shoe_store_manager {
                 base.Columns.Add(this.columnSDT);
                 this.columnChucVu = new global::System.Data.DataColumn("ChucVu", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChucVu);
-                this.columnLuong = new global::System.Data.DataColumn("Luong", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLuong);
                 this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmail);
+                this.columnLuong = new global::System.Data.DataColumn("Luong", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLuong);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMaNV}, true));
                 this.columnMaNV.AllowDBNull = false;
@@ -513,6 +513,7 @@ namespace shoe_store_manager {
                 this.columnChucVu.MaxLength = 255;
                 this.columnEmail.AllowDBNull = false;
                 this.columnEmail.MaxLength = 100;
+                this.columnLuong.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -731,10 +732,21 @@ namespace shoe_store_manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Luong {
+            public string Email {
+                get {
+                    return ((string)(this[this.tableNhanVien.EmailColumn]));
+                }
+                set {
+                    this[this.tableNhanVien.EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Luong {
                 get {
                     try {
-                        return ((double)(this[this.tableNhanVien.LuongColumn]));
+                        return ((string)(this[this.tableNhanVien.LuongColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Luong\' in table \'NhanVien\' is DBNull.", e);
@@ -742,17 +754,6 @@ namespace shoe_store_manager {
                 }
                 set {
                     this[this.tableNhanVien.LuongColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Email {
-                get {
-                    return ((string)(this[this.tableNhanVien.EmailColumn]));
-                }
-                set {
-                    this[this.tableNhanVien.EmailColumn] = value;
                 }
             }
             
@@ -958,12 +959,12 @@ namespace shoe_store_manager.StoreShoesDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("DiaChi", "DiaChi");
             tableMapping.ColumnMappings.Add("SDT", "SDT");
             tableMapping.ColumnMappings.Add("ChucVu", "ChucVu");
-            tableMapping.ColumnMappings.Add("Luong", "Luong");
             tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("Luong", "Luong");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[NhanVien] WHERE (([MaNV] = @Original_MaNV) AND ((@IsNull_MaTK = 1 AND [MaTK] IS NULL) OR ([MaTK] = @Original_MaTK)) AND ([TenNV] = @Original_TenNV) AND ([DiaChi] = @Original_DiaChi) AND ((@IsNull_SDT = 1 AND [SDT] IS NULL) OR ([SDT] = @Original_SDT)) AND ([ChucVu] = @Original_ChucVu) AND ((@IsNull_Luong = 1 AND [Luong] IS NULL) OR ([Luong] = @Original_Luong)) AND ([Email] = @Original_Email))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[NhanVien] WHERE (([MaNV] = @Original_MaNV) AND ((@IsNull_MaTK = 1 AND [MaTK] IS NULL) OR ([MaTK] = @Original_MaTK)) AND ([TenNV] = @Original_TenNV) AND ([DiaChi] = @Original_DiaChi) AND ((@IsNull_SDT = 1 AND [SDT] IS NULL) OR ([SDT] = @Original_SDT)) AND ([ChucVu] = @Original_ChucVu) AND ([Email] = @Original_Email) AND ((@IsNull_Luong = 1 AND [Luong] IS NULL) OR ([Luong] = @Original_Luong)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaNV", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaNV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MaTK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaTK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -973,13 +974,13 @@ namespace shoe_store_manager.StoreShoesDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SDT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SDT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChucVu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChucVu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Luong", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Luong", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Luong", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Luong", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[NhanVien] ([MaNV], [MaTK], [TenNV], [DiaChi], [SDT], [ChucVu], [Luong], [Email]) VALUES (@MaNV, @MaTK, @TenNV, @DiaChi, @SDT, @ChucVu, @Luong, @Email);
-SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE (MaNV = @MaNV)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[NhanVien] ([MaNV], [MaTK], [TenNV], [DiaChi], [SDT], [ChucVu], [Email], [Luong]) VALUES (@MaNV, @MaTK, @TenNV, @DiaChi, @SDT, @ChucVu, @Email, @Luong);
+SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Email, Luong FROM NhanVien WHERE (MaNV = @MaNV)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaNV", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaNV", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaTK", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaTK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -987,12 +988,12 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiaChi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiaChi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SDT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChucVu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChucVu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Luong", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Luong", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[NhanVien] SET [MaNV] = @MaNV, [MaTK] = @MaTK, [TenNV] = @TenNV, [DiaChi] = @DiaChi, [SDT] = @SDT, [ChucVu] = @ChucVu, [Luong] = @Luong, [Email] = @Email WHERE (([MaNV] = @Original_MaNV) AND ((@IsNull_MaTK = 1 AND [MaTK] IS NULL) OR ([MaTK] = @Original_MaTK)) AND ([TenNV] = @Original_TenNV) AND ([DiaChi] = @Original_DiaChi) AND ((@IsNull_SDT = 1 AND [SDT] IS NULL) OR ([SDT] = @Original_SDT)) AND ([ChucVu] = @Original_ChucVu) AND ((@IsNull_Luong = 1 AND [Luong] IS NULL) OR ([Luong] = @Original_Luong)) AND ([Email] = @Original_Email));
-SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE (MaNV = @MaNV)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[NhanVien] SET [MaNV] = @MaNV, [MaTK] = @MaTK, [TenNV] = @TenNV, [DiaChi] = @DiaChi, [SDT] = @SDT, [ChucVu] = @ChucVu, [Email] = @Email, [Luong] = @Luong WHERE (([MaNV] = @Original_MaNV) AND ((@IsNull_MaTK = 1 AND [MaTK] IS NULL) OR ([MaTK] = @Original_MaTK)) AND ([TenNV] = @Original_TenNV) AND ([DiaChi] = @Original_DiaChi) AND ((@IsNull_SDT = 1 AND [SDT] IS NULL) OR ([SDT] = @Original_SDT)) AND ([ChucVu] = @Original_ChucVu) AND ([Email] = @Original_Email) AND ((@IsNull_Luong = 1 AND [Luong] IS NULL) OR ([Luong] = @Original_Luong)));
+SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Email, Luong FROM NhanVien WHERE (MaNV = @MaNV)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaNV", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaNV", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaTK", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaTK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1000,8 +1001,8 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DiaChi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DiaChi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SDT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChucVu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChucVu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Luong", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Luong", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaNV", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaNV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MaTK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaTK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaTK", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaTK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1010,9 +1011,9 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SDT", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SDT", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SDT", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChucVu", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChucVu", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Luong", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Luong", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Luong", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Luong", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Luong", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1028,7 +1029,7 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM dbo.NhanVien";
+            this._commandCollection[0].CommandText = "SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Email, Luong FROM dbo.NhanVien";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1089,7 +1090,7 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_MaNV, string Original_MaTK, string Original_TenNV, string Original_DiaChi, string Original_SDT, string Original_ChucVu, global::System.Nullable<double> Original_Luong, string Original_Email) {
+        public virtual int Delete(string Original_MaNV, string Original_MaTK, string Original_TenNV, string Original_DiaChi, string Original_SDT, string Original_ChucVu, string Original_Email, string Original_Luong) {
             if ((Original_MaNV == null)) {
                 throw new global::System.ArgumentNullException("Original_MaNV");
             }
@@ -1130,19 +1131,19 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_ChucVu));
             }
-            if ((Original_Luong.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(Original_Luong.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Email));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Email));
+            }
+            if ((Original_Luong == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Luong));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1164,7 +1165,7 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string MaNV, string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, global::System.Nullable<double> Luong, string Email) {
+        public virtual int Insert(string MaNV, string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, string Email, string Luong) {
             if ((MaNV == null)) {
                 throw new global::System.ArgumentNullException("MaNV");
             }
@@ -1201,17 +1202,17 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ChucVu));
             }
-            if ((Luong.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(Luong.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Email));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Email));
+            }
+            if ((Luong == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Luong));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1240,16 +1241,16 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
                     string DiaChi, 
                     string SDT, 
                     string ChucVu, 
-                    global::System.Nullable<double> Luong, 
                     string Email, 
+                    string Luong, 
                     string Original_MaNV, 
                     string Original_MaTK, 
                     string Original_TenNV, 
                     string Original_DiaChi, 
                     string Original_SDT, 
                     string Original_ChucVu, 
-                    global::System.Nullable<double> Original_Luong, 
-                    string Original_Email) {
+                    string Original_Email, 
+                    string Original_Luong) {
             if ((MaNV == null)) {
                 throw new global::System.ArgumentNullException("MaNV");
             }
@@ -1286,17 +1287,17 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ChucVu));
             }
-            if ((Luong.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Luong.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Email));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Email));
+            }
+            if ((Luong == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Luong));
             }
             if ((Original_MaNV == null)) {
                 throw new global::System.ArgumentNullException("Original_MaNV");
@@ -1338,19 +1339,19 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_ChucVu));
             }
-            if ((Original_Luong.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((double)(Original_Luong.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Email));
+            }
+            if ((Original_Luong == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Luong));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1372,8 +1373,8 @@ SELECT MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email FROM NhanVien WHERE 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, global::System.Nullable<double> Luong, string Email, string Original_MaNV, string Original_MaTK, string Original_TenNV, string Original_DiaChi, string Original_SDT, string Original_ChucVu, global::System.Nullable<double> Original_Luong, string Original_Email) {
-            return this.Update(Original_MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Luong, Email, Original_MaNV, Original_MaTK, Original_TenNV, Original_DiaChi, Original_SDT, Original_ChucVu, Original_Luong, Original_Email);
+        public virtual int Update(string MaTK, string TenNV, string DiaChi, string SDT, string ChucVu, string Email, string Luong, string Original_MaNV, string Original_MaTK, string Original_TenNV, string Original_DiaChi, string Original_SDT, string Original_ChucVu, string Original_Email, string Original_Luong) {
+            return this.Update(Original_MaNV, MaTK, TenNV, DiaChi, SDT, ChucVu, Email, Luong, Original_MaNV, Original_MaTK, Original_TenNV, Original_DiaChi, Original_SDT, Original_ChucVu, Original_Email, Original_Luong);
         }
     }
     
