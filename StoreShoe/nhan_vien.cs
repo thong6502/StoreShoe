@@ -31,8 +31,7 @@ namespace shoe_store_manager
 
         private void nhan_vien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             tbWarningPairs();
@@ -156,11 +155,10 @@ namespace shoe_store_manager
 
             }
 
-                // Nếu có bất kỳ nút cảnh báo nào đang hiển thị
-                foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
-                {
-                    pair.Value.Visible = pair.Key.Text == "";
-                }
+            foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
+            {
+                pair.Value.Visible = pair.Key.Text == "";
+            }
 
         }
 
@@ -223,7 +221,7 @@ namespace shoe_store_manager
         private void sua_rowData()
         {
             DataGridViewRow row = data.SelectedRows[0];
-            string maNV = row.Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
+            string maNV = row.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             string tenNV = tb_name.Text;
             string diaChi = tb_address.Text;
             string soDienThoai = tb_phone.Text;
@@ -291,7 +289,7 @@ namespace shoe_store_manager
             if (data.SelectedRows.Count > 0)
             {
                 // Lấy ID của nhân viên từ dòng được chọn
-                string nhanVienId = data.SelectedRows[0].Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
+                string Id = data.SelectedRows[0].Cells["dataGridViewTextBoxColumn1"].Value.ToString();
                 // Xóa nhân viên từ cơ sở dữ liệu
                 string query = "DELETE FROM NhanVien WHERE MaNv = @MaNV";
                 
@@ -299,7 +297,7 @@ namespace shoe_store_manager
                 {
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaNV", nhanVienId);
+                        cmd.Parameters.AddWithValue("@MaNV", Id);
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
@@ -326,12 +324,12 @@ namespace shoe_store_manager
             disabeled();
 
             DataGridViewRow row = data.SelectedRows[0];
-            tb_name.Text = row.Cells["tenNVDataGridViewTextBoxColumn"].Value.ToString();
-            tb_address.Text = row.Cells["diaChiDataGridViewTextBoxColumn"].Value.ToString();
-            tb_phone.Text = row.Cells["sDTDataGridViewTextBoxColumn"].Value.ToString();
-            tb_Email.Text = row.Cells["emailDataGridViewTextBoxColumn"].Value.ToString();
-            tb_chucVu.Text = row.Cells["chucVuDataGridViewTextBoxColumn"].Value.ToString();
-            tb_Luong.Text = row.Cells["luongDataGridViewTextBoxColumn"].Value.ToString();
+            tb_name.Text = row.Cells["dataGridViewTextBoxColumn2"].Value.ToString();
+            tb_address.Text = row.Cells["dataGridViewTextBoxColumn3"].Value.ToString();
+            tb_phone.Text = row.Cells["dataGridViewTextBoxColumn4"].Value.ToString();
+            tb_Email.Text = row.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
+            tb_chucVu.Text = row.Cells["dataGridViewTextBoxColumn5"].Value.ToString();
+            tb_Luong.Text = row.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
 
         }
 
@@ -364,7 +362,6 @@ namespace shoe_store_manager
                     da.Fill(dt);
                     data.DataSource = dt;
                     conn.Close();
-
                 }
             }
         }

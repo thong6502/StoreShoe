@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace shoe_store_manager
     public partial class nha_cung_cap : Form
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
+        private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True";
         public nha_cung_cap()
         {
             InitializeComponent();
@@ -22,73 +24,9 @@ namespace shoe_store_manager
 
         private void nha_cung_cap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
+            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
             tbWarningPairs();
-
-            data.Rows.Add(13);
-            data.Rows[0].Cells[1].Value = "NCC1";
-            data.Rows[0].Cells[2].Value = "Lê Văn Thông";
-            data.Rows[0].Cells[3].Value = "Vĩnh hưng - hoàng mai - hà nội";
-            data.Rows[0].Cells[4].Value = "O123456789";
-
-            data.Rows[1].Cells[1].Value = "NCC2";
-            data.Rows[1].Cells[2].Value = "Nguyễn Văn A";
-            data.Rows[1].Cells[3].Value = "Đống Đa - Hà Nội";
-            data.Rows[1].Cells[4].Value = "O234567890";
-
-            data.Rows[2].Cells[1].Value = "NCC3";
-            data.Rows[2].Cells[2].Value = "Trần Thị B";
-            data.Rows[2].Cells[3].Value = "Hai Bà Trưng - Hà Nội";
-            data.Rows[2].Cells[4].Value = "O345678901";
-
-            data.Rows[3].Cells[1].Value = "NCC4";
-            data.Rows[3].Cells[2].Value = "Phạm Văn C";
-            data.Rows[3].Cells[3].Value = "Hoàn Kiếm - Hà Nội";
-            data.Rows[3].Cells[4].Value = "O456789012";
-
-            data.Rows[4].Cells[1].Value = "NCC5";
-            data.Rows[4].Cells[2].Value = "Lê Thị D";
-            data.Rows[4].Cells[3].Value = "Tây Hồ - Hà Nội";
-            data.Rows[4].Cells[4].Value = "O567890123";
-
-            data.Rows[5].Cells[1].Value = "NCC6";
-            data.Rows[5].Cells[2].Value = "Vũ Văn E";
-            data.Rows[5].Cells[3].Value = "Bắc Từ Liêm - Hà Nội";
-            data.Rows[5].Cells[4].Value = "O678901234";
-
-            data.Rows[6].Cells[1].Value = "NCC7";
-            data.Rows[6].Cells[2].Value = "Đặng Thị F";
-            data.Rows[6].Cells[3].Value = "Nam Từ Liêm - Hà Nội";
-            data.Rows[6].Cells[4].Value = "O789012345";
-
-            data.Rows[7].Cells[1].Value = "NCC8";
-            data.Rows[7].Cells[2].Value = "Hoàng Văn G";
-            data.Rows[7].Cells[3].Value = "Cầu Giấy - Hà Nội";
-            data.Rows[7].Cells[4].Value = "O890123456";
-
-            data.Rows[8].Cells[1].Value = "NCC9";
-            data.Rows[8].Cells[2].Value = "Ngô Thị H";
-            data.Rows[8].Cells[3].Value = "Thanh Xuân - Hà Nội";
-            data.Rows[8].Cells[4].Value = "O901234567";
-
-            data.Rows[9].Cells[1].Value = "NCC10";
-            data.Rows[9].Cells[2].Value = "Lý Văn I";
-            data.Rows[9].Cells[3].Value = "Hà Đông - Hà Nội";
-            data.Rows[9].Cells[4].Value = "O012345678";
-
-            data.Rows[10].Cells[1].Value = "NCC11";
-            data.Rows[10].Cells[2].Value = "Phan Thị J";
-            data.Rows[10].Cells[3].Value = "Long Biên - Hà Nội";
-            data.Rows[10].Cells[4].Value = "O123456789";
-
-            data.Rows[11].Cells[1].Value = "NCC12";
-            data.Rows[11].Cells[2].Value = "Ngô Văn K";
-            data.Rows[11].Cells[3].Value = "Hoàng Mai - Hà Nội";
-            data.Rows[11].Cells[4].Value = "O234567890";
-
-            data.Rows[12].Cells[1].Value = "NCC13";
-            data.Rows[12].Cells[2].Value = "Trần Thị L";
-            data.Rows[12].Cells[3].Value = "Ba Đình - Hà Nội";
-            data.Rows[12].Cells[4].Value = "O345678901";
 
         }
 
@@ -161,7 +99,9 @@ namespace shoe_store_manager
 
         private void add_Click(object sender, EventArgs e)
         {
+            isEdit = false;
             edit_box.Visible = true;
+            undisplay_warning();
             unVisible_boxFilter();
             disabeled();
         }
@@ -173,10 +113,39 @@ namespace shoe_store_manager
             enabeled();
         }
 
+        bool isEdit;
         private void xac_nhan_Click(object sender, EventArgs e)
         {
 
-            // Iterate over the dictionary and set the visibility of the warning buttons
+            // Kiểm tra xem tất cả các nút cảnh báo có đang hiển thị hay không
+            bool allWarningsHidden = true;
+            foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
+            {
+                if (pair.Value.Visible)
+                {
+                    allWarningsHidden = false;
+                    break;
+                }
+            }
+
+            if (allWarningsHidden)
+            {
+                if (isEdit)
+                {
+                    sua_rowData();
+                }
+                else
+                {
+                    them_RowData();
+                }
+                Search_input();
+                edit_box.Visible = false;
+                clear_content_tb();
+                undisplay_warning();
+                enabeled();
+
+            }
+
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
             {
                 pair.Value.Visible = pair.Key.Text == "";
@@ -196,6 +165,110 @@ namespace shoe_store_manager
             }
         }
 
+        private void them_RowData()
+        {
+            string maNCC = GenerateId();
+            string tenNCC = tb_name.Text;
+            string diaChi = tb_address.Text;
+            string soDienThoai = tb_phone.Text;
+
+
+            // Thêm nhân viên mới vào cơ sở dữ liệu
+            string query = "INSERT INTO NhaCungCap (MaNCC, TenNCC, DiaChi, SDT) VALUES (@MaNCC, @TenNCC, @DiaChi, @SDT)";
+            // Thêm nhân viên mới vào cơ sở dữ liệu
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
+                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
+                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
+                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
+            // Cập nhật DataGridView
+            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
+        }
+        private string GenerateId()
+        {
+            int count = 1;
+            string id = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                bool exists = true;
+                while (exists)
+                {
+                    id = "NCC" + count.ToString();
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhaCungCap WHERE MaNCC = @MaNCC", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNCC", id);
+                        exists = ((int)cmd.ExecuteScalar() > 0);
+                    }
+                    count++;
+                }
+                conn.Close();
+            }
+            return id;
+        }
+
+        private void sua_rowData()
+        {
+            DataGridViewRow row = data.SelectedRows[0];
+            string maNCC = row.Cells["maNCCDataGridViewTextBoxColumn"].Value.ToString();
+            string tenNCC = tb_name.Text;
+            string diaChi = tb_address.Text;
+            string soDienThoai = tb_phone.Text;
+
+            // Sửa thông tin nhân viên trong cơ sở dữ liệu
+            string query = "UPDATE NhaCungCap SET TenNCC = @TenNCC, DiaChi = @DiaChi, SDT = @SDT WHERE MaNCC = @MaNCC";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
+                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
+                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
+                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+
+            // Cập nhật DataGridView
+            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
+        }
+        private void Search_input()
+        {
+            string str_search = "%" + search.Text + "%";
+            string query = "";
+
+            if (cbx_filter.Text == "Tên nhà cung cấp")
+                query = "SELECT * FROM NhaCungCap WHERE TenNCC LIKE @str_search";
+            else if (cbx_filter.Text == "Địa chỉ")
+                query = "SELECT * FROM NhaCungCap WHERE DiaChi LIKE @str_search";
+            else
+                return;  // Nếu cbx_filter.Text không phải là một trong các giá trị mong đợi, thoát khỏi hàm
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@str_search", str_search);
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    data.DataSource = dt;
+                    conn.Close();
+                }
+            }
+        }
 
         private void btn_filter_Click(object sender, EventArgs e)
         {
@@ -211,6 +284,52 @@ namespace shoe_store_manager
         {
             unVisible_boxFilter();
             search.PlaceholderText = cbx_filter.Text;
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            Search_input();
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            isEdit = true;
+            edit_box.Visible = true;
+            undisplay_warning();
+            unVisible_boxFilter();
+            disabeled();
+
+            DataGridViewRow row = data.SelectedRows[0];
+            tb_name.Text = row.Cells["tenNCCDataGridViewTextBoxColumn"].Value.ToString();
+            tb_address.Text = row.Cells["diaChiDataGridViewTextBoxColumn"].Value.ToString();
+            tb_phone.Text = row.Cells["sDTDataGridViewTextBoxColumn"].Value.ToString();
+            
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có dòng nào được chọn không
+            if (data.SelectedRows.Count > 0)
+            {
+                string Id = data.SelectedRows[0].Cells["maNCCDataGridViewTextBoxColumn"].Value.ToString();
+                // Xóa nhân viên từ cơ sở dữ liệu
+                string query = "DELETE FROM NhaCungCap WHERE MaNCC = @MaNCC";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNCC", Id);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
+                // Cập nhật DataGridView
+                this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
+                Search_input();
+            }
         }
     }
 }
