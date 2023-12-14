@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,15 +30,7 @@ namespace shoe_store_manager
         {
             textBoxWarningPairs = new Dictionary<Guna2TextBox, Guna2Button>()
             {
-                { tb_name, warning1 },
-                { tb_s38, warning2 },
-                { tb_s39, warning3 },
-                { tb_s40,warning4 },
-                { tb_s41, warning5 },
-                { tb_s42, warning6 },
-                { tb_s43, warning7 },
-                { tb_giaMua, warning8 },
-                { tb_giaBan, warning9 }
+                { tb_name, warning1 }
 
             };
         }
@@ -153,5 +146,53 @@ namespace shoe_store_manager
             }
         }
 
+
+        string fileName = "";
+        void LoadImage(ref string filename)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                filename = ofd.FileName;
+            }
+        }
+
+
+        private void pic_img_DoubleClick(object sender, EventArgs e)
+        {
+            LoadImage(ref fileName);
+
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    // Kiểm tra xem tệp có thể được tải như một hình ảnh hay không
+                    using (Image img = Image.FromFile(fileName))
+                    {
+                        pic_img.Image = new Bitmap(img);
+                    }
+                }
+                catch (OutOfMemoryException)
+                {
+                    // Nếu tệp không phải là hình ảnh hợp lệ, Image.FromFile sẽ ném ra một ngoại lệ OutOfMemoryException
+                    MessageBox.Show("Tệp không phải là hình ảnh hợp lệ: " + fileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tệp tin không tồn tại: " + fileName);
+            }
+        }
+
+        private void tb_giaMua_TextChanged(object sender, EventArgs e)
+        {
+            main.UpdateTextBox(tb_giaMua, tb_giaMua.Text);
+        }
+
+        private void tb_giaBan_TextChanged(object sender, EventArgs e)
+        {
+            main.UpdateTextBox(tb_giaBan, tb_giaBan.Text);
+        }
     }
 }

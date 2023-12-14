@@ -117,18 +117,7 @@
     <Compile Include="bao_cao.Designer.cs">
       <DependentUpon>bao_cao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formtest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formtest.Designer.cs">
-      <DependentUpon>Formtest.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DataProvider.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,10 +157,10 @@
     <Compile Include="san_pham.Designer.cs">
       <DependentUpon>san_pham.cs</DependentUpon>
     </Compile>
-    <Compile Include="StoreShoesDataSet.Designer.cs">
+    <Compile Include="StoreShoesDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StoreShoesDataSet.xsd</DependentUpon>
+      <DependentUpon>StoreShoesDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="tai_khoan.cs">
       <SubType>Form</SubType>
@@ -187,12 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bao_cao.resx">
       <DependentUpon>bao_cao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formtest.resx">
-      <DependentUpon>Formtest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -235,16 +218,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StoreShoesDataSet.xsc">
-      <DependentUpon>StoreShoesDataSet.xsd</DependentUpon>
+    <None Include="StoreShoesDataSet1.xsc">
+      <DependentUpon>StoreShoesDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="StoreShoesDataSet.xsd">
+    <None Include="StoreShoesDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>StoreShoesDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>StoreShoesDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="StoreShoesDataSet.xss">
-      <DependentUpon>StoreShoesDataSet.xsd</DependentUpon>
+    <None Include="StoreShoesDataSet1.xss">
+      <DependentUpon>StoreShoesDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

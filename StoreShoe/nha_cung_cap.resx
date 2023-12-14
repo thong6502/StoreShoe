@@ -135,17 +135,11 @@
   </data>
   <data name="resource.Image1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAjpJREFUSEvd
-        lLtvjmEYxj+KMjjXQlGDaDQiGCQmNRLHf0DSpUnTSJjapGkMXVhMhMEgDB0aG7GxmAzCQjQNBganROrQ
-        Ot39XfdzP9/3fnnftsHWK/nle+/rvt7D95xqC19mth8+Q1E/oC8i/ycedN0fWdZERP5O3LgJ2uN6LbwD
-        aU94i+GtO2bd4a2BLl3PKUI74CtIevCndGkPI+KiPp9s+w6v4Y9X8w0bgTsp5zdmPYKOiLioV8At+A3S
-        dPzqg9oi1iwahz1i9gHWwUbYHO1K0d8A22Ap3APpSrQbwtS4Pvd2xd/EOwpPQKvnFYxAa7Rd1DvhJ/yC
-        5vnAWA1TIJ0N20Xdm+ySbkfERb0bJr1jdiLshjBPgyZLX5BXTBt8Cb8PVsJByCvreORa4YU7ZjdhkfyS
-        aFz1iNnFqI+l0u57IEQ9mGy7HPWhVNozWOahKtG85jGzC1HnFzzwQIh6thdoHqtfQCMPkSZqV3gaIi1Z
-        +f2wCrrhPUgnI7ccxt0xG4MW+XVhFCe5P2wX9blkl6Q9Ux9rrveC5kvqCTsJo7hMz4RdF94ReAzaUC9h
-        AJZE20XdCVrG+rcHwm4IM2807UZtoHbYGu1K0V+vDLTAXZBGo10WzXxU5K0vPYXtEXFRa8xvgJa0lM+v
-        b7AlYmXRLB52msiP6dLPo+J4D7ubPkQ7O59JQxGZXYR0XPvQ8KtV8wakfeEVj+tThVwXVG+wucRNl6BK
-        +odNE/1P4iE6xHTCFqWxH4zIglatNgPjN6diHHolVQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAMFJREFUSEvt
+        lW0KwjAMQPtrh5J5Pue1FI8yrxGT9rUIWz/WicjwQWDJXpN9sNUdHxEZNK4aT43IrDFpDGj90CjHhNaP
+        NrGrNU6UrDaGksyU+qGRkCYoL+pF1H+EZbu4026JnQzOLm60y4PYfPvo7Y8L/3sD9NDeTXq2K7mHtA7+
+        +wAPaTWvgv8fkAf/WAPsC09f6EruIa2D37wAfdOA+IseKWVR5xzUDb9ulUubTI4Ly+uobNukDYl3UuJz
+        2+cP4twLVVOfKiM0ECoAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -179,7 +173,7 @@
         CIJhYQEoCVOWFEcBnQEDAwDTjXF11IQ7rwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="resource.Image1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="resource.Image3" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAMFJREFUSEvt
         lW0KwjAMQPtrh5J5Pue1FI8yrxGT9rUIWz/WicjwQWDJXpN9sNUdHxEZNK4aT43IrDFpDGj90CjHhNaP
@@ -684,9 +678,6 @@
   </metadata>
   <metadata name="nhaCungCapBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>168, 17</value>
-  </metadata>
-  <metadata name="storeShoesDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
   <metadata name="storeShoesDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

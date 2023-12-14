@@ -10,5 +10,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True</Value>
     </Setting>
+    <Setting Name="NhaCungCap" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SanPhamGiay</Value>
+    </Setting>
+    <Setting Name="SanPhamGiay" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SanPhamGiay</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

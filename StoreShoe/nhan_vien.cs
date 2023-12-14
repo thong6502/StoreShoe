@@ -22,7 +22,7 @@ namespace shoe_store_manager
     public partial class nhan_vien : Form
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
-        private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True";
+        //private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True";
 
         public nhan_vien()
         {
@@ -31,7 +31,9 @@ namespace shoe_store_manager
 
         private void nhan_vien_Load(object sender, EventArgs e)
         {
-            
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             tbWarningPairs();
@@ -164,7 +166,8 @@ namespace shoe_store_manager
 
         private void them_RowData()
         {
-            string maNV = GenerateId();
+            string queryCountId = "SELECT COUNT(*) FROM NhanVien WHERE MaNV = @MaNV";
+            string maNV = DataProvider.Instance.GenerateId(queryCountId, "NV");
             string tenNV = tb_name.Text;
             string diaChi = tb_address.Text;
             string soDienThoai = tb_phone.Text;
@@ -172,82 +175,29 @@ namespace shoe_store_manager
             string ChucVu = tb_chucVu.Text;
             string luong = tb_Luong.Text;
 
-            // Thêm nhân viên mới vào cơ sở dữ liệu
             string query = "INSERT INTO NhanVien (MaNV, TenNV, DiaChi, SDT, Email, Luong, ChucVu) VALUES (@MaNV, @TenNV, @DiaChi, @SDT, @Email, @luong, @ChucVu)";
-            // Thêm nhân viên mới vào cơ sở dữ liệu
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaNV", maNV);
-                    cmd.Parameters.AddWithValue("@TenNV", tenNV);
-                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Luong", luong);
-                    cmd.Parameters.AddWithValue("@ChucVu", ChucVu);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
+            object[] parameter = new object[] { maNV, tenNV, diaChi, soDienThoai, email, luong, ChucVu };
+            DataProvider.Instance.ExcuteNonQuery(query, parameter);
 
             // Cập nhật DataGridView
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
         }
-        private string GenerateId()
-        {
-            int count = 1;
-            string id = "";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                bool exists = true;
-                while (exists)
-                {
-                    id = "NV" + count.ToString();
-                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhanVien WHERE MaNV = @MaNV", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNV", id);
-                        exists = ((int)cmd.ExecuteScalar() > 0);
-                    }
-                    count++;
-                }
-                conn.Close();
-            }
-            return id;
-        }
+        
 
         private void sua_rowData()
         {
             DataGridViewRow row = data.SelectedRows[0];
-            string maNV = row.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+            string maNV = row.Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
             string tenNV = tb_name.Text;
             string diaChi = tb_address.Text;
             string soDienThoai = tb_phone.Text;
             string email = tb_Email.Text;
             string ChucVu = tb_chucVu.Text;
             string luong = tb_Luong.Text;
+            object[] parameter = new object[] {tenNV, diaChi, soDienThoai, email, ChucVu, luong, maNV };
 
-            // Sửa thông tin nhân viên trong cơ sở dữ liệu
             string query = "UPDATE NhanVien SET TenNV = @TenNV, DiaChi = @DiaChi, SDT = @SDT, Email = @Email, Luong = @luong, ChucVu = @ChucVu WHERE MaNV = @MaNV";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaNV", maNV);
-                    cmd.Parameters.AddWithValue("@TenNV", tenNV);
-                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Luong", luong);
-                    cmd.Parameters.AddWithValue("@ChucVu", ChucVu);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-
+            DataProvider.Instance.ExcuteNonQuery(query, parameter);
             // Cập nhật DataGridView
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
         }
@@ -255,7 +205,6 @@ namespace shoe_store_manager
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            // Lấy Guna2TextBox hiện tại
             Guna2TextBox currentTextBox = sender as Guna2TextBox;
 
             // Kiểm tra xem Guna2TextBox có trong từ điển không
@@ -285,25 +234,12 @@ namespace shoe_store_manager
 
         private void delete_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem có dòng nào được chọn không
             if (data.SelectedRows.Count > 0)
             {
-                // Lấy ID của nhân viên từ dòng được chọn
-                string Id = data.SelectedRows[0].Cells["dataGridViewTextBoxColumn1"].Value.ToString();
-                // Xóa nhân viên từ cơ sở dữ liệu
+                string Id = data.SelectedRows[0].Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
+                object[] parameter = new object[] { Id };
                 string query = "DELETE FROM NhanVien WHERE MaNv = @MaNV";
-                
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNV", Id);
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                }
-
+                DataProvider.Instance.ExcuteNonQuery(query, parameter);
                 // Cập nhật DataGridView
                 this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
                 Search_input();
@@ -324,12 +260,12 @@ namespace shoe_store_manager
             disabeled();
 
             DataGridViewRow row = data.SelectedRows[0];
-            tb_name.Text = row.Cells["dataGridViewTextBoxColumn2"].Value.ToString();
-            tb_address.Text = row.Cells["dataGridViewTextBoxColumn3"].Value.ToString();
-            tb_phone.Text = row.Cells["dataGridViewTextBoxColumn4"].Value.ToString();
-            tb_Email.Text = row.Cells["dataGridViewTextBoxColumn6"].Value.ToString();
-            tb_chucVu.Text = row.Cells["dataGridViewTextBoxColumn5"].Value.ToString();
-            tb_Luong.Text = row.Cells["dataGridViewTextBoxColumn7"].Value.ToString();
+            tb_name.Text = row.Cells["tenNVDataGridViewTextBoxColumn"].Value.ToString();
+            tb_address.Text = row.Cells["diaChiDataGridViewTextBoxColumn"].Value.ToString();
+            tb_phone.Text = row.Cells["sDTDataGridViewTextBoxColumn"].Value.ToString();
+            tb_Email.Text = row.Cells["emailDataGridViewTextBoxColumn"].Value.ToString();
+            tb_chucVu.Text = row.Cells["chucVuDataGridViewTextBoxColumn"].Value.ToString();
+            tb_Luong.Text = row.Cells["luongDataGridViewTextBoxColumn"].Value.ToString();
 
         }
 
@@ -341,6 +277,7 @@ namespace shoe_store_manager
         {
             string str_search = "%" + search.Text + "%";
             string query = "";
+            object[] parameter = new object[] { str_search };
 
             if (cbx_filter.Text == "Tên nhân viên")
                 query = "SELECT * FROM NhanVien WHERE TenNV LIKE @str_search";
@@ -351,20 +288,12 @@ namespace shoe_store_manager
             else
                 return;  // Nếu cbx_filter.Text không phải là một trong các giá trị mong đợi, thoát khỏi hàm
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@str_search", str_search);
-                    conn.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    data.DataSource = dt;
-                    conn.Close();
-                }
-            }
+            data.DataSource = DataProvider.Instance.ExcuteQuery(query, parameter);
+
         }
+
+
+        
 
     }
 }

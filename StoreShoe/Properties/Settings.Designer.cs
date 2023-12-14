@@ -33,5 +33,29 @@ namespace shoe_store_manager.Properties {
                 return ((string)(this["StoreShoesConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SanPhamGiay")]
+        public string NhaCungCap {
+            get {
+                return ((string)(this["NhaCungCap"]));
+            }
+            set {
+                this["NhaCungCap"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SanPhamGiay")]
+        public string SanPhamGiay {
+            get {
+                return ((string)(this["SanPhamGiay"]));
+            }
+            set {
+                this["SanPhamGiay"] = value;
+            }
+        }
     }
 }

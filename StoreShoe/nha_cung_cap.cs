@@ -16,7 +16,6 @@ namespace shoe_store_manager
     public partial class nha_cung_cap : Form
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
-        private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True";
         public nha_cung_cap()
         {
             InitializeComponent();
@@ -24,6 +23,10 @@ namespace shoe_store_manager
 
         private void nha_cung_cap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
+            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
+            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
             this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
             tbWarningPairs();
@@ -167,53 +170,18 @@ namespace shoe_store_manager
 
         private void them_RowData()
         {
-            string maNCC = GenerateId();
+            string queryCountId = "SELECT COUNT(*) FROM NhaCungCap WHERE MaNCC = @MaNCC";
+            string maNCC = DataProvider.Instance.GenerateId(queryCountId, "NCC");
             string tenNCC = tb_name.Text;
             string diaChi = tb_address.Text;
             string soDienThoai = tb_phone.Text;
 
 
-            // Thêm nhân viên mới vào cơ sở dữ liệu
+            object[] parameter = new object[] { maNCC, tenNCC, diaChi, soDienThoai };
             string query = "INSERT INTO NhaCungCap (MaNCC, TenNCC, DiaChi, SDT) VALUES (@MaNCC, @TenNCC, @DiaChi, @SDT)";
-            // Thêm nhân viên mới vào cơ sở dữ liệu
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
-                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
-                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-
+            DataProvider.Instance.ExcuteNonQuery(query, parameter);
             // Cập nhật DataGridView
             this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
-        }
-        private string GenerateId()
-        {
-            int count = 1;
-            string id = "";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                bool exists = true;
-                while (exists)
-                {
-                    id = "NCC" + count.ToString();
-                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM NhaCungCap WHERE MaNCC = @MaNCC", conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNCC", id);
-                        exists = ((int)cmd.ExecuteScalar() > 0);
-                    }
-                    count++;
-                }
-                conn.Close();
-            }
-            return id;
         }
 
         private void sua_rowData()
@@ -224,22 +192,9 @@ namespace shoe_store_manager
             string diaChi = tb_address.Text;
             string soDienThoai = tb_phone.Text;
 
-            // Sửa thông tin nhân viên trong cơ sở dữ liệu
+            object[] parameter = new object[] { tenNCC, diaChi, soDienThoai, maNCC };
             string query = "UPDATE NhaCungCap SET TenNCC = @TenNCC, DiaChi = @DiaChi, SDT = @SDT WHERE MaNCC = @MaNCC";
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaNCC", maNCC);
-                    cmd.Parameters.AddWithValue("@TenNCC", tenNCC);
-                    cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-                    cmd.Parameters.AddWithValue("@SDT", soDienThoai);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-
+            DataProvider.Instance.ExcuteNonQuery(query, parameter);
             // Cập nhật DataGridView
             this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
         }
@@ -255,19 +210,8 @@ namespace shoe_store_manager
             else
                 return;  // Nếu cbx_filter.Text không phải là một trong các giá trị mong đợi, thoát khỏi hàm
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@str_search", str_search);
-                    conn.Open();
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    data.DataSource = dt;
-                    conn.Close();
-                }
-            }
+            object[] parameter = new object[] { str_search };
+            data.DataSource = DataProvider.Instance.ExcuteQuery(query, parameter);
         }
 
         private void btn_filter_Click(object sender, EventArgs e)
@@ -312,20 +256,9 @@ namespace shoe_store_manager
             if (data.SelectedRows.Count > 0)
             {
                 string Id = data.SelectedRows[0].Cells["maNCCDataGridViewTextBoxColumn"].Value.ToString();
-                // Xóa nhân viên từ cơ sở dữ liệu
                 string query = "DELETE FROM NhaCungCap WHERE MaNCC = @MaNCC";
-
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNCC", Id);
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        conn.Close();
-                    }
-                }
-
+                object[] parameter = new object[] { Id };
+                DataProvider.Instance.ExcuteQuery(query, parameter);
                 // Cập nhật DataGridView
                 this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
                 Search_input();

@@ -1,6 +1,8 @@
 ﻿using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,5 +48,10 @@ namespace shoe_store_manager
             // Kết thúc cập nhật
             isUpdating = false;
         }
+
+
+
+
+        
     }
 }
