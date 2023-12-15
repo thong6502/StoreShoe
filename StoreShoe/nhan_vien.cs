@@ -33,9 +33,6 @@ namespace shoe_store_manager
         {
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
-
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             tbWarningPairs();
         }
        
