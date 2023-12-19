@@ -14,6 +14,8 @@ namespace shoe_store_manager
     {
 
         public event EventHandler Logout;
+        private int minH;
+        private int maxH;   
         public MainForm()
         {
             InitializeComponent();
@@ -22,7 +24,26 @@ namespace shoe_store_manager
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            minH = 35;
+            maxH = minH * 4;
             container(new bao_cao());
+            phanQuyen();
+        }
+
+        private void phanQuyen()
+        {
+            string query = "SELECT PhanQuyen FROM TaiKhoan WHERE MaTK = @MaTK";
+            object[] parameter = new object[] { GlobalVariables.MaTK };
+            string pq = DataProvider.Instance.ExcuteQuery(query, parameter).Rows[0]["PhanQuyen"].ToString();
+
+            if(pq != "admin")
+            {
+                btn_nhanvien.Visible = false;
+                btn_nhacc.Visible = false;
+                btn_sanpham.Visible = false;
+                btn_nhapHang.Visible = false;
+                maxH = minH * 3;
+            }
         }
 
         private void container(object _form)
@@ -106,7 +127,7 @@ namespace shoe_store_manager
 
         private void btn_baocao_Click(object sender, EventArgs e)
         {
-            label_val.Text = "Báo cáo";
+            label_val.Text = "Thống kê";
             img_top.Image = Properties.Resources.report;
             default_color();
             btn_baocao.FillColor = Color.FromArgb(128, 128, 255);
@@ -114,12 +135,13 @@ namespace shoe_store_manager
         }
 
         bool menuExpand_donHang = true;
+
         private void menuTransition_Tick(object sender, EventArgs e)
         {
             if(menuExpand_donHang)
             {
                 menuContainer_donHang.Height += 10;
-                if(menuContainer_donHang.Height >= 140)
+                if(menuContainer_donHang.Height >= maxH)
                 {
                     donHangTransition.Stop();
                     menuExpand_donHang = false;
@@ -128,7 +150,7 @@ namespace shoe_store_manager
             else
             {
                 menuContainer_donHang.Height -= 10;
-                if (menuContainer_donHang.Height <= 35)
+                if (menuContainer_donHang.Height <= minH)
                 {
                     donHangTransition.Stop();
                     menuExpand_donHang = true;

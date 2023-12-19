@@ -33,6 +33,12 @@ namespace shoe_store_manager
         {
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             tbWarningPairs();
         }
        
@@ -193,7 +199,7 @@ namespace shoe_store_manager
             string luong = tb_Luong.Text;
             object[] parameter = new object[] {tenNV, diaChi, soDienThoai, email, ChucVu, luong, maNV };
 
-            string query = "UPDATE NhanVien SET TenNV = @TenNV, DiaChi = @DiaChi, SDT = @SDT, Email = @Email, Luong = @luong, ChucVu = @ChucVu WHERE MaNV = @MaNV";
+            string query = "UPDATE NhanVien SET TenNV = @TenNV, DiaChi = @DiaChi, SDT = @SDT, Email = @Email,ChucVu = @ChucVu, Luong = @luong WHERE MaNV = @MaNV";
             DataProvider.Instance.ExcuteNonQuery(query, parameter);
             // Cập nhật DataGridView
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);

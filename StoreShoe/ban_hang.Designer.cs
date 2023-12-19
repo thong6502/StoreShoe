@@ -457,6 +457,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ban_hang";
             this.Text = "ban_hang";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ban_hang_FormClosed);
             this.Load += new System.EventHandler(this.ban_hang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

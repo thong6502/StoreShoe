@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
 using System.Windows.Markup;
+using System.Collections;
+using System.Data.Common;
+using ZXing;
 
 namespace shoe_store_manager
 {
@@ -88,6 +91,47 @@ namespace shoe_store_manager
             }
             return list.ToArray();
 
+        }
+
+        public string GetIdByName(string queryFindId, object[] parameter = null)
+        {
+            string id = "";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(queryFindId, conn))
+                {
+                    if (parameter != null)
+                    {
+                        var matches = Regex.Matches(queryFindId, @"@\w+");
+                        List<string> listPara = new List<string>();
+
+                        foreach (Match match in matches)
+                        {
+                            string param = match.Value.EndsWith(",") ? match.Value.Remove(match.Value.Length - 1) : match.Value;
+                            listPara.Add(param);
+                        }
+                        if (listPara.Count == parameter.Length)
+                        {
+                            for (int i = 0; i < parameter.Length; i++)
+                            {
+                                cmd.Parameters.AddWithValue(listPara[i], parameter[i]);
+                            }
+                        }
+                        else
+                        {
+                            throw new ArgumentException("The number of parameters does not match the number of values.");
+                        }
+                    }
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        id = reader[0].ToString();
+                    }
+                    reader.Close();
+                }
+            }
+            return id;
         }
 
         // Thực hiện thêm || xóa || sửa 

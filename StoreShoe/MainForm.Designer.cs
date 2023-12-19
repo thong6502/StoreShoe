@@ -51,9 +51,9 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btn_allDonHang = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btn_nhapHang = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btn_banHang = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btn_nhapHang = new Guna.UI2.WinForms.Guna2Button();
             this.btn_sanpham = new Guna.UI2.WinForms.Guna2Button();
             this.btn_nhacc = new Guna.UI2.WinForms.Guna2Button();
             this.btn_nhanvien = new Guna.UI2.WinForms.Guna2Button();
@@ -217,9 +217,9 @@
             this.label_val.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_val.Location = new System.Drawing.Point(85, 30);
             this.label_val.Name = "label_val";
-            this.label_val.Size = new System.Drawing.Size(82, 25);
+            this.label_val.Size = new System.Drawing.Size(96, 25);
             this.label_val.TabIndex = 4;
-            this.label_val.Text = "Báo cáo";
+            this.label_val.Text = "Thống kê";
             // 
             // gunaPanel1
             // 
@@ -319,7 +319,7 @@
             this.btn_baocao.Name = "btn_baocao";
             this.btn_baocao.Size = new System.Drawing.Size(211, 35);
             this.btn_baocao.TabIndex = 7;
-            this.btn_baocao.Text = "Báo cáo";
+            this.btn_baocao.Text = "Thống kê";
             this.btn_baocao.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_baocao.UseTransparentBackground = true;
             this.btn_baocao.Click += new System.EventHandler(this.btn_baocao_Click);
@@ -409,7 +409,7 @@
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.btn_nhapHang);
+            this.guna2ShadowPanel2.Controls.Add(this.btn_banHang);
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel2.ForeColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(0, 70);
@@ -419,48 +419,6 @@
             this.guna2ShadowPanel2.ShadowShift = 0;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(211, 35);
             this.guna2ShadowPanel2.TabIndex = 0;
-            // 
-            // btn_nhapHang
-            // 
-            this.btn_nhapHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_nhapHang.Animated = true;
-            this.btn_nhapHang.BackColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_nhapHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nhapHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_nhapHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_nhapHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_nhapHang.FillColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.FocusedColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nhapHang.ForeColor = System.Drawing.Color.DarkGray;
-            this.btn_nhapHang.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btn_nhapHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_nhapHang.Location = new System.Drawing.Point(32, 0);
-            this.btn_nhapHang.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_nhapHang.Name = "btn_nhapHang";
-            this.btn_nhapHang.PressedColor = System.Drawing.Color.Transparent;
-            this.btn_nhapHang.Size = new System.Drawing.Size(211, 35);
-            this.btn_nhapHang.TabIndex = 7;
-            this.btn_nhapHang.Text = "Nhập hàng";
-            this.btn_nhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_nhapHang.Click += new System.EventHandler(this.btn_nhapHang_Click);
-            // 
-            // guna2ShadowPanel3
-            // 
-            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.Controls.Add(this.btn_banHang);
-            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel3.Location = new System.Drawing.Point(0, 105);
-            this.guna2ShadowPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
-            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel3.ShadowShift = 0;
-            this.guna2ShadowPanel3.Size = new System.Drawing.Size(211, 35);
-            this.guna2ShadowPanel3.TabIndex = 0;
             // 
             // btn_banHang
             // 
@@ -489,6 +447,48 @@
             this.btn_banHang.Text = "Bán hàng";
             this.btn_banHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_banHang.Click += new System.EventHandler(this.btn_banHang_Click);
+            // 
+            // guna2ShadowPanel3
+            // 
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.btn_nhapHang);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.ForeColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(0, 105);
+            this.guna2ShadowPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel3.ShadowShift = 0;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(211, 35);
+            this.guna2ShadowPanel3.TabIndex = 0;
+            // 
+            // btn_nhapHang
+            // 
+            this.btn_nhapHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_nhapHang.Animated = true;
+            this.btn_nhapHang.BackColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nhapHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nhapHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nhapHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_nhapHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_nhapHang.FillColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.FocusedColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nhapHang.ForeColor = System.Drawing.Color.DarkGray;
+            this.btn_nhapHang.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btn_nhapHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_nhapHang.Location = new System.Drawing.Point(32, 0);
+            this.btn_nhapHang.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_nhapHang.Name = "btn_nhapHang";
+            this.btn_nhapHang.PressedColor = System.Drawing.Color.Transparent;
+            this.btn_nhapHang.Size = new System.Drawing.Size(211, 35);
+            this.btn_nhapHang.TabIndex = 7;
+            this.btn_nhapHang.Text = "Nhập hàng";
+            this.btn_nhapHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_nhapHang.Click += new System.EventHandler(this.btn_nhapHang_Click);
             // 
             // btn_sanpham
             // 

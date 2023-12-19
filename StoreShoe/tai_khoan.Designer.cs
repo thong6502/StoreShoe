@@ -33,7 +33,6 @@
             this.btn_chonAnh = new Guna.UI2.WinForms.Guna2Button();
             this.pic_avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
@@ -55,6 +54,7 @@
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel12 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel15 = new Guna.UI.WinForms.GunaLabel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_avatar)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -67,11 +67,11 @@
             this.guna2Panel1.Controls.Add(this.btn_chonAnh);
             this.guna2Panel1.Controls.Add(this.pic_avatar);
             this.guna2Panel1.Controls.Add(this.guna2VSeparator1);
-            this.guna2Panel1.Controls.Add(this.guna2TextBox1);
             this.guna2Panel1.Controls.Add(this.gunaLabel2);
             this.guna2Panel1.Controls.Add(this.gunaLabel6);
             this.guna2Panel1.Controls.Add(this.gunaLabel5);
             this.guna2Panel1.Controls.Add(this.gunaLabel9);
+            this.guna2Panel1.Controls.Add(this.gunaLabel15);
             this.guna2Panel1.Controls.Add(this.gunaLabel8);
             this.guna2Panel1.Controls.Add(this.gunaLabel7);
             this.guna2Panel1.Controls.Add(this.gunaLabel4);
@@ -147,26 +147,6 @@
             this.guna2VSeparator1.Name = "guna2VSeparator1";
             this.guna2VSeparator1.Size = new System.Drawing.Size(10, 231);
             this.guna2VSeparator1.TabIndex = 9;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "Lê Văn Thông";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(142, 143);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(222, 37);
-            this.guna2TextBox1.TabIndex = 7;
             // 
             // gunaLabel2
             // 
@@ -463,6 +443,17 @@
             this.gunaLabel12.TabIndex = 6;
             this.gunaLabel12.Text = "Mật khẩu cũ";
             // 
+            // gunaLabel15
+            // 
+            this.gunaLabel15.AutoSize = true;
+            this.gunaLabel15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.gunaLabel15.Location = new System.Drawing.Point(139, 152);
+            this.gunaLabel15.Name = "gunaLabel15";
+            this.gunaLabel15.Size = new System.Drawing.Size(88, 17);
+            this.gunaLabel15.TabIndex = 6;
+            this.gunaLabel15.Text = "Lê văn thông";
+            // 
             // tai_khoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,7 +483,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
@@ -511,5 +501,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI.WinForms.GunaLabel gunaLabel15;
     }
 }

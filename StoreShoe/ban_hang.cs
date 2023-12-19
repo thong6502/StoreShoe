@@ -57,6 +57,7 @@ namespace shoe_store_manager
                     if (videoCaptureDevice.IsRunning == true)
                         videoCaptureDevice.Stop();
             }
+
         }
 
         private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -65,7 +66,7 @@ namespace shoe_store_manager
         }
 
         public void onStartScan(CancellationToken sourcetoken)
-        {                                          
+        {
             Task.Factory.StartNew(new Action(() =>
             {
                 while (true)
@@ -92,27 +93,26 @@ namespace shoe_store_manager
                                         SystemSounds.Beep.Play();
                                         if (result.ResultPoints.Length > 0)
                                         {
-                                            using (var g = pictureBox1.CreateGraphics())
-                                            {
-                                                g.Clear(pictureBox1.BackColor); // Clear previous drawings
-                                                var offsetX = pictureBox1.SizeMode == PictureBoxSizeMode.Zoom
+                                            var offsetX = pictureBox1.SizeMode == PictureBoxSizeMode.Zoom
                                                ? (pictureBox1.Width - pictureBox1.Image.Width) / 2 :
                                                0;
-                                                var offsetY = pictureBox1.SizeMode == PictureBoxSizeMode.Zoom
-                                                   ? (pictureBox1.Height - pictureBox1.Image.Height) / 2 :
-                                                   0;
-                                                var rect = new Rectangle((int)result.ResultPoints[0].X + offsetX, (int)result.ResultPoints[0].Y + offsetY, 1, 1);
-                                                foreach (var point in result.ResultPoints)
-                                                {
-                                                    if (point.X + offsetX < rect.Left)
-                                                        rect = new Rectangle((int)point.X + offsetX, rect.Y, rect.Width + rect.X - (int)point.X - offsetX, rect.Height);
-                                                    if (point.X + offsetX > rect.Right)
-                                                        rect = new Rectangle(rect.X, rect.Y, rect.Width + (int)point.X - (rect.X - offsetX), rect.Height);
-                                                    if (point.Y + offsetY < rect.Top)
-                                                        rect = new Rectangle(rect.X, (int)point.Y + offsetY, rect.Width, rect.Height + rect.Y - (int)point.Y - offsetY);
-                                                    if (point.Y + offsetY > rect.Bottom)
-                                                        rect = new Rectangle(rect.X, rect.Y, rect.Width, rect.Height + (int)point.Y - (rect.Y - offsetY));
-                                                }
+                                            var offsetY = pictureBox1.SizeMode == PictureBoxSizeMode.Zoom
+                                               ? (pictureBox1.Height - pictureBox1.Image.Height) / 2 :
+                                               0;
+                                            var rect = new Rectangle((int)result.ResultPoints[0].X + offsetX, (int)result.ResultPoints[0].Y + offsetY, 1, 1);
+                                            foreach (var point in result.ResultPoints)
+                                            {
+                                                if (point.X + offsetX < rect.Left)
+                                                    rect = new Rectangle((int)point.X + offsetX, rect.Y, rect.Width + rect.X - (int)point.X - offsetX, rect.Height);
+                                                if (point.X + offsetX > rect.Right)
+                                                    rect = new Rectangle(rect.X, rect.Y, rect.Width + (int)point.X - (rect.X - offsetX), rect.Height);
+                                                if (point.Y + offsetY < rect.Top)
+                                                    rect = new Rectangle(rect.X, (int)point.Y + offsetY, rect.Width, rect.Height + rect.Y - (int)point.Y - offsetY);
+                                                if (point.Y + offsetY > rect.Bottom)
+                                                    rect = new Rectangle(rect.X, rect.Y, rect.Width, rect.Height + (int)point.Y - (rect.Y - offsetY));
+                                            }
+                                            using (var g = pictureBox1.CreateGraphics())
+                                            {
                                                 using (Pen pen = new Pen(Color.Green, 5))
                                                 {
                                                     g.DrawRectangle(pen, rect);
@@ -124,6 +124,7 @@ namespace shoe_store_manager
                                                 g.DrawString(result.ToString(), new Font("Tahoma", 16f), Brushes.Blue, new Point(rect.X - 60, rect.Y - 50));
                                             }
                                         }
+
 
                                     }
 
@@ -141,7 +142,7 @@ namespace shoe_store_manager
         }
 
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void ban_hang_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (videoCaptureDevice != null)
                 if (videoCaptureDevice.IsRunning == true)

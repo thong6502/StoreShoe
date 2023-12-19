@@ -117,7 +117,9 @@
     <Compile Include="bao_cao.Designer.cs">
       <DependentUpon>bao_cao.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClassMaTk.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DataSet.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

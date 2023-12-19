@@ -11,13 +11,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI.WinForms;
 using Guna.UI2.WinForms;
+using System.Drawing.Imaging;
+
 
 namespace shoe_store_manager
 {
     public partial class nhap_hang : Form
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
-        DataTable mainTB;
+        DataTable DataTb_SPG;
+        DataTable DataTb_Size;
+        DataTable DataTb_CTHDM;
+
+        DataTable DataTb_UIuser = new DataTable();
+        string MaHDM = "";
+
         bool isEdit = false;
         public nhap_hang()
         {
@@ -26,11 +34,17 @@ namespace shoe_store_manager
 
         private void nhap_hang_Load(object sender, EventArgs e)
         {
-
-            displaydata();
+            CreateId();
+            addDataTable();
             addValuesName();
             addData_cbx();
             tbWarningPairs();
+        }
+
+        private void CreateId()
+        {
+            string queryCountId = "SELECT COUNT(*) FROM HoaDonMua WHERE MaHDM = @MaHDM";
+            MaHDM = DataProvider.Instance.GenerateId(queryCountId, "HDM");
         }
 
         private void addValuesName()
@@ -53,10 +67,23 @@ namespace shoe_store_manager
             cbx_NCC.StartIndex = -1;
 
         }
-        private void displaydata()
+        private void addDataTable()
         {
-            string query = "SELECT c.MaSPG, c.img, c.TenGiay, o.Soluong, c.Giamua FROM ChiTietHoaDonMua As o, SanPhamGiay As c WHERE o.MaSPG = c.MaSPG";
-            data.DataSource = mainTB = DataProvider.Instance.ExcuteQuery(query);
+            string query_SPG = "SELECT * FROM SanPhamGiay";
+            DataTb_SPG = DataProvider.Instance.ExcuteQuery(query_SPG);
+
+            string query_Size = "SELECT * FROM SizeGiay";
+            DataTb_Size = DataProvider.Instance.ExcuteQuery(query_Size);
+
+            string query_CTHDM = "SELECT * FROM ChiTietHoaDonMua";
+            DataTb_CTHDM = DataProvider.Instance.ExcuteQuery(query_CTHDM);
+
+            DataTb_UIuser.Columns.Add("MaSPG", typeof(string));
+            DataTb_UIuser.Columns.Add("Img", typeof(Image));
+            DataTb_UIuser.Columns.Add("TenGiay", typeof(string));
+            DataTb_UIuser.Columns.Add("SoLuong", typeof(int));
+            DataTb_UIuser.Columns.Add("GiaMua", typeof(string));
+
         }
 
         private void tbWarningPairs()
@@ -96,7 +123,6 @@ namespace shoe_store_manager
                 if (c is Guna2Button && c.Name != "xac_nhan" && c.Name != "huy")
                 {
                     c.Visible = false;
-                    c.Text = "Nội dung trống";
                 }
             }
         }
@@ -122,7 +148,8 @@ namespace shoe_store_manager
 
         private void openEditBox()
         {
-            container_edit_box.Visible = true;            
+            container_edit_box.Visible = true;
+            undisplay_warning();
             disabeled();
         }
         private void colseEditBox()
@@ -192,10 +219,7 @@ namespace shoe_store_manager
         }
         private void nonPic()
         {
-            using (Image img = Image.FromFile(""))
-            {
-                pic_img.Image = new Bitmap(img);
-            }
+            pic_img.Image = null;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -230,7 +254,7 @@ namespace shoe_store_manager
             if (index != -1)
             {
                 string str_search = tb_name.Text;
-                string query = "SELECT SanPhamGiay.Img, LoaiGiay.Ten, SanPhamGiay.TenGiay, NhaCungCap.TenNCC, ChiTietHoaDonMua.GiaMua, ChiTietHoaDonBan.GiaBan FROM SanPhamGiay JOIN LoaiGiay ON SanPhamGiay.MaLG = LoaiGiay.MaLG JOIN NhaCungCap ON SanPhamGiay.MaNCC JOIN ChiTietHoaDonMua ON SanPhamGiay.MaSPG = ChiTietHoaDonMua.MaSPG JOIN ChiTietHoaDonBan ON SanPhamGiay.MaSPG = ChiTietHoaDonBan.MaSPG = NhaCungCap.MaNCC WHERE SanPhamGiay.TenGiay = @TenGiay ";
+                string query = "SELECT SanPhamGiay.Img, LoaiGiay.Ten, SanPhamGiay.TenGiay, NhaCungCap.TenNCC, SanPhamGiay.GiaMua, SanPhamGiay.GiaBan FROM SanPhamGiay JOIN LoaiGiay ON SanPhamGiay.MaLG = LoaiGiay.MaLG JOIN NhaCungCap ON SanPhamGiay.MaNCC JOIN ChiTietHoaDonMua ON SanPhamGiay.MaSPG = ChiTietHoaDonMua.MaSPG WHERE SanPhamGiay.TenGiay = @TenGiay ";
                 object[] parameter = new object[] { str_search };
 
                 DataTable dt = DataProvider.Instance.ExcuteQuery(query, parameter);
@@ -262,8 +286,12 @@ namespace shoe_store_manager
             }
         }
 
-        private void xac_nhan_Click_1(object sender, EventArgs e)
+        private void xac_nhan_Click(object sender, EventArgs e)
         {
+            string MaSPG = findIdInDataTB(tb_name.Text);
+            if (MaSPG != "") isEdit = true;
+            else isEdit = false;
+
             // Kiểm tra xem tất cả các nút cảnh báo có đang hiển thị hay không
             bool allWarningsHidden = true;
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
@@ -274,7 +302,7 @@ namespace shoe_store_manager
                     break;
                 }
             }
-            if(allWarningsHidden && warning2.Visible == false && warning3.Visible == false)
+            if (allWarningsHidden && warning2.Visible == false && warning3.Visible == false)
             {
                 if (isEdit)
                 {
@@ -285,6 +313,7 @@ namespace shoe_store_manager
                     them_RowData();
                 }
                 colseEditBox();
+                addDataSource();
             }
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
             {
@@ -297,37 +326,77 @@ namespace shoe_store_manager
         private void them_RowData()
         {
             string MaSPG = findIdInDataTB(tb_name.Text);
-            isEdit = MaSPG != "";
+            if (MaSPG != "") isEdit = true;
+            else isEdit = false;
 
-            if(isEdit)
+            if (isEdit)
             {
-                sua_rowData();
+                return;
             }
             else
             {
-                string queryCountId = "SELECT MaSPG FROM SanPhamGiay";
-                MaSPG = DataProvider.Instance.GenerateId(queryCountId, "SPG");
+
+                MaSPG = DataSet.Instance.GenerateIdDataTabble(DataTb_SPG, "SPG", "MaSPG");
                 string TenSP = tb_name.Text;
                 string pathImg = copyPathPic();
+
+                string query_LG = "SELECT MaLG FROM LoaiGiay WHERE Ten = @ten";
+                string query_NCC = "SELECT MaNCC FROM NhaCungCap WHERE TenNCC = @tenNCC";
                 string LoaiGiay = cbx_LoaiGiay.Text;
                 string NCC = cbx_NCC.Text;
+                object[] parameter_LG = new object[] { LoaiGiay };
+                object[] parameter_NCC = new object[] { NCC };
+                string Id_LoaiGiay = DataProvider.Instance.GetIdByName(query_LG, parameter_LG);
+                string Id_NCC = DataProvider.Instance.GetIdByName(query_NCC, parameter_NCC);
+
+
                 int s38 = Convert.ToInt32(nud_s38.Value);
                 int s39 = Convert.ToInt32(nud_s39.Value);
                 int s40 = Convert.ToInt32(nud_s40.Value);
                 int s41 = Convert.ToInt32(nud_s41.Value);
                 int s42 = Convert.ToInt32(nud_s42.Value);
                 int s43 = Convert.ToInt32(nud_s43.Value);
+                int TonKho = s38 + s39 + s40 + s41 + s42 + s43;
                 string giaMua = tb_giaMua.Text;
                 string giaBan = tb_giaBan.Text;
 
-                string query = "";
-                object[] paramater = new object[] { };
+                object[] values_SPG = new object[] { MaSPG, Id_LoaiGiay, Id_NCC, TenSP, pathImg, TonKho, giaMua, giaBan };
+                object[] values_Size38 = new object[] { MaSPG, 38, s38 };
+                object[] values_Size39 = new object[] { MaSPG, 39, s39 };
+                object[] values_Size40 = new object[] { MaSPG, 40, s40 };
+                object[] values_Size41 = new object[] { MaSPG, 41, s41 };
+                object[] values_Size42 = new object[] { MaSPG, 42, s42 };
+                object[] values_Size43 = new object[] { MaSPG, 43, s43 };
+                object[] values_CTHDM = new object[] { MaHDM, MaSPG, TonKho };
+
+                DataSet.Instance.AddRowToDataTable(DataTb_SPG, values_SPG);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size38);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size39);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size40);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size41);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size42);
+                DataSet.Instance.AddRowToDataTable(DataTb_Size, values_Size43);
+                DataSet.Instance.AddRowToDataTable(DataTb_CTHDM, values_CTHDM);
+
+                object[] values_UIuser = new object[] { MaSPG , Image.FromFile(pathImg) , TenSP , TonKho , giaMua };
+                DataSet.Instance.AddRowToDataTable(DataTb_UIuser, values_UIuser);
+
+
+
             }
 
         }
+
+
+
         private void sua_rowData()
         {
             
+        }
+
+        private void addDataSource()
+        {
+            data.DataSource = DataTb_UIuser;
         }
 
         private string copyPathPic()
@@ -361,14 +430,10 @@ namespace shoe_store_manager
 
         private string findIdInDataTB(string TenSPG)
         {
-            DataRow[] foundRows = mainTB.Select("TenGiay = '" + TenSPG + "'");
-            string MaSPG = "";
-            if (foundRows.Length > 0)
-            {
-                MaSPG = foundRows[0]["MaSPG"].ToString();
-                
-            }
-                return MaSPG;
+            string Id = "";
+            Id = DataSet.Instance.findIdInDataTB(DataTb_SPG, "TenGiay", TenSPG, "MaSPG");
+
+            return Id;
         }
 
         private void cbx_LoaiGiay_SelectedIndexChanged(object sender, EventArgs e)
@@ -383,5 +448,11 @@ namespace shoe_store_manager
             warning3.Visible = true;
         }
 
+        private void ThanhToan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
