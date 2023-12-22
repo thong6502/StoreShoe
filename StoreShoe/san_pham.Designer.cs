@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(san_pham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,11 +41,9 @@
             this.btn_HFilter = new Guna.UI2.WinForms.Guna2Button();
             this.btn_filter = new Guna.UI2.WinForms.Guna2Button();
             this.edit = new Guna.UI2.WinForms.Guna2Button();
-            this.add = new Guna.UI2.WinForms.Guna2Button();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.search = new Guna.UI2.WinForms.Guna2TextBox();
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.container_edit_box = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btn_close = new Guna.UI2.WinForms.Guna2Button();
@@ -80,6 +79,17 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.storeShoesDataSet = new shoe_store_manager.StoreShoesDataSet();
+            this.sanPhamGiayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sanPhamGiayTableAdapter = new shoe_store_manager.StoreShoesDataSetTableAdapters.SanPhamGiayTableAdapter();
+            this.add = new Guna.UI2.WinForms.Guna2Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maSPGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenGiayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tonKhoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaMuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.giaBanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.box_filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.container_edit_box.SuspendLayout();
@@ -92,6 +102,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_s42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_s38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_img)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sanPhamGiayBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // box_filter
@@ -254,32 +266,6 @@
             this.edit.Text = "Sửa";
             this.edit.TextOffset = new System.Drawing.Point(5, 0);
             // 
-            // add
-            // 
-            this.add.Animated = true;
-            this.add.BackColor = System.Drawing.Color.Transparent;
-            this.add.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.add.BorderRadius = 4;
-            this.add.BorderThickness = 1;
-            this.add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.add.FillColor = System.Drawing.Color.White;
-            this.add.FocusedColor = System.Drawing.Color.Transparent;
-            this.add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.add.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.add.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
-            this.add.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.add.Location = new System.Drawing.Point(12, 79);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(94, 41);
-            this.add.TabIndex = 26;
-            this.add.Text = "Thêm";
-            this.add.TextOffset = new System.Drawing.Point(5, 0);
-            this.add.Click += new System.EventHandler(this.add_Click);
-            // 
             // delete
             // 
             this.delete.Animated = true;
@@ -295,7 +281,7 @@
             this.delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.delete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.delete.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.delete.Location = new System.Drawing.Point(212, 79);
@@ -343,6 +329,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.data.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.data.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,7 +340,14 @@
             this.data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.data.ColumnHeadersHeight = 45;
             this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
+            this.Column1,
+            this.maSPGDataGridViewTextBoxColumn,
+            this.tenGiayDataGridViewTextBoxColumn,
+            this.imgDataGridViewTextBoxColumn,
+            this.tonKhoDataGridViewTextBoxColumn,
+            this.giaMuaDataGridViewTextBoxColumn,
+            this.giaBanDataGridViewTextBoxColumn});
+            this.data.DataSource = this.sanPhamGiayBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -402,15 +396,6 @@
             this.data.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 25;
-            // 
             // container_edit_box
             // 
             this.container_edit_box.BackColor = System.Drawing.Color.Transparent;
@@ -453,7 +438,7 @@
             this.btn_close.ForeColor = System.Drawing.Color.White;
             this.btn_close.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btn_close.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_close.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            this.btn_close.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
             this.btn_close.ImageSize = new System.Drawing.Size(17, 17);
             this.btn_close.Location = new System.Drawing.Point(352, 6);
@@ -511,7 +496,7 @@
             this.warning3.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning3.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning3.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.warning3.Enabled = false;
             this.warning3.FillColor = System.Drawing.Color.Transparent;
             this.warning3.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -535,7 +520,7 @@
             this.warning2.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning2.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning2.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             this.warning2.Enabled = false;
             this.warning2.FillColor = System.Drawing.Color.Transparent;
             this.warning2.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -667,7 +652,7 @@
             this.xac_nhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.xac_nhan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.xac_nhan.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
+            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
             this.xac_nhan.Image = ((System.Drawing.Image)(resources.GetObject("xac_nhan.Image")));
             this.xac_nhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.xac_nhan.Location = new System.Drawing.Point(133, 888);
@@ -697,7 +682,7 @@
             this.huy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.huy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.huy.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
             this.huy.Image = ((System.Drawing.Image)(resources.GetObject("huy.Image")));
             this.huy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.huy.Location = new System.Drawing.Point(261, 888);
@@ -812,7 +797,7 @@
             this.warning1.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
+            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
             this.warning1.Enabled = false;
             this.warning1.FillColor = System.Drawing.Color.Transparent;
             this.warning1.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -980,6 +965,97 @@
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
             // 
+            // storeShoesDataSet
+            // 
+            this.storeShoesDataSet.DataSetName = "StoreShoesDataSet";
+            this.storeShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sanPhamGiayBindingSource
+            // 
+            this.sanPhamGiayBindingSource.DataMember = "SanPhamGiay";
+            this.sanPhamGiayBindingSource.DataSource = this.storeShoesDataSet;
+            // 
+            // sanPhamGiayTableAdapter
+            // 
+            this.sanPhamGiayTableAdapter.ClearBeforeFill = true;
+            // 
+            // add
+            // 
+            this.add.Animated = true;
+            this.add.BackColor = System.Drawing.Color.Transparent;
+            this.add.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.add.BorderRadius = 4;
+            this.add.BorderThickness = 1;
+            this.add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.add.FillColor = System.Drawing.Color.White;
+            this.add.FocusedColor = System.Drawing.Color.Transparent;
+            this.add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
+            this.add.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
+            this.add.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
+            this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
+            this.add.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.add.Location = new System.Drawing.Point(12, 79);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(94, 41);
+            this.add.TabIndex = 26;
+            this.add.Text = "Thêm";
+            this.add.TextOffset = new System.Drawing.Point(5, 0);
+            this.add.Click += new System.EventHandler(this.add_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 25;
+            // 
+            // maSPGDataGridViewTextBoxColumn
+            // 
+            this.maSPGDataGridViewTextBoxColumn.DataPropertyName = "MaSPG";
+            this.maSPGDataGridViewTextBoxColumn.HeaderText = "MaSPG";
+            this.maSPGDataGridViewTextBoxColumn.Name = "maSPGDataGridViewTextBoxColumn";
+            this.maSPGDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tenGiayDataGridViewTextBoxColumn
+            // 
+            this.tenGiayDataGridViewTextBoxColumn.DataPropertyName = "TenGiay";
+            this.tenGiayDataGridViewTextBoxColumn.HeaderText = "TenGiay";
+            this.tenGiayDataGridViewTextBoxColumn.Name = "tenGiayDataGridViewTextBoxColumn";
+            this.tenGiayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // imgDataGridViewTextBoxColumn
+            // 
+            this.imgDataGridViewTextBoxColumn.DataPropertyName = "Img";
+            this.imgDataGridViewTextBoxColumn.HeaderText = "Img";
+            this.imgDataGridViewTextBoxColumn.Name = "imgDataGridViewTextBoxColumn";
+            this.imgDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonKhoDataGridViewTextBoxColumn
+            // 
+            this.tonKhoDataGridViewTextBoxColumn.DataPropertyName = "TonKho";
+            this.tonKhoDataGridViewTextBoxColumn.HeaderText = "TonKho";
+            this.tonKhoDataGridViewTextBoxColumn.Name = "tonKhoDataGridViewTextBoxColumn";
+            this.tonKhoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // giaMuaDataGridViewTextBoxColumn
+            // 
+            this.giaMuaDataGridViewTextBoxColumn.DataPropertyName = "GiaMua";
+            this.giaMuaDataGridViewTextBoxColumn.HeaderText = "GiaMua";
+            this.giaMuaDataGridViewTextBoxColumn.Name = "giaMuaDataGridViewTextBoxColumn";
+            this.giaMuaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // giaBanDataGridViewTextBoxColumn
+            // 
+            this.giaBanDataGridViewTextBoxColumn.DataPropertyName = "GiaBan";
+            this.giaBanDataGridViewTextBoxColumn.HeaderText = "GiaBan";
+            this.giaBanDataGridViewTextBoxColumn.Name = "giaBanDataGridViewTextBoxColumn";
+            this.giaBanDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // san_pham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1012,6 +1088,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_s42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_s38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_img)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sanPhamGiayBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1024,11 +1102,9 @@
         private Guna.UI2.WinForms.Guna2Button btn_HFilter;
         private Guna.UI2.WinForms.Guna2Button btn_filter;
         private Guna.UI2.WinForms.Guna2Button edit;
-        private Guna.UI2.WinForms.Guna2Button add;
         private Guna.UI2.WinForms.Guna2Button delete;
         private Guna.UI2.WinForms.Guna2TextBox search;
         private Guna.UI2.WinForms.Guna2DataGridView data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private Guna.UI2.WinForms.Guna2ShadowPanel container_edit_box;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2Button btn_close;
@@ -1064,5 +1140,16 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private StoreShoesDataSet storeShoesDataSet;
+        private System.Windows.Forms.BindingSource sanPhamGiayBindingSource;
+        private StoreShoesDataSetTableAdapters.SanPhamGiayTableAdapter sanPhamGiayTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maSPGDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenGiayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imgDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tonKhoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaMuaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn giaBanDataGridViewTextBoxColumn;
+        private Guna.UI2.WinForms.Guna2Button add;
     }
 }

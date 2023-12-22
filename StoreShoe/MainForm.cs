@@ -32,11 +32,15 @@ namespace shoe_store_manager
 
         private void phanQuyen()
         {
-            string query = "SELECT PhanQuyen FROM TaiKhoan WHERE MaTK = @MaTK";
-            object[] parameter = new object[] { GlobalVariables.MaTK };
-            string pq = DataProvider.Instance.ExcuteQuery(query, parameter).Rows[0]["PhanQuyen"].ToString();
+            string query_pq = "SELECT PhanQuyen FROM TaiKhoan WHERE MaTK = @MaTK";
+            object[] parameter_pq = new object[] { GlobalVariables.MaTK };
+            string pq = DataProvider.Instance.ExcuteQuery(query_pq, parameter_pq).Rows[0]["PhanQuyen"].ToString();
 
-            if(pq != "admin")
+            string query_pname = "SELECT TenNV FROM NhanVien WHERE MaNV = @MaNV";
+            object[] parameter_name = new object[] { GlobalVariables.MaNV };
+            string name = DataProvider.Instance.ExcuteQuery(query_pname, parameter_name).Rows[0]["TenNV"].ToString();
+
+            if (pq != "Admin")
             {
                 btn_nhanvien.Visible = false;
                 btn_nhacc.Visible = false;
@@ -44,6 +48,9 @@ namespace shoe_store_manager
                 btn_nhapHang.Visible = false;
                 maxH = minH * 3;
             }
+
+            lb_name.Text = name;
+            lb_PhanQuyen.Text = pq;
         }
 
         private void container(object _form)
@@ -246,9 +253,10 @@ namespace shoe_store_manager
             container(new tai_khoan());
         }
 
-        private void btn_dangXuat_Click(object sender, EventArgs e)
+        public void btn_dangXuat_Click(object sender, EventArgs e)
         {
             Logout(this, new EventArgs());
         }
+
     }
 }

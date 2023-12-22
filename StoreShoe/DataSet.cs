@@ -95,7 +95,71 @@ namespace shoe_store_manager
 
             return id;
         }
+        public DataTable CombineDataTables(DataTable PreviousDT, DataTable CurentDT, string operation)
+        {
+            DataTable dt3 = PreviousDT.Clone();
 
+
+            // Kết hợp hai bảng
+            foreach (DataRow rowCr in CurentDT.Rows)
+            {
+                foreach (DataRow rowPr in PreviousDT.Rows)
+                {
+                    if (rowCr["MaSPG"].ToString() == rowPr["MaSPG"].ToString() && (int)rowCr["KichThuoc"] == (int)rowPr["KichThuoc"])
+                    {
+                        DataRow newRow = dt3.NewRow();
+                        newRow["MaSPG"] = rowCr["MaSPG"];
+                        newRow["KichThuoc"] = rowCr["KichThuoc"];
+                        if (operation == "+")
+                        {
+                            newRow["SoLuong"] = (int)rowPr["SoLuong"] + (int)rowCr["SoLuong"];
+                        }
+                        else if (operation == "-")
+                        {
+                            newRow["SoLuong"] = (int)rowPr["SoLuong"] - (int)rowCr["SoLuong"];
+                        }
+                        dt3.Rows.Add(newRow);
+                    }
+                }
+            }
+
+            foreach (DataRow rowPr in PreviousDT.Rows)
+            {
+                bool found = false;
+                foreach (DataRow row3 in dt3.Rows)
+                {
+                    if (rowPr["MaSPG"].ToString() == row3["MaSPG"].ToString() && (int)rowPr["KichThuoc"] == (int)row3["KichThuoc"])
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    dt3.ImportRow(rowPr);
+                }
+            }
+
+            foreach (DataRow rowCr in CurentDT.Rows)
+            {
+                bool found = false;
+                foreach (DataRow row3 in dt3.Rows)
+                {
+                    if (rowCr["MaSPG"].ToString() == row3["MaSPG"].ToString() && (int)rowCr["KichThuoc"] == (int)row3["KichThuoc"])
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    dt3.ImportRow(rowCr);
+                }
+            }
+                        
+
+            return dt3;
+        }
 
     }
 }

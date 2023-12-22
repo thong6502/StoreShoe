@@ -51,7 +51,17 @@ namespace shoe_store_manager
 
 
 
+        public static int ConvertPriceStringToInt(string priceStr)
+        {
+            string numberStr = new string(priceStr.Where(char.IsDigit).ToArray());
+            int price = int.Parse(numberStr);
+            return price;
+        }
 
-        
+        public static string ConvertIntPriceToString(int price)
+        {
+            return string.Format("{0:n0} đ", price);
+        }
+
     }
 }

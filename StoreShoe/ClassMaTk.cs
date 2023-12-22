@@ -8,16 +8,30 @@ namespace shoe_store_manager
 {
     public static class GlobalVariables
     {
+        public static string MaNV { get; set; }
         public static string MaTK { get; set; }
     }
 
-    public class ClassMaTk
+
+    public class ClassMaNV
     {
-        public ClassMaTk()
+        public ClassMaNV()
         {
         }
 
-        public ClassMaTk(string maTK)
+        public ClassMaNV(string maNV)
+        {
+            GlobalVariables.MaNV = maNV;
+        }
+    }
+
+    public class ClassMaTK
+    {
+        public ClassMaTK()
+        {
+        }
+
+        public ClassMaTK(string maTK)
         {
             GlobalVariables.MaTK = maTK;
         }

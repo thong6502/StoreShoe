@@ -192,6 +192,25 @@ namespace shoe_store_manager
                 }
             }
         }
+        public void UpdateTableInDatabase(DataTable dt, string selectQuery)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                // Tạo một SqlDataAdapter
+                using (SqlDataAdapter da = new SqlDataAdapter(selectQuery, conn))
+                {
+                    // Sử dụng SqlCommandBuilder để tạo các lệnh INSERT, UPDATE, DELETE tự động
+                    using (SqlCommandBuilder commandBuilder = new SqlCommandBuilder(da))
+                    {
+                        da.Update(dt);
+                    }
+                }
+            }
+        }
+
+
 
     }
 }

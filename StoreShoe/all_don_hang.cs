@@ -20,8 +20,9 @@ namespace shoe_store_manager
         private void don_hang_Load(object sender, EventArgs e)
         {
 
+
         }
 
-        
+
     }
 }

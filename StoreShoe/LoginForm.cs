@@ -49,6 +49,10 @@ namespace shoe_store_manager
             DataTable result = DataProvider.Instance.ExcuteQuery(query, parameter);
             if (result.Rows.Count > 0) {
                 string MaTK = result.Rows[0]["MaTK"].ToString();
+                string query_MaNV = "SELECT MaNV FROM NhanVien WHERE MaTK = @MaTK";
+                object[] parameter_Ma_NV = new object[] { MaTK };
+                string MaNV =  DataProvider.Instance.ExcuteQuery(query_MaNV, parameter_Ma_NV).Rows[0]["MaNV"].ToString();
+                GlobalVariables.MaNV = MaNV;
                 GlobalVariables.MaTK = MaTK;
                 MainForm f = new MainForm();
                 f.Show();

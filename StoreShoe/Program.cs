@@ -16,7 +16,7 @@ namespace shoe_store_manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new nhap_hang());
+            Application.Run(new LoginForm());
         }
     }
 }

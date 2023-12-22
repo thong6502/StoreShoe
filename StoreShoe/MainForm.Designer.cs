@@ -64,8 +64,8 @@
             this.guna2ShadowPanel6 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btn_dangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_PhanQuyen = new System.Windows.Forms.Label();
+            this.lb_name = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
@@ -707,8 +707,8 @@
             // 
             this.guna2Panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(27)))), ((int)(((byte)(100)))));
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.label2);
+            this.guna2Panel1.Controls.Add(this.lb_PhanQuyen);
+            this.guna2Panel1.Controls.Add(this.lb_name);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox2);
             this.guna2Panel1.Controls.Add(this.guna2CircleButton1);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 530);
@@ -717,27 +717,27 @@
             this.guna2Panel1.Size = new System.Drawing.Size(211, 66);
             this.guna2Panel1.TabIndex = 0;
             // 
-            // label3
+            // lb_PhanQuyen
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(71, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Admin";
+            this.lb_PhanQuyen.AutoSize = true;
+            this.lb_PhanQuyen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_PhanQuyen.ForeColor = System.Drawing.Color.Silver;
+            this.lb_PhanQuyen.Location = new System.Drawing.Point(71, 33);
+            this.lb_PhanQuyen.Name = "lb_PhanQuyen";
+            this.lb_PhanQuyen.Size = new System.Drawing.Size(43, 15);
+            this.lb_PhanQuyen.TabIndex = 2;
+            this.lb_PhanQuyen.Text = "Admin";
             // 
-            // label2
+            // lb_name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(69, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Văn Thông";
+            this.lb_name.AutoSize = true;
+            this.lb_name.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name.ForeColor = System.Drawing.Color.White;
+            this.lb_name.Location = new System.Drawing.Point(69, 11);
+            this.lb_name.Name = "lb_name";
+            this.lb_name.Size = new System.Drawing.Size(79, 19);
+            this.lb_name.TabIndex = 2;
+            this.lb_name.Text = "Văn Thông";
             // 
             // guna2CirclePictureBox2
             // 
@@ -856,8 +856,8 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_PhanQuyen;
+        private System.Windows.Forms.Label lb_name;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI.WinForms.GunaPanel gunaPanel_container;

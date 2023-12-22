@@ -42,7 +42,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
-            this.edit = new Guna.UI2.WinForms.Guna2Button();
             this.cboCamera = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btn_scan = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -206,37 +205,12 @@
             this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.delete.Location = new System.Drawing.Point(110, 117);
+            this.delete.Location = new System.Drawing.Point(16, 117);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(94, 41);
+            this.delete.Size = new System.Drawing.Size(125, 41);
             this.delete.TabIndex = 39;
             this.delete.Text = "Xóa";
             this.delete.TextOffset = new System.Drawing.Point(5, 0);
-            // 
-            // edit
-            // 
-            this.edit.Animated = true;
-            this.edit.BackColor = System.Drawing.Color.Transparent;
-            this.edit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.edit.BorderRadius = 4;
-            this.edit.BorderThickness = 1;
-            this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.edit.FillColor = System.Drawing.Color.White;
-            this.edit.FocusedColor = System.Drawing.Color.Transparent;
-            this.edit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.edit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.edit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.edit.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.edit.Location = new System.Drawing.Point(10, 117);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(94, 41);
-            this.edit.TabIndex = 37;
-            this.edit.Text = "Sửa";
-            this.edit.TextOffset = new System.Drawing.Point(5, 0);
             // 
             // cboCamera
             // 
@@ -294,12 +268,12 @@
             this.print.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.print.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.print.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.print.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.print.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.print.Image = ((System.Drawing.Image)(resources.GetObject("print.Image")));
             this.print.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.print.Location = new System.Drawing.Point(210, 117);
+            this.print.Location = new System.Drawing.Point(165, 117);
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(94, 41);
+            this.print.Size = new System.Drawing.Size(139, 41);
             this.print.TabIndex = 39;
             this.print.Text = "Print";
             this.print.TextOffset = new System.Drawing.Point(5, 0);
@@ -341,7 +315,6 @@
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.btn_scan);
             this.guna2ShadowPanel1.Controls.Add(this.label2);
-            this.guna2ShadowPanel1.Controls.Add(this.edit);
             this.guna2ShadowPanel1.Controls.Add(this.delete);
             this.guna2ShadowPanel1.Controls.Add(this.print);
             this.guna2ShadowPanel1.Controls.Add(this.cboCamera);
@@ -399,12 +372,12 @@
             this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.guna2Button3.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.guna2Button3.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
             this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.Location = new System.Drawing.Point(186, 117);
+            this.guna2Button3.Location = new System.Drawing.Point(168, 117);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(94, 41);
+            this.guna2Button3.Size = new System.Drawing.Size(112, 41);
             this.guna2Button3.TabIndex = 37;
             this.guna2Button3.Text = "Hủy";
             this.guna2Button3.TextOffset = new System.Drawing.Point(5, 0);
@@ -424,10 +397,10 @@
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.guna2Button1.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.guna2Button1.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(38, 117);
+            this.guna2Button1.Location = new System.Drawing.Point(19, 117);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(131, 41);
             this.guna2Button1.TabIndex = 37;
@@ -472,7 +445,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2DataGridView data;
         private Guna.UI2.WinForms.Guna2Button delete;
-        private Guna.UI2.WinForms.Guna2Button edit;
         private Guna.UI2.WinForms.Guna2ComboBox cboCamera;
         private Guna.UI2.WinForms.Guna2Button btn_scan;
         private Guna.UI2.WinForms.Guna2PictureBox pictureBox1;
