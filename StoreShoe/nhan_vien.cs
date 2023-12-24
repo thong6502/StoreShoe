@@ -296,7 +296,5 @@ namespace shoe_store_manager
         }
 
 
-        
-
     }
 }

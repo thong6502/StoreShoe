@@ -22,8 +22,6 @@ namespace shoe_store_manager
 
         private void san_pham_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'storeShoesDataSet.SanPhamGiay' table. You can move, or remove it, as needed.
-            this.sanPhamGiayTableAdapter.Fill(this.storeShoesDataSet.SanPhamGiay);
             tbWarningPairs();
         }
 
@@ -195,6 +193,16 @@ namespace shoe_store_manager
         private void tb_giaBan_TextChanged(object sender, EventArgs e)
         {
             main.UpdateTextBox(tb_giaBan, tb_giaBan.Text);
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

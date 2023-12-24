@@ -42,6 +42,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.huy_data = new Guna.UI2.WinForms.Guna2Button();
             this.lb_totalPrice = new System.Windows.Forms.Label();
             this.ThanhToan = new Guna.UI2.WinForms.Guna2Button();
             this.print = new Guna.UI2.WinForms.Guna2Button();
@@ -84,7 +85,6 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.huy_data = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             this.guna2ShadowPanel4.SuspendLayout();
@@ -247,6 +247,32 @@
             this.guna2ShadowPanel3.ShadowShift = 0;
             this.guna2ShadowPanel3.Size = new System.Drawing.Size(388, 91);
             this.guna2ShadowPanel3.TabIndex = 49;
+            // 
+            // huy_data
+            // 
+            this.huy_data.Animated = true;
+            this.huy_data.BackColor = System.Drawing.Color.Transparent;
+            this.huy_data.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.huy_data.BorderRadius = 4;
+            this.huy_data.BorderThickness = 1;
+            this.huy_data.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.huy_data.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.huy_data.FillColor = System.Drawing.Color.White;
+            this.huy_data.FocusedColor = System.Drawing.Color.Transparent;
+            this.huy_data.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.huy_data.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
+            this.huy_data.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
+            this.huy_data.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.huy_data.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.huy_data.Image = ((System.Drawing.Image)(resources.GetObject("huy_data.Image")));
+            this.huy_data.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.huy_data.Location = new System.Drawing.Point(11, 7);
+            this.huy_data.Name = "huy_data";
+            this.huy_data.Size = new System.Drawing.Size(112, 41);
+            this.huy_data.TabIndex = 49;
+            this.huy_data.Text = "Hủy";
+            this.huy_data.TextOffset = new System.Drawing.Point(5, 0);
+            this.huy_data.Click += new System.EventHandler(this.huy_data_Click);
             // 
             // lb_totalPrice
             // 
@@ -982,32 +1008,6 @@
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(56, 19);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
-            // 
-            // huy_data
-            // 
-            this.huy_data.Animated = true;
-            this.huy_data.BackColor = System.Drawing.Color.Transparent;
-            this.huy_data.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.huy_data.BorderRadius = 4;
-            this.huy_data.BorderThickness = 1;
-            this.huy_data.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.huy_data.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.huy_data.FillColor = System.Drawing.Color.White;
-            this.huy_data.FocusedColor = System.Drawing.Color.Transparent;
-            this.huy_data.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.huy_data.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.huy_data.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.huy_data.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.huy_data.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.huy_data.Image = ((System.Drawing.Image)(resources.GetObject("huy_data.Image")));
-            this.huy_data.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.huy_data.Location = new System.Drawing.Point(11, 7);
-            this.huy_data.Name = "huy_data";
-            this.huy_data.Size = new System.Drawing.Size(112, 41);
-            this.huy_data.TabIndex = 49;
-            this.huy_data.Text = "Hủy";
-            this.huy_data.TextOffset = new System.Drawing.Point(5, 0);
-            this.huy_data.Click += new System.EventHandler(this.huy_data_Click);
             // 
             // nhap_hang
             // 

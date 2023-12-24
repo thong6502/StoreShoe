@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(san_pham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -67,7 +66,6 @@
             this.tb_giaBan = new Guna.UI2.WinForms.Guna2TextBox();
             this.warning1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.tb_name = new shoe_store_manager.AutoCompleteTextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -79,17 +77,15 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.storeShoesDataSet = new shoe_store_manager.StoreShoesDataSet();
-            this.sanPhamGiayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sanPhamGiayTableAdapter = new shoe_store_manager.StoreShoesDataSetTableAdapters.SanPhamGiayTableAdapter();
             this.add = new Guna.UI2.WinForms.Guna2Button();
+            this.tb_name = new shoe_store_manager.AutoCompleteTextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maSPGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenGiayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imgDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tonKhoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giaMuaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.giaBanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.box_filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.container_edit_box.SuspendLayout();
@@ -102,8 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_s42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_s38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_img)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sanPhamGiayBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // box_filter
@@ -265,6 +259,7 @@
             this.edit.TabIndex = 25;
             this.edit.Text = "Sửa";
             this.edit.TextOffset = new System.Drawing.Point(5, 0);
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // delete
             // 
@@ -290,6 +285,7 @@
             this.delete.TabIndex = 27;
             this.delete.Text = "Xóa";
             this.delete.TextOffset = new System.Drawing.Point(5, 0);
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // search
             // 
@@ -329,7 +325,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.data.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.data.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -341,13 +336,12 @@
             this.data.ColumnHeadersHeight = 45;
             this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.maSPGDataGridViewTextBoxColumn,
-            this.tenGiayDataGridViewTextBoxColumn,
-            this.imgDataGridViewTextBoxColumn,
-            this.tonKhoDataGridViewTextBoxColumn,
-            this.giaMuaDataGridViewTextBoxColumn,
-            this.giaBanDataGridViewTextBoxColumn});
-            this.data.DataSource = this.sanPhamGiayBindingSource;
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -448,6 +442,7 @@
             this.btn_close.TabIndex = 8;
             this.btn_close.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_close.UseTransparentBackground = true;
+            this.btn_close.Click += new System.EventHandler(this.huy_Click);
             // 
             // edit_box
             // 
@@ -541,6 +536,7 @@
             // 
             this.nud_s41.BackColor = System.Drawing.Color.Transparent;
             this.nud_s41.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s41.Enabled = false;
             this.nud_s41.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s41.Increment = new decimal(new int[] {
             0,
@@ -557,6 +553,7 @@
             // 
             this.nud_s43.BackColor = System.Drawing.Color.Transparent;
             this.nud_s43.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s43.Enabled = false;
             this.nud_s43.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s43.Increment = new decimal(new int[] {
             0,
@@ -573,6 +570,7 @@
             // 
             this.nud_s39.BackColor = System.Drawing.Color.Transparent;
             this.nud_s39.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s39.Enabled = false;
             this.nud_s39.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s39.Increment = new decimal(new int[] {
             0,
@@ -589,6 +587,7 @@
             // 
             this.nud_s40.BackColor = System.Drawing.Color.Transparent;
             this.nud_s40.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s40.Enabled = false;
             this.nud_s40.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s40.Increment = new decimal(new int[] {
             0,
@@ -605,6 +604,7 @@
             // 
             this.nud_s42.BackColor = System.Drawing.Color.Transparent;
             this.nud_s42.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s42.Enabled = false;
             this.nud_s42.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s42.Increment = new decimal(new int[] {
             0,
@@ -621,6 +621,7 @@
             // 
             this.nud_s38.BackColor = System.Drawing.Color.Transparent;
             this.nud_s38.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s38.Enabled = false;
             this.nud_s38.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s38.Increment = new decimal(new int[] {
             0,
@@ -824,27 +825,6 @@
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Tên sản phẩm";
             // 
-            // tb_name
-            // 
-            this.tb_name.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_name.DefaultText = "";
-            this.tb_name.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_name.FocusedState.BorderColor = System.Drawing.Color.Black;
-            this.tb_name.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tb_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.tb_name.Location = new System.Drawing.Point(30, 30);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.PasswordChar = '\0';
-            this.tb_name.PlaceholderText = "";
-            this.tb_name.SelectedText = "";
-            this.tb_name.Size = new System.Drawing.Size(311, 37);
-            this.tb_name.TabIndex = 0;
-            this.tb_name.Values = null;
-            // 
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
@@ -893,6 +873,7 @@
             this.tb_giaMua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tb_giaMua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tb_giaMua.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_giaMua.Enabled = false;
             this.tb_giaMua.FocusedState.BorderColor = System.Drawing.Color.Black;
             this.tb_giaMua.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.tb_giaMua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -965,20 +946,6 @@
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
             // 
-            // storeShoesDataSet
-            // 
-            this.storeShoesDataSet.DataSetName = "StoreShoesDataSet";
-            this.storeShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sanPhamGiayBindingSource
-            // 
-            this.sanPhamGiayBindingSource.DataMember = "SanPhamGiay";
-            this.sanPhamGiayBindingSource.DataSource = this.storeShoesDataSet;
-            // 
-            // sanPhamGiayTableAdapter
-            // 
-            this.sanPhamGiayTableAdapter.ClearBeforeFill = true;
-            // 
             // add
             // 
             this.add.Animated = true;
@@ -1005,6 +972,27 @@
             this.add.TextOffset = new System.Drawing.Point(5, 0);
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
+            // tb_name
+            // 
+            this.tb_name.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_name.DefaultText = "";
+            this.tb_name.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_name.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.tb_name.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tb_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.tb_name.Location = new System.Drawing.Point(30, 30);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.PasswordChar = '\0';
+            this.tb_name.PlaceholderText = "";
+            this.tb_name.SelectedText = "";
+            this.tb_name.Size = new System.Drawing.Size(311, 37);
+            this.tb_name.TabIndex = 0;
+            this.tb_name.Values = null;
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -1014,47 +1002,41 @@
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column1.Width = 25;
             // 
-            // maSPGDataGridViewTextBoxColumn
+            // Column2
             // 
-            this.maSPGDataGridViewTextBoxColumn.DataPropertyName = "MaSPG";
-            this.maSPGDataGridViewTextBoxColumn.HeaderText = "MaSPG";
-            this.maSPGDataGridViewTextBoxColumn.Name = "maSPGDataGridViewTextBoxColumn";
-            this.maSPGDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column2.HeaderText = "ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
-            // tenGiayDataGridViewTextBoxColumn
+            // Column3
             // 
-            this.tenGiayDataGridViewTextBoxColumn.DataPropertyName = "TenGiay";
-            this.tenGiayDataGridViewTextBoxColumn.HeaderText = "TenGiay";
-            this.tenGiayDataGridViewTextBoxColumn.Name = "tenGiayDataGridViewTextBoxColumn";
-            this.tenGiayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column3.HeaderText = "";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // imgDataGridViewTextBoxColumn
+            // Column4
             // 
-            this.imgDataGridViewTextBoxColumn.DataPropertyName = "Img";
-            this.imgDataGridViewTextBoxColumn.HeaderText = "Img";
-            this.imgDataGridViewTextBoxColumn.Name = "imgDataGridViewTextBoxColumn";
-            this.imgDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column4.HeaderText = "Tên sản phẩm";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
-            // tonKhoDataGridViewTextBoxColumn
+            // Column5
             // 
-            this.tonKhoDataGridViewTextBoxColumn.DataPropertyName = "TonKho";
-            this.tonKhoDataGridViewTextBoxColumn.HeaderText = "TonKho";
-            this.tonKhoDataGridViewTextBoxColumn.Name = "tonKhoDataGridViewTextBoxColumn";
-            this.tonKhoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column5.HeaderText = "Tồn kho";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
-            // giaMuaDataGridViewTextBoxColumn
+            // Column6
             // 
-            this.giaMuaDataGridViewTextBoxColumn.DataPropertyName = "GiaMua";
-            this.giaMuaDataGridViewTextBoxColumn.HeaderText = "GiaMua";
-            this.giaMuaDataGridViewTextBoxColumn.Name = "giaMuaDataGridViewTextBoxColumn";
-            this.giaMuaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column6.HeaderText = "Giá nhập hàng";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
-            // giaBanDataGridViewTextBoxColumn
+            // Column7
             // 
-            this.giaBanDataGridViewTextBoxColumn.DataPropertyName = "GiaBan";
-            this.giaBanDataGridViewTextBoxColumn.HeaderText = "GiaBan";
-            this.giaBanDataGridViewTextBoxColumn.Name = "giaBanDataGridViewTextBoxColumn";
-            this.giaBanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.Column7.HeaderText = "Giá bán hàng";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // san_pham
             // 
@@ -1088,8 +1070,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_s42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_s38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_img)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sanPhamGiayBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1140,16 +1120,13 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
-        private StoreShoesDataSet storeShoesDataSet;
-        private System.Windows.Forms.BindingSource sanPhamGiayBindingSource;
-        private StoreShoesDataSetTableAdapters.SanPhamGiayTableAdapter sanPhamGiayTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maSPGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenGiayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imgDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tonKhoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaMuaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn giaBanDataGridViewTextBoxColumn;
         private Guna.UI2.WinForms.Guna2Button add;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewImageColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

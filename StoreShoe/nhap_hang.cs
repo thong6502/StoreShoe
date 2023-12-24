@@ -28,7 +28,7 @@ namespace shoe_store_manager
         DataTable DataTb_CTHDM;
 
 
-        DataTable DataTb_UIuser;
+        DataTable DataTb_UIuser = new DataTable();
         string MaHDM = "";
 
         bool isEdit = false;
@@ -93,12 +93,17 @@ namespace shoe_store_manager
             string query_CTHDM = "SELECT * FROM ChiTietHoaDonMua";
             DataTb_CTHDM = DataProvider.Instance.ExcuteQuery(query_CTHDM);
 
-            DataTb_UIuser = new DataTable();
-            DataTb_UIuser.Columns.Add("MaSPG", typeof(string));
-            DataTb_UIuser.Columns.Add("Img", typeof(Image));
-            DataTb_UIuser.Columns.Add("TenGiay", typeof(string));
-            DataTb_UIuser.Columns.Add("SoLuong", typeof(int));
-            DataTb_UIuser.Columns.Add("GiaMua", typeof(string));
+            DataTb_UIuser.Clear();
+            
+            if (DataTb_UIuser.Columns.Count == 0)
+            {
+                DataTb_UIuser.Columns.Add("MaSPG", typeof(string));
+                DataTb_UIuser.Columns.Add("Img", typeof(Image));
+                DataTb_UIuser.Columns.Add("TenGiay", typeof(string));
+                DataTb_UIuser.Columns.Add("SoLuong", typeof(int));
+                DataTb_UIuser.Columns.Add("GiaMua", typeof(string));
+            }
+            
 
 
         }
@@ -616,23 +621,23 @@ namespace shoe_store_manager
 
 
 
-            DataTable ResultSize = DataSet.Instance.CombineDataTables(DataTb_Previous_Size, DataTb_Curent_Size, "+");
+            DataSet.Instance.UpdateAndMergeDataTables(DataTb_Previous_Size, DataTb_Curent_Size, "+");
 
             foreach(DataRow row_SPG in DataTb_SPG.Rows)
             {
                 int TonKho = 0;
-                foreach (DataRow row_resulr in ResultSize.Rows)
+                foreach (DataRow row_result in DataTb_Previous_Size.Rows)
                 {
-                    if (row_resulr["MaSPG"].ToString() == row_SPG["MaSPG"].ToString())
+                    if (row_result["MaSPG"].ToString() == row_SPG["MaSPG"].ToString())
                     {
-                        TonKho += (int)row_resulr["SoLuong"];
+                        TonKho += (int)row_result["SoLuong"];
                     }
                 }
                 row_SPG["TonKho"] = TonKho;
             }
 
             DataProvider.Instance.UpdateTableInDatabase(DataTb_SPG, SelectQuery_SPG);
-            DataProvider.Instance.UpdateTableInDatabase(ResultSize, SelectQuery_Size);
+            DataProvider.Instance.UpdateTableInDatabase(DataTb_Previous_Size, SelectQuery_Size);
             DataProvider.Instance.UpdateTableInDatabase(DataTb_CTHDM, SelectQuery_CTHDM);
 
 
@@ -651,11 +656,10 @@ namespace shoe_store_manager
         }
         private void reset()
         {
-            data.DataSource = null;
             TotalPrice = 0;
             UpdateTotalPrice(TotalPrice);
-            CreateId();
             addDataTable();
+            addDataSource();
         }
     }
 }

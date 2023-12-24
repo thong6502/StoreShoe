@@ -95,57 +95,36 @@ namespace shoe_store_manager
 
             return id;
         }
-        public DataTable CombineDataTables(DataTable PreviousDT, DataTable CurentDT, string operation)
+
+        // 
+        public void UpdateAndMergeDataTables(DataTable PreviousDT, DataTable CurentDT, string operation)
         {
-            DataTable dt3 = PreviousDT.Clone();
-
-
-            // Kết hợp hai bảng
-            foreach (DataRow rowCr in CurentDT.Rows)
-            {
-                foreach (DataRow rowPr in PreviousDT.Rows)
-                {
-                    if (rowCr["MaSPG"].ToString() == rowPr["MaSPG"].ToString() && (int)rowCr["KichThuoc"] == (int)rowPr["KichThuoc"])
-                    {
-                        DataRow newRow = dt3.NewRow();
-                        newRow["MaSPG"] = rowCr["MaSPG"];
-                        newRow["KichThuoc"] = rowCr["KichThuoc"];
-                        if (operation == "+")
-                        {
-                            newRow["SoLuong"] = (int)rowPr["SoLuong"] + (int)rowCr["SoLuong"];
-                        }
-                        else if (operation == "-")
-                        {
-                            newRow["SoLuong"] = (int)rowPr["SoLuong"] - (int)rowCr["SoLuong"];
-                        }
-                        dt3.Rows.Add(newRow);
-                    }
-                }
-            }
+            // Kết hợp hai bảng và đổ dữ liệu vào PreviousDT
 
             foreach (DataRow rowPr in PreviousDT.Rows)
             {
-                bool found = false;
-                foreach (DataRow row3 in dt3.Rows)
+                foreach (DataRow rowCr in CurentDT.Rows)
                 {
-                    if (rowPr["MaSPG"].ToString() == row3["MaSPG"].ToString() && (int)rowPr["KichThuoc"] == (int)row3["KichThuoc"])
+                    if (rowPr["MaSPG"].ToString() == rowCr["MaSPG"].ToString() && (int)rowPr["KichThuoc"] == (int)rowCr["KichThuoc"])
                     {
-                        found = true;
-                        break;
+                        if (operation == "+")
+                        {
+                            rowPr["SoLuong"] = (int)rowCr["SoLuong"] + (int)rowPr["SoLuong"];
+                        }
+                        else if (operation == "-")
+                        {
+                            rowPr["SoLuong"] = (int)rowCr["SoLuong"] - (int)rowPr["SoLuong"];
+                        }
                     }
-                }
-                if (!found)
-                {
-                    dt3.ImportRow(rowPr);
                 }
             }
 
             foreach (DataRow rowCr in CurentDT.Rows)
             {
                 bool found = false;
-                foreach (DataRow row3 in dt3.Rows)
+                foreach (DataRow rowPr in PreviousDT.Rows)
                 {
-                    if (rowCr["MaSPG"].ToString() == row3["MaSPG"].ToString() && (int)rowCr["KichThuoc"] == (int)row3["KichThuoc"])
+                    if (rowPr["MaSPG"].ToString() == rowCr["MaSPG"].ToString() && (int)rowPr["KichThuoc"] == (int)rowCr["KichThuoc"])
                     {
                         found = true;
                         break;
@@ -153,13 +132,11 @@ namespace shoe_store_manager
                 }
                 if (!found)
                 {
-                    dt3.ImportRow(rowCr);
+                    PreviousDT.ImportRow(rowCr);
                 }
             }
-                        
-
-            return dt3;
         }
+
 
     }
 }
