@@ -21,17 +21,17 @@ namespace shoe_store_manager
     public partial class nhap_hang : Form
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
-        int TotalPrice = 0;
-        DataTable DataTb_SPG;
-        DataTable DataTb_Previous_Size;
-        DataTable DataTb_Curent_Size;
-        DataTable DataTb_CTHDM;
+        private int TotalPrice = 0;
+        private DataTable DataTb_SPG;
+        private DataTable DataTb_Previous_Size;
+        private DataTable DataTb_Curent_Size;
+        private DataTable DataTb_CTHDM;
 
 
-        DataTable DataTb_UIuser = new DataTable();
-        string MaHDM = "";
+        private DataTable DataTb_UIuser = new DataTable();
+        private string MaHDM = "";
 
-        bool isEdit = false;
+        private bool isEdit = false;
         public nhap_hang()
         {
             InitializeComponent();
@@ -80,8 +80,6 @@ namespace shoe_store_manager
         private void addDataTable()
         {
 
-
-
             string query_SPG = "SELECT * FROM SanPhamGiay";
             DataTb_SPG = DataProvider.Instance.ExcuteQuery(query_SPG);
 
@@ -120,7 +118,6 @@ namespace shoe_store_manager
         {
             foreach (Control c in this.Controls)
             {
-                // Kiểm tra xem control có phải là edit_box hay không
                 if (c.Name != "container_edit_box")
                 {
                     c.Enabled = false;
@@ -183,7 +180,7 @@ namespace shoe_store_manager
             container_edit_box.Visible = false;
             clear_content_tb();
             undisplay_warning();
-            
+            nonPic();
             enabeled();
         }
 
@@ -246,15 +243,6 @@ namespace shoe_store_manager
         {
             pic_img.Image = null;
         }
-
-        private void btn_close_Click(object sender, EventArgs e)
-        {
-            colseEditBox();
-        }
-
-
-
-        
 
 
         private void huy_Click(object sender, EventArgs e)

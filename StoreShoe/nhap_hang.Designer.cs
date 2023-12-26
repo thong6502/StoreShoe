@@ -539,6 +539,7 @@
             this.nud_s41.Size = new System.Drawing.Size(149, 37);
             this.nud_s41.TabIndex = 33;
             this.nud_s41.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s41.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s43
             // 
@@ -555,6 +556,7 @@
             this.nud_s43.Size = new System.Drawing.Size(149, 37);
             this.nud_s43.TabIndex = 33;
             this.nud_s43.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s43.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s39
             // 
@@ -571,6 +573,7 @@
             this.nud_s39.Size = new System.Drawing.Size(149, 37);
             this.nud_s39.TabIndex = 33;
             this.nud_s39.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s39.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s40
             // 
@@ -587,6 +590,7 @@
             this.nud_s40.Size = new System.Drawing.Size(149, 37);
             this.nud_s40.TabIndex = 33;
             this.nud_s40.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s40.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s42
             // 
@@ -603,6 +607,7 @@
             this.nud_s42.Size = new System.Drawing.Size(149, 37);
             this.nud_s42.TabIndex = 33;
             this.nud_s42.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s42.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s38
             // 
@@ -619,6 +624,7 @@
             this.nud_s38.Size = new System.Drawing.Size(149, 37);
             this.nud_s38.TabIndex = 33;
             this.nud_s38.UpDownButtonFillColor = System.Drawing.Color.Transparent;
+            this.nud_s38.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // xac_nhan
             // 
@@ -1054,12 +1060,6 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel4;
         private Guna.UI2.WinForms.Guna2Button ThanhToan;
         private System.Windows.Forms.Label lb_totalPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSPG;
-        private System.Windows.Forms.DataGridViewImageColumn Img;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private Guna.UI2.WinForms.Guna2ShadowPanel container_edit_box;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2Button btn_close;
@@ -1096,5 +1096,11 @@
         private Guna.UI2.WinForms.Guna2Button warning3;
         private Guna.UI2.WinForms.Guna2Button warning2;
         private Guna.UI2.WinForms.Guna2Button huy_data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSPG;
+        private System.Windows.Forms.DataGridViewImageColumn Img;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

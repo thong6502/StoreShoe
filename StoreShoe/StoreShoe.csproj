@@ -159,6 +159,9 @@
     <Compile Include="san_pham.Designer.cs">
       <DependentUpon>san_pham.cs</DependentUpon>
     </Compile>
+    <Compile Include="StoreShoesDataSet1.cs">
+      <DependentUpon>StoreShoesDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StoreShoesDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

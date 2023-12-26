@@ -33,22 +33,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.box_filter = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbx_filter = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btn_XNFilter = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_HFilter = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_filter = new Guna.UI2.WinForms.Guna2Button();
-            this.edit = new Guna.UI2.WinForms.Guna2Button();
-            this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.search = new Guna.UI2.WinForms.Guna2TextBox();
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new Guna.UI2.WinForms.Guna2Button();
             this.container_edit_box = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btn_close = new Guna.UI2.WinForms.Guna2Button();
             this.edit_box = new Guna.UI.WinForms.GunaPanel();
-            this.warning3 = new Guna.UI2.WinForms.Guna2Button();
-            this.warning2 = new Guna.UI2.WinForms.Guna2Button();
             this.nud_s41 = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.nud_s43 = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.nud_s39 = new Guna.UI2.WinForms.Guna2NumericUpDown();
@@ -64,8 +62,11 @@
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tb_giaBan = new Guna.UI2.WinForms.Guna2TextBox();
+            this.warning3 = new Guna.UI2.WinForms.Guna2Button();
+            this.warning2 = new Guna.UI2.WinForms.Guna2Button();
             this.warning1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.tb_name = new shoe_store_manager.AutoCompleteTextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -77,16 +78,6 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.add = new Guna.UI2.WinForms.Guna2Button();
-            this.tb_name = new shoe_store_manager.AutoCompleteTextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.box_filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.container_edit_box.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -99,193 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nud_s38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_img)).BeginInit();
             this.SuspendLayout();
-            // 
-            // box_filter
-            // 
-            this.box_filter.BackColor = System.Drawing.Color.Transparent;
-            this.box_filter.Controls.Add(this.label1);
-            this.box_filter.Controls.Add(this.cbx_filter);
-            this.box_filter.Controls.Add(this.btn_XNFilter);
-            this.box_filter.Controls.Add(this.btn_HFilter);
-            this.box_filter.FillColor = System.Drawing.Color.White;
-            this.box_filter.Location = new System.Drawing.Point(663, 124);
-            this.box_filter.Name = "box_filter";
-            this.box_filter.Radius = 4;
-            this.box_filter.ShadowColor = System.Drawing.Color.Black;
-            this.box_filter.ShadowShift = 2;
-            this.box_filter.Size = new System.Drawing.Size(210, 135);
-            this.box_filter.TabIndex = 29;
-            this.box_filter.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm điều kiện lọc";
-            // 
-            // cbx_filter
-            // 
-            this.cbx_filter.BackColor = System.Drawing.Color.Transparent;
-            this.cbx_filter.BorderRadius = 4;
-            this.cbx_filter.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbx_filter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_filter.FocusedColor = System.Drawing.Color.Empty;
-            this.cbx_filter.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbx_filter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.cbx_filter.ItemHeight = 30;
-            this.cbx_filter.Items.AddRange(new object[] {
-            "Tên sản phẩm",
-            "Nhà cung cấp",
-            "Loại giày"});
-            this.cbx_filter.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.cbx_filter.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-            this.cbx_filter.Location = new System.Drawing.Point(15, 32);
-            this.cbx_filter.Name = "cbx_filter";
-            this.cbx_filter.Size = new System.Drawing.Size(183, 36);
-            this.cbx_filter.StartIndex = 0;
-            this.cbx_filter.TabIndex = 8;
-            // 
-            // btn_XNFilter
-            // 
-            this.btn_XNFilter.Animated = true;
-            this.btn_XNFilter.BackColor = System.Drawing.Color.Transparent;
-            this.btn_XNFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_XNFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.btn_XNFilter.BorderRadius = 4;
-            this.btn_XNFilter.BorderThickness = 1;
-            this.btn_XNFilter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_XNFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_XNFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_XNFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_XNFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_XNFilter.FillColor = System.Drawing.Color.White;
-            this.btn_XNFilter.FocusedColor = System.Drawing.Color.Transparent;
-            this.btn_XNFilter.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XNFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.btn_XNFilter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.btn_XNFilter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_XNFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.btn_XNFilter.Image = ((System.Drawing.Image)(resources.GetObject("btn_XNFilter.Image")));
-            this.btn_XNFilter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_XNFilter.ImageSize = new System.Drawing.Size(16, 16);
-            this.btn_XNFilter.Location = new System.Drawing.Point(16, 84);
-            this.btn_XNFilter.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_XNFilter.Name = "btn_XNFilter";
-            this.btn_XNFilter.Size = new System.Drawing.Size(89, 31);
-            this.btn_XNFilter.TabIndex = 8;
-            this.btn_XNFilter.Text = "Xác nhận";
-            this.btn_XNFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_XNFilter.Click += new System.EventHandler(this.btn_XNFilter_Click);
-            // 
-            // btn_HFilter
-            // 
-            this.btn_HFilter.Animated = true;
-            this.btn_HFilter.BackColor = System.Drawing.Color.Transparent;
-            this.btn_HFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_HFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.btn_HFilter.BorderRadius = 4;
-            this.btn_HFilter.BorderThickness = 1;
-            this.btn_HFilter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_HFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_HFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_HFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_HFilter.FillColor = System.Drawing.Color.White;
-            this.btn_HFilter.FocusedColor = System.Drawing.Color.Transparent;
-            this.btn_HFilter.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_HFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.btn_HFilter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.btn_HFilter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_HFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.btn_HFilter.Image = ((System.Drawing.Image)(resources.GetObject("btn_HFilter.Image")));
-            this.btn_HFilter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_HFilter.ImageSize = new System.Drawing.Size(16, 16);
-            this.btn_HFilter.Location = new System.Drawing.Point(118, 84);
-            this.btn_HFilter.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_HFilter.Name = "btn_HFilter";
-            this.btn_HFilter.Size = new System.Drawing.Size(83, 31);
-            this.btn_HFilter.TabIndex = 8;
-            this.btn_HFilter.Text = "Hủy";
-            this.btn_HFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_HFilter.Click += new System.EventHandler(this.btn_HFilter_Click);
-            // 
-            // btn_filter
-            // 
-            this.btn_filter.Animated = true;
-            this.btn_filter.BorderRadius = 8;
-            this.btn_filter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_filter.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_filter.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.btn_filter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_filter.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_filter.FillColor = System.Drawing.Color.White;
-            this.btn_filter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_filter.ForeColor = System.Drawing.Color.White;
-            this.btn_filter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.btn_filter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.btn_filter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.btn_filter.Image = ((System.Drawing.Image)(resources.GetObject("btn_filter.Image")));
-            this.btn_filter.Location = new System.Drawing.Point(663, 79);
-            this.btn_filter.Name = "btn_filter";
-            this.btn_filter.Size = new System.Drawing.Size(51, 41);
-            this.btn_filter.TabIndex = 28;
-            this.btn_filter.Click += new System.EventHandler(this.btn_filter_Click);
-            // 
-            // edit
-            // 
-            this.edit.Animated = true;
-            this.edit.BackColor = System.Drawing.Color.Transparent;
-            this.edit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.edit.BorderRadius = 4;
-            this.edit.BorderThickness = 1;
-            this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.edit.FillColor = System.Drawing.Color.White;
-            this.edit.FocusedColor = System.Drawing.Color.Transparent;
-            this.edit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.edit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.edit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.edit.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.edit.Location = new System.Drawing.Point(112, 79);
-            this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(94, 41);
-            this.edit.TabIndex = 25;
-            this.edit.Text = "Sửa";
-            this.edit.TextOffset = new System.Drawing.Point(5, 0);
-            this.edit.Click += new System.EventHandler(this.edit_Click);
-            // 
-            // delete
-            // 
-            this.delete.Animated = true;
-            this.delete.BackColor = System.Drawing.Color.Transparent;
-            this.delete.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.delete.BorderRadius = 4;
-            this.delete.BorderThickness = 1;
-            this.delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.delete.FillColor = System.Drawing.Color.White;
-            this.delete.FocusedColor = System.Drawing.Color.Transparent;
-            this.delete.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.delete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.delete.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.delete.Location = new System.Drawing.Point(212, 79);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(94, 41);
-            this.delete.TabIndex = 27;
-            this.delete.Text = "Xóa";
-            this.delete.TextOffset = new System.Drawing.Point(5, 0);
-            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // search
             // 
@@ -305,13 +109,14 @@
             this.search.IconLeft = ((System.Drawing.Image)(resources.GetObject("search.IconLeft")));
             this.search.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
             this.search.IconLeftOffset = new System.Drawing.Point(5, 0);
-            this.search.Location = new System.Drawing.Point(720, 79);
+            this.search.Location = new System.Drawing.Point(655, 72);
             this.search.Name = "search";
             this.search.PasswordChar = '\0';
             this.search.PlaceholderText = "Tên sản phẩm";
             this.search.SelectedText = "";
             this.search.Size = new System.Drawing.Size(233, 41);
             this.search.TabIndex = 21;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // data
             // 
@@ -336,12 +141,12 @@
             this.data.ColumnHeadersHeight = 45;
             this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.MaSPG,
+            this.Img,
+            this.TenGiay,
+            this.TonKho,
+            this.GiaMua,
+            this.GiaBan});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -390,18 +195,96 @@
             this.data.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 25;
+            // 
+            // MaSPG
+            // 
+            this.MaSPG.DataPropertyName = "MaSPG";
+            this.MaSPG.HeaderText = "ID";
+            this.MaSPG.Name = "MaSPG";
+            this.MaSPG.ReadOnly = true;
+            // 
+            // Img
+            // 
+            this.Img.DataPropertyName = "Img";
+            this.Img.HeaderText = "";
+            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Img.Name = "Img";
+            this.Img.ReadOnly = true;
+            // 
+            // TenGiay
+            // 
+            this.TenGiay.DataPropertyName = "TenGiay";
+            this.TenGiay.HeaderText = "Tên sản phẩm";
+            this.TenGiay.Name = "TenGiay";
+            this.TenGiay.ReadOnly = true;
+            // 
+            // TonKho
+            // 
+            this.TonKho.DataPropertyName = "TonKho";
+            this.TonKho.HeaderText = "Tồn kho";
+            this.TonKho.Name = "TonKho";
+            this.TonKho.ReadOnly = true;
+            // 
+            // GiaMua
+            // 
+            this.GiaMua.DataPropertyName = "GiaMua";
+            this.GiaMua.HeaderText = "Giá nhập hàng";
+            this.GiaMua.Name = "GiaMua";
+            this.GiaMua.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.DataPropertyName = "GiaBan";
+            this.GiaBan.HeaderText = "Giá bán hàng";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.Animated = true;
+            this.edit.BackColor = System.Drawing.Color.Transparent;
+            this.edit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.edit.BorderRadius = 4;
+            this.edit.BorderThickness = 1;
+            this.edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.edit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.edit.FillColor = System.Drawing.Color.White;
+            this.edit.FocusedColor = System.Drawing.Color.Transparent;
+            this.edit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
+            this.edit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
+            this.edit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.edit.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.edit.Location = new System.Drawing.Point(555, 72);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(94, 41);
+            this.edit.TabIndex = 57;
+            this.edit.Text = "Sửa";
+            this.edit.TextOffset = new System.Drawing.Point(5, 0);
+            this.edit.Click += new System.EventHandler(this.edit_Click);
+            // 
             // container_edit_box
             // 
             this.container_edit_box.BackColor = System.Drawing.Color.Transparent;
             this.container_edit_box.Controls.Add(this.guna2ShadowPanel2);
             this.container_edit_box.Controls.Add(this.edit_box);
             this.container_edit_box.FillColor = System.Drawing.Color.White;
-            this.container_edit_box.Location = new System.Drawing.Point(270, 24);
+            this.container_edit_box.Location = new System.Drawing.Point(185, 39);
             this.container_edit_box.Name = "container_edit_box";
             this.container_edit_box.Radius = 6;
             this.container_edit_box.ShadowColor = System.Drawing.Color.Black;
             this.container_edit_box.Size = new System.Drawing.Size(387, 441);
-            this.container_edit_box.TabIndex = 54;
+            this.container_edit_box.TabIndex = 58;
             this.container_edit_box.Visible = false;
             // 
             // guna2ShadowPanel2
@@ -432,7 +315,7 @@
             this.btn_close.ForeColor = System.Drawing.Color.White;
             this.btn_close.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btn_close.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_close.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.btn_close.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
             this.btn_close.ImageSize = new System.Drawing.Size(17, 17);
             this.btn_close.Location = new System.Drawing.Point(352, 6);
@@ -448,8 +331,6 @@
             // 
             this.edit_box.AutoScroll = true;
             this.edit_box.BackColor = System.Drawing.Color.White;
-            this.edit_box.Controls.Add(this.warning3);
-            this.edit_box.Controls.Add(this.warning2);
             this.edit_box.Controls.Add(this.nud_s41);
             this.edit_box.Controls.Add(this.nud_s43);
             this.edit_box.Controls.Add(this.nud_s39);
@@ -465,6 +346,8 @@
             this.edit_box.Controls.Add(this.guna2HtmlLabel12);
             this.edit_box.Controls.Add(this.guna2HtmlLabel5);
             this.edit_box.Controls.Add(this.tb_giaBan);
+            this.edit_box.Controls.Add(this.warning3);
+            this.edit_box.Controls.Add(this.warning2);
             this.edit_box.Controls.Add(this.warning1);
             this.edit_box.Controls.Add(this.guna2HtmlLabel1);
             this.edit_box.Controls.Add(this.tb_name);
@@ -484,58 +367,12 @@
             this.edit_box.Size = new System.Drawing.Size(374, 401);
             this.edit_box.TabIndex = 33;
             // 
-            // warning3
-            // 
-            this.warning3.BackColor = System.Drawing.Color.Transparent;
-            this.warning3.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.warning3.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.warning3.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.warning3.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
-            this.warning3.Enabled = false;
-            this.warning3.FillColor = System.Drawing.Color.Transparent;
-            this.warning3.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.warning3.ForeColor = System.Drawing.Color.Red;
-            this.warning3.Image = ((System.Drawing.Image)(resources.GetObject("warning3.Image")));
-            this.warning3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.warning3.ImageOffset = new System.Drawing.Point(3, 0);
-            this.warning3.ImageSize = new System.Drawing.Size(15, 15);
-            this.warning3.Location = new System.Drawing.Point(109, 450);
-            this.warning3.Name = "warning3";
-            this.warning3.Size = new System.Drawing.Size(108, 19);
-            this.warning3.TabIndex = 35;
-            this.warning3.Text = "Nội dung trống";
-            this.warning3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.warning3.UseTransparentBackground = true;
-            // 
-            // warning2
-            // 
-            this.warning2.BackColor = System.Drawing.Color.Transparent;
-            this.warning2.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.warning2.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.warning2.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.warning2.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
-            this.warning2.Enabled = false;
-            this.warning2.FillColor = System.Drawing.Color.Transparent;
-            this.warning2.Font = new System.Drawing.Font("Segoe UI", 7F);
-            this.warning2.ForeColor = System.Drawing.Color.Red;
-            this.warning2.Image = ((System.Drawing.Image)(resources.GetObject("warning2.Image")));
-            this.warning2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.warning2.ImageOffset = new System.Drawing.Point(3, 0);
-            this.warning2.ImageSize = new System.Drawing.Size(15, 15);
-            this.warning2.Location = new System.Drawing.Point(78, 380);
-            this.warning2.Name = "warning2";
-            this.warning2.Size = new System.Drawing.Size(108, 19);
-            this.warning2.TabIndex = 34;
-            this.warning2.Text = "Nội dung trống";
-            this.warning2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.warning2.UseTransparentBackground = true;
-            // 
             // nud_s41
             // 
             this.nud_s41.BackColor = System.Drawing.Color.Transparent;
             this.nud_s41.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s41.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s41.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s41.Enabled = false;
             this.nud_s41.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s41.Increment = new decimal(new int[] {
@@ -553,6 +390,8 @@
             // 
             this.nud_s43.BackColor = System.Drawing.Color.Transparent;
             this.nud_s43.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s43.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s43.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s43.Enabled = false;
             this.nud_s43.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s43.Increment = new decimal(new int[] {
@@ -570,6 +409,8 @@
             // 
             this.nud_s39.BackColor = System.Drawing.Color.Transparent;
             this.nud_s39.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s39.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s39.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s39.Enabled = false;
             this.nud_s39.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s39.Increment = new decimal(new int[] {
@@ -587,6 +428,8 @@
             // 
             this.nud_s40.BackColor = System.Drawing.Color.Transparent;
             this.nud_s40.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s40.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s40.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s40.Enabled = false;
             this.nud_s40.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s40.Increment = new decimal(new int[] {
@@ -604,6 +447,8 @@
             // 
             this.nud_s42.BackColor = System.Drawing.Color.Transparent;
             this.nud_s42.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s42.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s42.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s42.Enabled = false;
             this.nud_s42.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s42.Increment = new decimal(new int[] {
@@ -621,6 +466,8 @@
             // 
             this.nud_s38.BackColor = System.Drawing.Color.Transparent;
             this.nud_s38.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_s38.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.nud_s38.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.nud_s38.Enabled = false;
             this.nud_s38.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_s38.Increment = new decimal(new int[] {
@@ -653,7 +500,7 @@
             this.xac_nhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.xac_nhan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.xac_nhan.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.xac_nhan.Image = ((System.Drawing.Image)(resources.GetObject("xac_nhan.Image")));
             this.xac_nhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.xac_nhan.Location = new System.Drawing.Point(133, 888);
@@ -663,6 +510,7 @@
             this.xac_nhan.TabIndex = 8;
             this.xac_nhan.Text = "Xác nhận";
             this.xac_nhan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.xac_nhan.Click += new System.EventHandler(this.xac_nhan_Click);
             // 
             // huy
             // 
@@ -683,7 +531,7 @@
             this.huy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.huy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.huy.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
+            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.huy.Image = ((System.Drawing.Image)(resources.GetObject("huy.Image")));
             this.huy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.huy.Location = new System.Drawing.Point(261, 888);
@@ -693,12 +541,14 @@
             this.huy.TabIndex = 8;
             this.huy.Text = "Hủy";
             this.huy.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.huy.Click += new System.EventHandler(this.huy_Click);
             // 
             // cbx_NCC
             // 
             this.cbx_NCC.BackColor = System.Drawing.Color.Transparent;
             this.cbx_NCC.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbx_NCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_NCC.Enabled = false;
             this.cbx_NCC.FocusedColor = System.Drawing.Color.Black;
             this.cbx_NCC.FocusedState.BorderColor = System.Drawing.Color.Black;
             this.cbx_NCC.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -726,6 +576,7 @@
             this.cbx_LoaiGiay.BackColor = System.Drawing.Color.Transparent;
             this.cbx_LoaiGiay.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbx_LoaiGiay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_LoaiGiay.Enabled = false;
             this.cbx_LoaiGiay.FocusedColor = System.Drawing.Color.Black;
             this.cbx_LoaiGiay.FocusedState.BorderColor = System.Drawing.Color.Black;
             this.cbx_LoaiGiay.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -742,6 +593,7 @@
             this.pic_img.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pic_img.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_img.FillColor = System.Drawing.Color.Transparent;
+            this.pic_img.Image = ((System.Drawing.Image)(resources.GetObject("pic_img.Image")));
             this.pic_img.ImageRotate = 0F;
             this.pic_img.InitialImage = null;
             this.pic_img.Location = new System.Drawing.Point(30, 103);
@@ -750,6 +602,7 @@
             this.pic_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_img.TabIndex = 11;
             this.pic_img.TabStop = false;
+            this.pic_img.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pic_img_MouseDoubleClick);
             // 
             // guna2HtmlLabel12
             // 
@@ -790,6 +643,56 @@
             this.tb_giaBan.SelectedText = "";
             this.tb_giaBan.Size = new System.Drawing.Size(311, 37);
             this.tb_giaBan.TabIndex = 0;
+            this.tb_giaBan.TextChanged += new System.EventHandler(this.tb_giaBan_TextChanged);
+            this.tb_giaBan.Click += new System.EventHandler(this.tb_giaBan_TextChanged);
+            // 
+            // warning3
+            // 
+            this.warning3.BackColor = System.Drawing.Color.Transparent;
+            this.warning3.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.warning3.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.warning3.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.warning3.DisabledState.ForeColor = System.Drawing.Color.Red;
+            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.warning3.Enabled = false;
+            this.warning3.FillColor = System.Drawing.Color.Transparent;
+            this.warning3.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.warning3.ForeColor = System.Drawing.Color.Red;
+            this.warning3.Image = ((System.Drawing.Image)(resources.GetObject("warning3.Image")));
+            this.warning3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.warning3.ImageOffset = new System.Drawing.Point(3, 0);
+            this.warning3.ImageSize = new System.Drawing.Size(15, 15);
+            this.warning3.Location = new System.Drawing.Point(105, 450);
+            this.warning3.Name = "warning3";
+            this.warning3.Size = new System.Drawing.Size(108, 19);
+            this.warning3.TabIndex = 9;
+            this.warning3.Text = "Nội dung trống";
+            this.warning3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.warning3.UseTransparentBackground = true;
+            // 
+            // warning2
+            // 
+            this.warning2.BackColor = System.Drawing.Color.Transparent;
+            this.warning2.DisabledState.BorderColor = System.Drawing.Color.Transparent;
+            this.warning2.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.warning2.DisabledState.FillColor = System.Drawing.Color.Transparent;
+            this.warning2.DisabledState.ForeColor = System.Drawing.Color.Red;
+            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.warning2.Enabled = false;
+            this.warning2.FillColor = System.Drawing.Color.Transparent;
+            this.warning2.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.warning2.ForeColor = System.Drawing.Color.Red;
+            this.warning2.Image = ((System.Drawing.Image)(resources.GetObject("warning2.Image")));
+            this.warning2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.warning2.ImageOffset = new System.Drawing.Point(3, 0);
+            this.warning2.ImageSize = new System.Drawing.Size(15, 15);
+            this.warning2.Location = new System.Drawing.Point(76, 378);
+            this.warning2.Name = "warning2";
+            this.warning2.Size = new System.Drawing.Size(108, 19);
+            this.warning2.TabIndex = 9;
+            this.warning2.Text = "Nội dung trống";
+            this.warning2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.warning2.UseTransparentBackground = true;
             // 
             // warning1
             // 
@@ -798,7 +701,7 @@
             this.warning1.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.warning1.Enabled = false;
             this.warning1.FillColor = System.Drawing.Color.Transparent;
             this.warning1.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -824,6 +727,28 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(89, 19);
             this.guna2HtmlLabel1.TabIndex = 1;
             this.guna2HtmlLabel1.Text = "Tên sản phẩm";
+            // 
+            // tb_name
+            // 
+            this.tb_name.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tb_name.DefaultText = "";
+            this.tb_name.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tb_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tb_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tb_name.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.tb_name.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tb_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.tb_name.Location = new System.Drawing.Point(30, 30);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.PasswordChar = '\0';
+            this.tb_name.PlaceholderText = "";
+            this.tb_name.SelectedText = "";
+            this.tb_name.Size = new System.Drawing.Size(311, 37);
+            this.tb_name.TabIndex = 0;
+            this.tb_name.Values = null;
+            this.tb_name.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // guna2HtmlLabel3
             // 
@@ -946,98 +871,6 @@
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
             // 
-            // add
-            // 
-            this.add.Animated = true;
-            this.add.BackColor = System.Drawing.Color.Transparent;
-            this.add.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.add.BorderRadius = 4;
-            this.add.BorderThickness = 1;
-            this.add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.add.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.add.FillColor = System.Drawing.Color.White;
-            this.add.FocusedColor = System.Drawing.Color.Transparent;
-            this.add.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
-            this.add.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.add.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
-            this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
-            this.add.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.add.Location = new System.Drawing.Point(12, 79);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(94, 41);
-            this.add.TabIndex = 26;
-            this.add.Text = "Thêm";
-            this.add.TextOffset = new System.Drawing.Point(5, 0);
-            this.add.Click += new System.EventHandler(this.add_Click);
-            // 
-            // tb_name
-            // 
-            this.tb_name.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tb_name.DefaultText = "";
-            this.tb_name.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tb_name.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tb_name.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_name.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tb_name.FocusedState.BorderColor = System.Drawing.Color.Black;
-            this.tb_name.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.tb_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_name.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.tb_name.Location = new System.Drawing.Point(30, 30);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.PasswordChar = '\0';
-            this.tb_name.PlaceholderText = "";
-            this.tb_name.SelectedText = "";
-            this.tb_name.Size = new System.Drawing.Size(311, 37);
-            this.tb_name.TabIndex = 0;
-            this.tb_name.Values = null;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 25;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "ID";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tên sản phẩm";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Tồn kho";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Giá nhập hàng";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Giá bán hàng";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
             // san_pham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1045,19 +878,12 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(982, 513);
             this.Controls.Add(this.container_edit_box);
-            this.Controls.Add(this.box_filter);
-            this.Controls.Add(this.btn_filter);
             this.Controls.Add(this.edit);
-            this.Controls.Add(this.add);
-            this.Controls.Add(this.delete);
             this.Controls.Add(this.search);
             this.Controls.Add(this.data);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "san_pham";
-            this.Text = "v";
             this.Load += new System.EventHandler(this.san_pham_Load);
-            this.box_filter.ResumeLayout(false);
-            this.box_filter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
             this.container_edit_box.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
@@ -1075,22 +901,20 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2ShadowPanel box_filter;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox cbx_filter;
-        private Guna.UI2.WinForms.Guna2Button btn_XNFilter;
-        private Guna.UI2.WinForms.Guna2Button btn_HFilter;
-        private Guna.UI2.WinForms.Guna2Button btn_filter;
-        private Guna.UI2.WinForms.Guna2Button edit;
-        private Guna.UI2.WinForms.Guna2Button delete;
         private Guna.UI2.WinForms.Guna2TextBox search;
         private Guna.UI2.WinForms.Guna2DataGridView data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSPG;
+        private System.Windows.Forms.DataGridViewImageColumn Img;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TonKho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaMua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
+        private Guna.UI2.WinForms.Guna2Button edit;
         private Guna.UI2.WinForms.Guna2ShadowPanel container_edit_box;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2Button btn_close;
         private Guna.UI.WinForms.GunaPanel edit_box;
-        private Guna.UI2.WinForms.Guna2Button warning3;
-        private Guna.UI2.WinForms.Guna2Button warning2;
         private Guna.UI2.WinForms.Guna2NumericUpDown nud_s41;
         private Guna.UI2.WinForms.Guna2NumericUpDown nud_s43;
         private Guna.UI2.WinForms.Guna2NumericUpDown nud_s39;
@@ -1106,6 +930,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2TextBox tb_giaBan;
+        private Guna.UI2.WinForms.Guna2Button warning3;
+        private Guna.UI2.WinForms.Guna2Button warning2;
         private Guna.UI2.WinForms.Guna2Button warning1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private AutoCompleteTextBox tb_name;
@@ -1120,13 +946,5 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
-        private Guna.UI2.WinForms.Guna2Button add;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewImageColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

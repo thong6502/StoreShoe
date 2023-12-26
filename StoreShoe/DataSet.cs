@@ -109,11 +109,11 @@ namespace shoe_store_manager
                     {
                         if (operation == "+")
                         {
-                            rowPr["SoLuong"] = (int)rowCr["SoLuong"] + (int)rowPr["SoLuong"];
+                            rowPr["SoLuong"] = (int)rowPr["SoLuong"] + (int)rowCr["SoLuong"];
                         }
                         else if (operation == "-")
                         {
-                            rowPr["SoLuong"] = (int)rowCr["SoLuong"] - (int)rowPr["SoLuong"];
+                            rowPr["SoLuong"] = (int)rowPr["SoLuong"] - (int)rowCr["SoLuong"];
                         }
                     }
                 }
