@@ -115,7 +115,7 @@
             this.tbx_taiKhoan.Animated = true;
             this.tbx_taiKhoan.BorderThickness = 2;
             this.tbx_taiKhoan.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbx_taiKhoan.DefaultText = "";
+            this.tbx_taiKhoan.DefaultText = "admin";
             this.tbx_taiKhoan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tbx_taiKhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tbx_taiKhoan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -143,7 +143,7 @@
             this.tbx_matKhau.Animated = true;
             this.tbx_matKhau.BorderThickness = 2;
             this.tbx_matKhau.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbx_matKhau.DefaultText = "";
+            this.tbx_matKhau.DefaultText = "123";
             this.tbx_matKhau.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tbx_matKhau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tbx_matKhau.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));

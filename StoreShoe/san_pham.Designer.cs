@@ -35,13 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.search = new Guna.UI2.WinForms.Guna2TextBox();
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new Guna.UI2.WinForms.Guna2Button();
             this.container_edit_box = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -78,6 +71,13 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaMua = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.container_edit_box.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -195,58 +195,6 @@
             this.data.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 25;
-            // 
-            // MaSPG
-            // 
-            this.MaSPG.DataPropertyName = "MaSPG";
-            this.MaSPG.HeaderText = "ID";
-            this.MaSPG.Name = "MaSPG";
-            this.MaSPG.ReadOnly = true;
-            // 
-            // Img
-            // 
-            this.Img.DataPropertyName = "Img";
-            this.Img.HeaderText = "";
-            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Img.Name = "Img";
-            this.Img.ReadOnly = true;
-            // 
-            // TenGiay
-            // 
-            this.TenGiay.DataPropertyName = "TenGiay";
-            this.TenGiay.HeaderText = "Tên sản phẩm";
-            this.TenGiay.Name = "TenGiay";
-            this.TenGiay.ReadOnly = true;
-            // 
-            // TonKho
-            // 
-            this.TonKho.DataPropertyName = "TonKho";
-            this.TonKho.HeaderText = "Tồn kho";
-            this.TonKho.Name = "TonKho";
-            this.TonKho.ReadOnly = true;
-            // 
-            // GiaMua
-            // 
-            this.GiaMua.DataPropertyName = "GiaMua";
-            this.GiaMua.HeaderText = "Giá nhập hàng";
-            this.GiaMua.Name = "GiaMua";
-            this.GiaMua.ReadOnly = true;
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.DataPropertyName = "GiaBan";
-            this.GiaBan.HeaderText = "Giá bán hàng";
-            this.GiaBan.Name = "GiaBan";
-            this.GiaBan.ReadOnly = true;
-            // 
             // edit
             // 
             this.edit.Animated = true;
@@ -279,7 +227,7 @@
             this.container_edit_box.Controls.Add(this.guna2ShadowPanel2);
             this.container_edit_box.Controls.Add(this.edit_box);
             this.container_edit_box.FillColor = System.Drawing.Color.White;
-            this.container_edit_box.Location = new System.Drawing.Point(185, 39);
+            this.container_edit_box.Location = new System.Drawing.Point(94, 39);
             this.container_edit_box.Name = "container_edit_box";
             this.container_edit_box.Radius = 6;
             this.container_edit_box.ShadowColor = System.Drawing.Color.Black;
@@ -871,6 +819,70 @@
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 25;
+            // 
+            // MaSPG
+            // 
+            this.MaSPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaSPG.DataPropertyName = "MaSPG";
+            this.MaSPG.Frozen = true;
+            this.MaSPG.HeaderText = "ID";
+            this.MaSPG.Name = "MaSPG";
+            this.MaSPG.ReadOnly = true;
+            this.MaSPG.Width = 80;
+            // 
+            // Img
+            // 
+            this.Img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Img.DataPropertyName = "Img";
+            this.Img.Frozen = true;
+            this.Img.HeaderText = "";
+            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Img.Name = "Img";
+            this.Img.ReadOnly = true;
+            this.Img.Width = 70;
+            // 
+            // TenGiay
+            // 
+            this.TenGiay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenGiay.DataPropertyName = "TenGiay";
+            this.TenGiay.Frozen = true;
+            this.TenGiay.HeaderText = "Tên sản phẩm";
+            this.TenGiay.Name = "TenGiay";
+            this.TenGiay.ReadOnly = true;
+            this.TenGiay.Width = 400;
+            // 
+            // TonKho
+            // 
+            this.TonKho.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TonKho.DataPropertyName = "TonKho";
+            this.TonKho.HeaderText = "Tồn kho";
+            this.TonKho.Name = "TonKho";
+            this.TonKho.ReadOnly = true;
+            this.TonKho.Width = 90;
+            // 
+            // GiaMua
+            // 
+            this.GiaMua.DataPropertyName = "GiaMua";
+            this.GiaMua.HeaderText = "Giá nhập hàng";
+            this.GiaMua.Name = "GiaMua";
+            this.GiaMua.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.DataPropertyName = "GiaBan";
+            this.GiaBan.HeaderText = "Giá bán hàng";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            // 
             // san_pham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -903,13 +915,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2TextBox search;
         private Guna.UI2.WinForms.Guna2DataGridView data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSPG;
-        private System.Windows.Forms.DataGridViewImageColumn Img;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TonKho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaMua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
         private Guna.UI2.WinForms.Guna2Button edit;
         private Guna.UI2.WinForms.Guna2ShadowPanel container_edit_box;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
@@ -946,5 +951,12 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSPG;
+        private System.Windows.Forms.DataGridViewImageColumn Img;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TonKho;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaMua;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
     }
 }

@@ -35,12 +35,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(nhap_hang));
             this.label1 = new System.Windows.Forms.Label();
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.huy_data = new Guna.UI2.WinForms.Guna2Button();
             this.lb_totalPrice = new System.Windows.Forms.Label();
@@ -85,6 +79,12 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.guna2ShadowPanel3.SuspendLayout();
             this.guna2ShadowPanel4.SuspendLayout();
@@ -185,51 +185,6 @@
             this.data.ThemeStyle.RowsStyle.Height = 35;
             this.data.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 25;
-            // 
-            // MaSPG
-            // 
-            this.MaSPG.DataPropertyName = "MaSPG";
-            this.MaSPG.HeaderText = "ID";
-            this.MaSPG.Name = "MaSPG";
-            this.MaSPG.ReadOnly = true;
-            // 
-            // Img
-            // 
-            this.Img.DataPropertyName = "Img";
-            this.Img.HeaderText = "";
-            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Img.Name = "Img";
-            this.Img.ReadOnly = true;
-            // 
-            // TenGiay
-            // 
-            this.TenGiay.DataPropertyName = "TenGiay";
-            this.TenGiay.HeaderText = "Tên giày";
-            this.TenGiay.Name = "TenGiay";
-            this.TenGiay.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "SoLuong";
-            this.Column2.HeaderText = "SoLuong";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "GiaMua";
-            this.Column3.HeaderText = "GiaMua";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // guna2ShadowPanel3
             // 
@@ -539,7 +494,6 @@
             this.nud_s41.Size = new System.Drawing.Size(149, 37);
             this.nud_s41.TabIndex = 33;
             this.nud_s41.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s41.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s43
             // 
@@ -556,7 +510,6 @@
             this.nud_s43.Size = new System.Drawing.Size(149, 37);
             this.nud_s43.TabIndex = 33;
             this.nud_s43.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s43.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s39
             // 
@@ -573,7 +526,6 @@
             this.nud_s39.Size = new System.Drawing.Size(149, 37);
             this.nud_s39.TabIndex = 33;
             this.nud_s39.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s39.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s40
             // 
@@ -590,7 +542,6 @@
             this.nud_s40.Size = new System.Drawing.Size(149, 37);
             this.nud_s40.TabIndex = 33;
             this.nud_s40.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s40.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s42
             // 
@@ -607,7 +558,6 @@
             this.nud_s42.Size = new System.Drawing.Size(149, 37);
             this.nud_s42.TabIndex = 33;
             this.nud_s42.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s42.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // nud_s38
             // 
@@ -624,7 +574,6 @@
             this.nud_s38.Size = new System.Drawing.Size(149, 37);
             this.nud_s38.TabIndex = 33;
             this.nud_s38.UpDownButtonFillColor = System.Drawing.Color.Transparent;
-            this.nud_s38.UpDownButtonForeColor = System.Drawing.Color.White;
             // 
             // xac_nhan
             // 
@@ -1014,6 +963,61 @@
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(56, 19);
             this.guna2HtmlLabel7.TabIndex = 1;
             this.guna2HtmlLabel7.Text = "Loại giày";
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 25;
+            // 
+            // MaSPG
+            // 
+            this.MaSPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaSPG.DataPropertyName = "MaSPG";
+            this.MaSPG.HeaderText = "ID";
+            this.MaSPG.Name = "MaSPG";
+            this.MaSPG.ReadOnly = true;
+            this.MaSPG.Width = 60;
+            // 
+            // Img
+            // 
+            this.Img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Img.DataPropertyName = "Img";
+            this.Img.FillWeight = 250F;
+            this.Img.HeaderText = "";
+            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Img.Name = "Img";
+            this.Img.ReadOnly = true;
+            this.Img.Width = 70;
+            // 
+            // TenGiay
+            // 
+            this.TenGiay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TenGiay.DataPropertyName = "TenGiay";
+            this.TenGiay.FillWeight = 50F;
+            this.TenGiay.HeaderText = "Tên giày";
+            this.TenGiay.Name = "TenGiay";
+            this.TenGiay.ReadOnly = true;
+            this.TenGiay.Width = 400;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "SoLuong";
+            this.Column2.FillWeight = 50F;
+            this.Column2.HeaderText = "SoLuong";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "GiaMua";
+            this.Column3.FillWeight = 50F;
+            this.Column3.HeaderText = "GiaMua";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // nhap_hang
             // 
