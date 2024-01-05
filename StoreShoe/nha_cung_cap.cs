@@ -25,10 +25,6 @@ namespace shoe_store_manager
         {
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
             this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
-            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhaCungCap' table. You can move, or remove it, as needed.
-            this.nhaCungCapTableAdapter.Fill(this.storeShoesDataSet.NhaCungCap);
             tbWarningPairs();
 
         }
@@ -124,7 +120,7 @@ namespace shoe_store_manager
             bool allWarningsHidden = true;
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
             {
-                if (pair.Value.Visible)
+                if (pair.Key.Text == "")
                 {
                     allWarningsHidden = false;
                     break;

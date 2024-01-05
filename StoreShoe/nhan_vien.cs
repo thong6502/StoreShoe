@@ -46,7 +46,8 @@ namespace shoe_store_manager
                 { tb_name, warning1 },
                 { tb_address, warning2 },
                 { tb_phone, warning3 },
-                { tb_chucVu, warning4 }
+                { tb_chucVu, warning4 },
+                { tb_Email, warning5 }
             };
         }
 
@@ -130,7 +131,7 @@ namespace shoe_store_manager
             bool allWarningsHidden = true;
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
             {
-                if (pair.Value.Visible)
+                if (pair.Key.Text == "")
                 {
                     allWarningsHidden = false;
                     break;

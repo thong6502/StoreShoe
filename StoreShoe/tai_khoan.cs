@@ -83,7 +83,7 @@ namespace shoe_store_manager
             string MatKhauMoi = tbx_matKhuaMoi.Text;
             string NLMatKhauMoi = tbx_NLMatKhauMoi.Text;
 
-            if(MatKhau != "" || MatKhauMoi != "" || NLMatKhauMoi != "") 
+            if(MatKhau == "" || MatKhauMoi == "" || NLMatKhauMoi == "") 
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !!!");
                 return;
@@ -99,6 +99,7 @@ namespace shoe_store_manager
                     string query_UpdateMK = "UPDATE TaiKhoan SET MatKhau = @MatKhau WHERE MaTK = @MaTK";
                     object[] parameter_UpdateMK = new object[] { MatKhauMoi , GlobalVariables.MaTK };
                     DataProvider.Instance.ExcuteNonQuery(query_UpdateMK, parameter_UpdateMK);
+                    clearTextBox();
                     MessageBox.Show("Đổi mật khẩu thành công");
                 }
                 else
@@ -110,6 +111,12 @@ namespace shoe_store_manager
                 MessageBox.Show("Vui lòng nhập lại mật khẩu !!!");
             }
             
+        }
+        private void clearTextBox()
+        {
+            tbx_matKhau.Text = "";
+            tbx_matKhuaMoi.Text = "";
+            tbx_NLMatKhauMoi.Text = "";
         }
     }
 

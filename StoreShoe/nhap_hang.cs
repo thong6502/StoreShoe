@@ -397,7 +397,7 @@ namespace shoe_store_manager
             bool allWarningsHidden = true;
             foreach (KeyValuePair<Guna2TextBox, Guna2Button> pair in textBoxWarningPairs)
             {
-                if (pair.Value.Visible)
+                if (pair.Key.Text == "" || cbx_LoaiGiay.Text == "" || cbx_NCC.Text == "")
                 {
                     allWarningsHidden = false;
                     break;
