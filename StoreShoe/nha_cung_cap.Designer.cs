@@ -34,7 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.arrow1 = new Guna.UI2.WinForms.Guna2Button();
             this.edit = new Guna.UI2.WinForms.Guna2Button();
             this.add = new Guna.UI2.WinForms.Guna2Button();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
@@ -58,10 +57,10 @@
             this.btn_HFilter = new Guna.UI2.WinForms.Guna2Button();
             this.btn_filter = new Guna.UI2.WinForms.Guna2Button();
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeShoesDataSet = new shoe_store_manager.StoreShoesDataSet();
             this.nhaCungCapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.storeShoesDataSet = new shoe_store_manager.StoreShoesDataSet();
             this.nhaCungCapTableAdapter = new shoe_store_manager.StoreShoesDataSetTableAdapters.NhaCungCapTableAdapter();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maNCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNCCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diaChiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,35 +68,9 @@
             this.edit_box.SuspendLayout();
             this.box_filter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCungCapBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // arrow1
-            // 
-            this.arrow1.BackColor = System.Drawing.Color.Transparent;
-            this.arrow1.BorderColor = System.Drawing.Color.Transparent;
-            this.arrow1.DisabledState.BorderColor = System.Drawing.Color.Transparent;
-            this.arrow1.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.arrow1.DisabledState.FillColor = System.Drawing.Color.Transparent;
-            this.arrow1.DisabledState.ForeColor = System.Drawing.Color.Transparent;
-            this.arrow1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.arrow1.FillColor = System.Drawing.Color.Transparent;
-            this.arrow1.FocusedColor = System.Drawing.Color.Transparent;
-            this.arrow1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.arrow1.ForeColor = System.Drawing.Color.White;
-            this.arrow1.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.arrow1.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.arrow1.HoverState.FillColor = System.Drawing.Color.Transparent;
-            this.arrow1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.arrow1.IndicateFocus = true;
-            this.arrow1.Location = new System.Drawing.Point(37, 136);
-            this.arrow1.Name = "arrow1";
-            this.arrow1.PressedColor = System.Drawing.Color.Transparent;
-            this.arrow1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.arrow1.Size = new System.Drawing.Size(54, 44);
-            this.arrow1.TabIndex = 18;
-            this.arrow1.UseTransparentBackground = true;
             // 
             // edit
             // 
@@ -114,7 +87,7 @@
             this.edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.edit.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.edit.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.edit.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.edit.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
             this.edit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.edit.Location = new System.Drawing.Point(112, 77);
@@ -140,7 +113,7 @@
             this.add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.add.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.add.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+            this.add.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.add.Image = ((System.Drawing.Image)(resources.GetObject("add.Image")));
             this.add.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.add.Location = new System.Drawing.Point(12, 77);
@@ -166,7 +139,7 @@
             this.delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.delete.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.delete.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+            this.delete.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
             this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
             this.delete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.delete.Location = new System.Drawing.Point(212, 77);
@@ -210,7 +183,7 @@
             this.warning3.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning3.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning3.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.warning3.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
             this.warning3.Enabled = false;
             this.warning3.FillColor = System.Drawing.Color.Transparent;
             this.warning3.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -234,7 +207,7 @@
             this.warning2.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning2.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning2.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+            this.warning2.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.warning2.Enabled = false;
             this.warning2.FillColor = System.Drawing.Color.Transparent;
             this.warning2.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -271,7 +244,7 @@
             this.xac_nhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.xac_nhan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.xac_nhan.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
+            this.xac_nhan.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
             this.xac_nhan.Image = ((System.Drawing.Image)(resources.GetObject("xac_nhan.Image")));
             this.xac_nhan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.xac_nhan.Location = new System.Drawing.Point(128, 250);
@@ -302,7 +275,7 @@
             this.huy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.huy.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.huy.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
+            this.huy.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image6")));
             this.huy.Image = ((System.Drawing.Image)(resources.GetObject("huy.Image")));
             this.huy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.huy.Location = new System.Drawing.Point(256, 250);
@@ -416,7 +389,7 @@
             this.warning1.DisabledState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.FillColor = System.Drawing.Color.Transparent;
             this.warning1.DisabledState.ForeColor = System.Drawing.Color.Red;
-            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
+            this.warning1.DisabledState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image7")));
             this.warning1.Enabled = false;
             this.warning1.FillColor = System.Drawing.Color.Transparent;
             this.warning1.Font = new System.Drawing.Font("Segoe UI", 7F);
@@ -522,7 +495,7 @@
             this.btn_XNFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.btn_XNFilter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.btn_XNFilter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_XNFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
+            this.btn_XNFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image8")));
             this.btn_XNFilter.Image = ((System.Drawing.Image)(resources.GetObject("btn_XNFilter.Image")));
             this.btn_XNFilter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_XNFilter.ImageSize = new System.Drawing.Size(16, 16);
@@ -554,7 +527,7 @@
             this.btn_HFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(106)))), ((int)(((byte)(111)))));
             this.btn_HFilter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.btn_HFilter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.btn_HFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
+            this.btn_HFilter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image9")));
             this.btn_HFilter.Image = ((System.Drawing.Image)(resources.GetObject("btn_HFilter.Image")));
             this.btn_HFilter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_HFilter.ImageSize = new System.Drawing.Size(16, 16);
@@ -581,7 +554,7 @@
             this.btn_filter.ForeColor = System.Drawing.Color.White;
             this.btn_filter.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
             this.btn_filter.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(0)))), ((int)(((byte)(164)))));
-            this.btn_filter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image11")));
+            this.btn_filter.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image10")));
             this.btn_filter.Image = ((System.Drawing.Image)(resources.GetObject("btn_filter.Image")));
             this.btn_filter.Location = new System.Drawing.Point(663, 77);
             this.btn_filter.Name = "btn_filter";
@@ -666,6 +639,20 @@
             this.data.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(61)))), ((int)(((byte)(169)))));
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
+            // nhaCungCapBindingSource
+            // 
+            this.nhaCungCapBindingSource.DataMember = "NhaCungCap";
+            this.nhaCungCapBindingSource.DataSource = this.storeShoesDataSet;
+            // 
+            // storeShoesDataSet
+            // 
+            this.storeShoesDataSet.DataSetName = "StoreShoesDataSet";
+            this.storeShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhaCungCapTableAdapter
+            // 
+            this.nhaCungCapTableAdapter.ClearBeforeFill = true;
+            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -675,47 +662,37 @@
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column1.Width = 25;
             // 
-            // storeShoesDataSet
-            // 
-            this.storeShoesDataSet.DataSetName = "StoreShoesDataSet";
-            this.storeShoesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // nhaCungCapBindingSource
-            // 
-            this.nhaCungCapBindingSource.DataMember = "NhaCungCap";
-            this.nhaCungCapBindingSource.DataSource = this.storeShoesDataSet;
-            // 
-            // nhaCungCapTableAdapter
-            // 
-            this.nhaCungCapTableAdapter.ClearBeforeFill = true;
-            // 
             // maNCCDataGridViewTextBoxColumn
             // 
+            this.maNCCDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.maNCCDataGridViewTextBoxColumn.DataPropertyName = "MaNCC";
-            this.maNCCDataGridViewTextBoxColumn.HeaderText = "MaNCC";
+            this.maNCCDataGridViewTextBoxColumn.HeaderText = "ID";
             this.maNCCDataGridViewTextBoxColumn.Name = "maNCCDataGridViewTextBoxColumn";
             this.maNCCDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maNCCDataGridViewTextBoxColumn.Width = 50;
             // 
             // tenNCCDataGridViewTextBoxColumn
             // 
             this.tenNCCDataGridViewTextBoxColumn.DataPropertyName = "TenNCC";
-            this.tenNCCDataGridViewTextBoxColumn.HeaderText = "TenNCC";
+            this.tenNCCDataGridViewTextBoxColumn.HeaderText = "Tên Nhà cung cấp";
             this.tenNCCDataGridViewTextBoxColumn.Name = "tenNCCDataGridViewTextBoxColumn";
             this.tenNCCDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // diaChiDataGridViewTextBoxColumn
             // 
             this.diaChiDataGridViewTextBoxColumn.DataPropertyName = "DiaChi";
-            this.diaChiDataGridViewTextBoxColumn.HeaderText = "DiaChi";
+            this.diaChiDataGridViewTextBoxColumn.HeaderText = "Địa chỉ";
             this.diaChiDataGridViewTextBoxColumn.Name = "diaChiDataGridViewTextBoxColumn";
             this.diaChiDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sDTDataGridViewTextBoxColumn
             // 
+            this.sDTDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.sDTDataGridViewTextBoxColumn.DataPropertyName = "SDT";
-            this.sDTDataGridViewTextBoxColumn.HeaderText = "SDT";
+            this.sDTDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
             this.sDTDataGridViewTextBoxColumn.Name = "sDTDataGridViewTextBoxColumn";
             this.sDTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sDTDataGridViewTextBoxColumn.Width = 135;
             // 
             // nha_cung_cap
             // 
@@ -726,7 +703,6 @@
             this.Controls.Add(this.edit_box);
             this.Controls.Add(this.btn_filter);
             this.Controls.Add(this.box_filter);
-            this.Controls.Add(this.arrow1);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.add);
             this.Controls.Add(this.delete);
@@ -741,14 +717,13 @@
             this.box_filter.ResumeLayout(false);
             this.box_filter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nhaCungCapBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storeShoesDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button arrow1;
         private Guna.UI2.WinForms.Guna2Button edit;
         private Guna.UI2.WinForms.Guna2Button add;
         private Guna.UI2.WinForms.Guna2Button delete;
@@ -772,10 +747,10 @@
         private Guna.UI2.WinForms.Guna2Button btn_filter;
         private Guna.UI2.WinForms.Guna2Button warning1;
         private Guna.UI2.WinForms.Guna2DataGridView data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private StoreShoesDataSet storeShoesDataSet;
         private System.Windows.Forms.BindingSource nhaCungCapBindingSource;
         private StoreShoesDataSetTableAdapters.NhaCungCapTableAdapter nhaCungCapTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn maNCCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNCCDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn diaChiDataGridViewTextBoxColumn;

@@ -1,5 +1,6 @@
 ﻿using Guna.UI.WinForms;
 using Guna.UI2.WinForms;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 using Microsoft.VisualBasic.Logging;
 using shoe_store_manager.StoreShoesDataSetTableAdapters;
 using System;
@@ -23,7 +24,7 @@ namespace shoe_store_manager
     {
         private Dictionary<Guna2TextBox, Guna2Button> textBoxWarningPairs;
         //private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=StoreShoes;Persist Security Info=True;User ID=sa;Password=thong038202008963;TrustServerCertificate=True";
-
+        Email email = new Email();
         public nhan_vien()
         {
             InitializeComponent();
@@ -31,12 +32,6 @@ namespace shoe_store_manager
 
         private void nhan_vien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
-            // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
-            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             // TODO: This line of code loads data into the 'storeShoesDataSet.NhanVien' table. You can move, or remove it, as needed.
             this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
             tbWarningPairs();
@@ -237,16 +232,20 @@ namespace shoe_store_manager
 
         private void delete_Click(object sender, EventArgs e)
         {
-            if (data.SelectedRows.Count > 0)
+            string MaTK = data.SelectedRows[0].Cells["maTKDataGridViewTextBoxColumn"].Value.ToString();
+            string MaNV = data.SelectedRows[0].Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
+            object[] parameter_NV = new object[] { MaNV };
+            string query_NV = "DELETE FROM NhanVien WHERE MaNv = @MaNV";
+            DataProvider.Instance.ExcuteNonQuery(query_NV, parameter_NV);
+            if (MaTK != null)
             {
-                string Id = data.SelectedRows[0].Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
-                object[] parameter = new object[] { Id };
-                string query = "DELETE FROM NhanVien WHERE MaNv = @MaNV";
-                DataProvider.Instance.ExcuteNonQuery(query, parameter);
-                // Cập nhật DataGridView
-                this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
-                Search_input();
+                object[] parameter_TK = new object[] { MaTK };
+                string query_TK = "DELETE FROM TaiKhoan WHERE MaTK = @MaTK";
+                DataProvider.Instance.ExcuteNonQuery(query_TK, parameter_TK);
             }
+            // Cập nhật DataGridView
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            Search_input();
         }
 
         private void tb_Luong_TextChanged(object sender, EventArgs e)
@@ -293,6 +292,89 @@ namespace shoe_store_manager
 
             data.DataSource = DataProvider.Instance.ExcuteQuery(query, parameter);
 
+        }
+
+        private void CapTaiKhoan_Click(object sender, EventArgs e)
+        {
+            string queryCountId = "SELECT COUNT(*) FROM TaiKhoan WHERE MaTK = @MaTK";
+            string MaTK = DataProvider.Instance.GenerateId(queryCountId,"TK");
+            DataGridViewRow row = data.SelectedRows[0];
+            string Email = row.Cells["emailDataGridViewTextBoxColumn"].Value.ToString();
+            string maNV = row.Cells["maNVDataGridViewTextBoxColumn"].Value.ToString();
+            string TenNV = row.Cells["tenNVDataGridViewTextBoxColumn"].Value.ToString();
+            string TenTK = ChuyenChuoi(TenNV) + maNV;
+            string MatKhau = RandomString(3);
+            string PhanQuyen = "Nhân viên";
+
+            email.Send(Email, "Cửa hàng giày STORESHOE xin chào", "Xin chúc mừng \""+ TenNV + "\" đã chính thức trở thành nhân viên của cửa hàng. Anh/Chị hãy truy cập vào phần mềm của cửa hàng chúng tôi với :" + "\n\nTài khoản: " + TenTK + "\nMật khẩu: " + MatKhau);
+
+            string query_TK = "INSERT INTO TaiKhoan (MaTK, TenTK, MatKhau, PhanQuyen) VALUES (@MaTK, @TenTK, @MatKhau, @PhanQuyen)";
+            object[] parameter_TK = new object[] { MaTK, TenTK, MatKhau, PhanQuyen };
+            DataProvider.Instance.ExcuteNonQuery(query_TK, parameter_TK);
+
+            object[] parameter_NV = new object[] { MaTK, maNV };
+            string query_NV = "UPDATE NhanVien SET MaTK = @MaTK WHERE MaNV = @MaNV";
+            DataProvider.Instance.ExcuteNonQuery(query_NV, parameter_NV);
+
+            
+
+            // Cập nhật DataGridView
+            this.nhanVienTableAdapter.Fill(this.storeShoesDataSet.NhanVien);
+            Search_input();
+        }
+
+        private string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[length];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new string(stringChars);
+        }
+
+
+        private string ChuyenChuoi(string input)
+        {
+            string[] nguyenAmCoDau = { "á", "à", "ả", "ã", "ạ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "đ", "é", "è", "ẻ", "ẽ", "ẹ", "ê", "ế", "ề", "ể", "ễ", "ệ", "í", "ì", "ỉ", "ĩ", "ị", "ó", "ò", "ỏ", "õ", "ọ", "ô", "ố", "ồ", "ổ", "ỗ", "ộ", "ơ", "ớ", "ờ", "ở", "ỡ", "ợ", "ú", "ù", "ủ", "ũ", "ụ", "ư", "ứ", "ừ", "ử", "ữ", "ự", "ý", "ỳ", "ỷ", "ỹ", "ỵ" };
+            string[] nguyenAmKhongDau = { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "d", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "e", "i", "i", "i", "i", "i", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "o", "u", "u", "u", "u", "u", "u", "u", "u", "u", "u", "u", "y", "y", "y", "y", "y" };
+
+            if (nguyenAmCoDau.Length != nguyenAmKhongDau.Length)
+            {
+                throw new ArgumentException("nguyenAmCoDau and nguyenAmKhongDau must be the same length");
+            }
+
+            StringBuilder sb = new StringBuilder(input);
+            for (int i = 0; i < nguyenAmCoDau.Length; i++)
+            {
+                sb.Replace(nguyenAmCoDau[i], nguyenAmKhongDau[i]);
+                sb.Replace(nguyenAmCoDau[i].ToUpper(), nguyenAmKhongDau[i].ToUpper());
+            }
+
+            input = sb.ToString();
+            string[] words = input.Split(' ');
+            sb.Clear();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(words[i]))
+                {
+                    if (i == words.Length - 1)
+                    {
+                        sb.Append(words[i].ToLower());
+                    }
+                    else
+                    {
+                        sb.Append(words[i].Substring(0, 1).ToLower());
+                    }
+                }
+            }
+
+            return sb.ToString();
         }
 
 

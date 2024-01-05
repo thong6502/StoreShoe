@@ -39,9 +39,7 @@ namespace shoe_store_manager
 
         private void nhap_hang_Load(object sender, EventArgs e)
         {
-            CreateId();
-            addDataTable();
-            addData_cbx();
+            reset();
             tbWarningPairs();
 
             warning2.Visible = true;
@@ -646,6 +644,8 @@ namespace shoe_store_manager
         {
             TotalPrice = 0;
             UpdateTotalPrice(TotalPrice);
+            CreateId();
+            addData_cbx();
             addDataTable();
             addDataSource();
         }

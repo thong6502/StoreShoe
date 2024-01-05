@@ -141,9 +141,8 @@
             this.lb_phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lb_phone.Location = new System.Drawing.Point(139, 242);
             this.lb_phone.Name = "lb_phone";
-            this.lb_phone.Size = new System.Drawing.Size(69, 17);
+            this.lb_phone.Size = new System.Drawing.Size(0, 17);
             this.lb_phone.TabIndex = 6;
-            this.lb_phone.Text = "012345678";
             // 
             // lb_Name
             // 
@@ -152,9 +151,8 @@
             this.lb_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lb_Name.Location = new System.Drawing.Point(139, 152);
             this.lb_Name.Name = "lb_Name";
-            this.lb_Name.Size = new System.Drawing.Size(88, 17);
+            this.lb_Name.Size = new System.Drawing.Size(0, 17);
             this.lb_Name.TabIndex = 6;
-            this.lb_Name.Text = "Lê văn thông";
             // 
             // lb_Email
             // 
@@ -163,9 +161,8 @@
             this.lb_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lb_Email.Location = new System.Drawing.Point(139, 201);
             this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(150, 17);
+            this.lb_Email.Size = new System.Drawing.Size(0, 17);
             this.lb_Email.TabIndex = 6;
-            this.lb_Email.Text = "lvthong678@gmail.com";
             // 
             // lb_TK
             // 
@@ -174,9 +171,8 @@
             this.lb_TK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.lb_TK.Location = new System.Drawing.Point(139, 109);
             this.lb_TK.Name = "lb_TK";
-            this.lb_TK.Size = new System.Drawing.Size(72, 17);
+            this.lb_TK.Size = new System.Drawing.Size(0, 17);
             this.lb_TK.TabIndex = 6;
-            this.lb_TK.Text = "lvthong171";
             // 
             // gunaLabel4
             // 
@@ -257,6 +253,7 @@
             this.btn_XacNhan.Size = new System.Drawing.Size(84, 41);
             this.btn_XacNhan.TabIndex = 27;
             this.btn_XacNhan.Text = "Xác nhận";
+            this.btn_XacNhan.Click += new System.EventHandler(this.btn_XacNhan_Click);
             // 
             // tbx_NLMatKhauMoi
             // 

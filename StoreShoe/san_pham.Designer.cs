@@ -858,7 +858,7 @@
             this.TenGiay.HeaderText = "Tên sản phẩm";
             this.TenGiay.Name = "TenGiay";
             this.TenGiay.ReadOnly = true;
-            this.TenGiay.Width = 400;
+            this.TenGiay.Width = 370;
             // 
             // TonKho
             // 

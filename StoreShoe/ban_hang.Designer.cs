@@ -34,6 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ban_hang));
             this.data = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SizeGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new Guna.UI2.WinForms.Guna2Button();
             this.cboCamera = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btn_scan = new Guna.UI2.WinForms.Guna2Button();
@@ -48,14 +56,6 @@
             this.Huy = new Guna.UI2.WinForms.Guna2Button();
             this.ThanhToan = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaSPG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Img = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TenGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SizeGiay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
@@ -141,6 +141,84 @@
             this.data.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.data.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.data_CellBeginEdit);
             this.data.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellEndEdit);
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column6.HeaderText = "";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column6.Width = 25;
+            // 
+            // MaSPG
+            // 
+            this.MaSPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MaSPG.DataPropertyName = "MaSPG";
+            this.MaSPG.FillWeight = 326.0869F;
+            this.MaSPG.HeaderText = "ID";
+            this.MaSPG.Name = "MaSPG";
+            this.MaSPG.ReadOnly = true;
+            this.MaSPG.Width = 50;
+            // 
+            // Img
+            // 
+            this.Img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Img.DataPropertyName = "Img";
+            this.Img.HeaderText = "";
+            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Img.Name = "Img";
+            this.Img.ReadOnly = true;
+            this.Img.Width = 60;
+            // 
+            // TenGiay
+            // 
+            this.TenGiay.DataPropertyName = "TenGiay";
+            this.TenGiay.FillWeight = 54.78261F;
+            this.TenGiay.HeaderText = "Tên sản phẩm";
+            this.TenGiay.Name = "TenGiay";
+            this.TenGiay.ReadOnly = true;
+            this.TenGiay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TenGiay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TenGiay.Width = 353;
+            // 
+            // SizeGiay
+            // 
+            this.SizeGiay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SizeGiay.DataPropertyName = "SizeGiay";
+            this.SizeGiay.FillWeight = 54.78261F;
+            this.SizeGiay.HeaderText = "Size giày";
+            this.SizeGiay.Name = "SizeGiay";
+            this.SizeGiay.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.FillWeight = 54.78261F;
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GiaBan.DataPropertyName = "GiaBan";
+            this.GiaBan.FillWeight = 54.78261F;
+            this.GiaBan.HeaderText = "Giá bán";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            this.GiaBan.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.GiaBan.Width = 120;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ThanhTien.DataPropertyName = "ThanhTien";
+            this.ThanhTien.FillWeight = 54.78261F;
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            this.ThanhTien.Width = 150;
             // 
             // delete
             // 
@@ -252,11 +330,9 @@
             this.lbl_result.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lbl_result.Location = new System.Drawing.Point(118, 15);
             this.lbl_result.Name = "lbl_result";
-            this.lbl_result.Size = new System.Drawing.Size(93, 21);
+            this.lbl_result.Size = new System.Drawing.Size(0, 21);
             this.lbl_result.TabIndex = 43;
-            this.lbl_result.Text = "SPG1XXX38";
             this.lbl_result.TextChanged += new System.EventHandler(this.lbl_result_TextChanged);
-            this.lbl_result.DoubleClick += new System.EventHandler(this.lbl_result_DoubleClick);
             // 
             // label2
             // 
@@ -376,84 +452,6 @@
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 43;
             this.label3.Text = "Tổng tiền:";
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column6.HeaderText = "";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column6.Width = 25;
-            // 
-            // MaSPG
-            // 
-            this.MaSPG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MaSPG.DataPropertyName = "MaSPG";
-            this.MaSPG.FillWeight = 326.0869F;
-            this.MaSPG.HeaderText = "ID";
-            this.MaSPG.Name = "MaSPG";
-            this.MaSPG.ReadOnly = true;
-            this.MaSPG.Width = 50;
-            // 
-            // Img
-            // 
-            this.Img.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Img.DataPropertyName = "Img";
-            this.Img.HeaderText = "";
-            this.Img.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Img.Name = "Img";
-            this.Img.ReadOnly = true;
-            this.Img.Width = 60;
-            // 
-            // TenGiay
-            // 
-            this.TenGiay.DataPropertyName = "TenGiay";
-            this.TenGiay.FillWeight = 54.78261F;
-            this.TenGiay.HeaderText = "Tên sản phẩm";
-            this.TenGiay.Name = "TenGiay";
-            this.TenGiay.ReadOnly = true;
-            this.TenGiay.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TenGiay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.TenGiay.Width = 353;
-            // 
-            // SizeGiay
-            // 
-            this.SizeGiay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SizeGiay.DataPropertyName = "SizeGiay";
-            this.SizeGiay.FillWeight = 54.78261F;
-            this.SizeGiay.HeaderText = "Size giày";
-            this.SizeGiay.Name = "SizeGiay";
-            this.SizeGiay.ReadOnly = true;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.FillWeight = 54.78261F;
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GiaBan.DataPropertyName = "GiaBan";
-            this.GiaBan.FillWeight = 54.78261F;
-            this.GiaBan.HeaderText = "Giá bán";
-            this.GiaBan.Name = "GiaBan";
-            this.GiaBan.ReadOnly = true;
-            this.GiaBan.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.GiaBan.Width = 120;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ThanhTien.DataPropertyName = "ThanhTien";
-            this.ThanhTien.FillWeight = 54.78261F;
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            this.ThanhTien.Width = 150;
             // 
             // ban_hang
             // 

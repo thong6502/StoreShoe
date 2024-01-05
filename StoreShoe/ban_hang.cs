@@ -12,6 +12,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using System.Threading;
 using System.Media;
+using System.Data.SqlTypes;
 
 namespace shoe_store_manager
 {
@@ -209,61 +210,61 @@ namespace shoe_store_manager
 
         private void lbl_result_TextChanged(object sender, EventArgs e)
         {
-            if (lbl_result.Text == "") return;
-            string[] PhanTichChuoi = lbl_result.Text.Split(new string[] { "XXX" }, StringSplitOptions.None);
-            string MaSPG = PhanTichChuoi[0];
-            int SizeGiay = Convert.ToInt32(PhanTichChuoi[1]);
+            if (!lbl_result.Text.Contains("XXX") ) return;
+            
+                string[] PhanTichChuoi = lbl_result.Text.Split(new string[] { "XXX" }, StringSplitOptions.None);
+                string MaSPG = PhanTichChuoi[0];
+                int SizeGiay = Convert.ToInt32(PhanTichChuoi[1]);
 
-            string query = "SELECT * FROM SanPhamGiay WHERE MaSPG = @MaSPG";
-            object[] parameter = new object[] { MaSPG };
-            DataTable dt = DataProvider.Instance.ExcuteQuery(query, parameter);
+                string query = "SELECT * FROM SanPhamGiay WHERE MaSPG = @MaSPG";
+                object[] parameter = new object[] { MaSPG };
+                DataTable dt = DataProvider.Instance.ExcuteQuery(query, parameter);
 
-            Image img = Image.FromFile(dt.Rows[0]["Img"].ToString());
+                Image img = Image.FromFile(dt.Rows[0]["Img"].ToString());
 
-            string TenGiay = dt.Rows[0]["TenGiay"].ToString();
-            string GiaBan = dt.Rows[0]["GiaBan"].ToString();
-            string ThanhTien = GiaBan;
+                string TenGiay = dt.Rows[0]["TenGiay"].ToString();
+                string GiaBan = dt.Rows[0]["GiaBan"].ToString();
+                string ThanhTien = GiaBan;
 
-            int s38 = SizeGiay == 38 ? 1 : 0;
-            int s39 = SizeGiay == 39 ? 1 : 0;
-            int s40 = SizeGiay == 40 ? 1 : 0;
-            int s41 = SizeGiay == 41 ? 1 : 0;
-            int s42 = SizeGiay == 42 ? 1 : 0;
-            int s43 = SizeGiay == 43 ? 1 : 0;
-            int SoLuong = s38 + s39 + s40 + s41 + s42 + s43;
+                int s38 = SizeGiay == 38 ? 1 : 0;
+                int s39 = SizeGiay == 39 ? 1 : 0;
+                int s40 = SizeGiay == 40 ? 1 : 0;
+                int s41 = SizeGiay == 41 ? 1 : 0;
+                int s42 = SizeGiay == 42 ? 1 : 0;
+                int s43 = SizeGiay == 43 ? 1 : 0;
+                int SoLuong = s38 + s39 + s40 + s41 + s42 + s43;
 
-            int price = main.ConvertPriceStringToInt(GiaBan) * SoLuong;
-            TotalPrice += price;
+                int price = main.ConvertPriceStringToInt(GiaBan) * SoLuong;
+                TotalPrice += price;
 
-            object[] values_Size38 = new object[] { MaSPG, 38, s38 };
-            object[] values_Size39 = new object[] { MaSPG, 39, s39 };
-            object[] values_Size40 = new object[] { MaSPG, 40, s40 };
-            object[] values_Size41 = new object[] { MaSPG, 41, s41 };
-            object[] values_Size42 = new object[] { MaSPG, 42, s42 };
-            object[] values_Size43 = new object[] { MaSPG, 43, s43 };
-            object[] values_CTHDB = new object[] { MaHDB, MaSPG, SoLuong };
+                object[] values_Size38 = new object[] { MaSPG, 38, s38 };
+                object[] values_Size39 = new object[] { MaSPG, 39, s39 };
+                object[] values_Size40 = new object[] { MaSPG, 40, s40 };
+                object[] values_Size41 = new object[] { MaSPG, 41, s41 };
+                object[] values_Size42 = new object[] { MaSPG, 42, s42 };
+                object[] values_Size43 = new object[] { MaSPG, 43, s43 };
+                object[] values_CTHDB = new object[] { MaHDB, MaSPG, SoLuong };
 
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size38);
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size39);
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size40);
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size41);
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size42);
-            DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size43);
-            DataSet.Instance.AddRowToDataTable(DataTb_CTHDB, values_CTHDB);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size38);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size39);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size40);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size41);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size42);
+                DataSet.Instance.AddRowToDataTable(DataTb_Curent_Size, values_Size43);
+                DataSet.Instance.AddRowToDataTable(DataTb_CTHDB, values_CTHDB);
 
-            object[] values_UiUser = new object[] { MaSPG, img, TenGiay, SizeGiay, SoLuong, GiaBan, ThanhTien };
-            DataSet.Instance.AddRowToDataTable(DataTb_UIuser, values_UiUser);
+                object[] values_UiUser = new object[] { MaSPG, img, TenGiay, SizeGiay, SoLuong, GiaBan, ThanhTien };
+                DataSet.Instance.AddRowToDataTable(DataTb_UIuser, values_UiUser);
 
-            addDataSource();
-            UpdateTotalPrice(TotalPrice);
+                addDataSource();
+                UpdateTotalPrice(TotalPrice);
+
+
         }
 
         private void data_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             DataGridViewRow row = data.SelectedRows[0];
-            string MaSPG = row.Cells["MaSPG"].Value.ToString();
-            int SizeGiay = Convert.ToInt32(row.Cells["SizeGiay"].Value);
-
             int SoLuong = Convert.ToInt32(row.Cells["SoLuong"].Value);
 
 
@@ -299,20 +300,19 @@ namespace shoe_store_manager
             foundRows_Size[3]["SoLuong"] = s41;
             foundRows_Size[4]["SoLuong"] = s42;
             foundRows_Size[5]["SoLuong"] = s43;
-            DataSet.Instance.UpdateRowInDataTable(DataTb_CTHDB, "MaSPG", MaSPG, values_CTHDB);
 
             // Tìm hàng cần cập nhật 
+            DataRow[] rows_CTHDB = DataTb_CTHDB.Select("MaHDB = '" + MaHDB + "' AND MaSPG = '" + MaSPG + "'");
             DataRow[] rows_UIuser = DataTb_UIuser.Select("MaSPG  = '" + MaSPG + "'");
+            rows_CTHDB[0]["SoLuong"] = SoLuong;
             rows_UIuser[0]["SoLuong"] = SoLuong;
+            rows_UIuser[0]["ThanhTien"] = price.ToString("#,##0") + " đ";
 
             addDataSource();
             UpdateTotalPrice(TotalPrice);
         }
 
-        private void lbl_result_DoubleClick(object sender, EventArgs e)
-        {
-            lbl_result_TextChanged(sender, e);
-        }
+        
 
         private void delete_Click(object sender, EventArgs e)
         {
@@ -343,10 +343,7 @@ namespace shoe_store_manager
 
         private void ThanhToan_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO HoaDonBan (MaHDB, MaNV, TongTien) VALUES (@MaHDM, @MaNV, @TongTien)";
-            string str_TotalPrice = main.ConvertIntPriceToString(TotalPrice);
-            object[] parameter = new object[] { MaHDB, GlobalVariables.MaNV, str_TotalPrice };
-            DataProvider.Instance.ExcuteNonQuery(query, parameter);
+            
 
 
 
@@ -374,6 +371,11 @@ namespace shoe_store_manager
             DataProvider.Instance.UpdateTableInDatabase(DataTb_Previous_Size, SelectQuery_Size);
             DataProvider.Instance.UpdateTableInDatabase(DataTb_CTHDB, SelectQuery_CTHDM);
 
+            string query = "INSERT INTO HoaDonBan (MaHDB, MaNV, TongTien) VALUES (@MaHDM, @MaNV, @TongTien)";
+            string str_TotalPrice = main.ConvertIntPriceToString(TotalPrice);
+            object[] parameter = new object[] { MaHDB, GlobalVariables.MaNV, str_TotalPrice };
+            DataProvider.Instance.ExcuteNonQuery(query, parameter);
+
             reset();
         }
         private void Huy_Click(object sender, EventArgs e)
@@ -385,10 +387,10 @@ namespace shoe_store_manager
             lbl_result.Text = "";
             TotalPrice = 0;
             UpdateTotalPrice(TotalPrice);
+            CreateId();
             addDataTable();
             addDataSource();
         }
 
-        
     }
 }

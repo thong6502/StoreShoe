@@ -26,7 +26,7 @@ namespace shoe_store_manager
         {
             minH = 35;
             maxH = minH * 4;
-            container(new bao_cao());
+            container(new san_pham());
             phanQuyen();
         }
 
@@ -72,7 +72,6 @@ namespace shoe_store_manager
             btn_sanpham.FillColor = Color.Transparent;
             btn_nhanvien.FillColor = Color.Transparent;
             btn_nhacc.FillColor = Color.Transparent;
-            btn_baocao.FillColor = Color.Transparent;
             btn_cauHinh.FillColor = Color.Transparent;
 
             btn_taiKhoan.ForeColor = Color.DarkGray;
@@ -137,7 +136,6 @@ namespace shoe_store_manager
             label_val.Text = "Thống kê";
             img_top.Image = Properties.Resources.report;
             default_color();
-            btn_baocao.FillColor = Color.FromArgb(128, 128, 255);
             container(new bao_cao());
         }
 

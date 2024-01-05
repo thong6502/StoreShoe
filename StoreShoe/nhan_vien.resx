@@ -793,6 +793,9 @@
   <metadata name="storeShoesDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="storeShoesDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="resource.Image12" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKxJREFUSEvt
@@ -934,6 +937,23 @@
   <metadata name="nhanVienTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>349, 17</value>
   </metadata>
+  <data name="resource.Image14" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACRSURBVEhL7ZRLCoAwDAV7/2NZPFeNOkgkjab+FsUBwSZTH0Vj+mmilDLK5ZHRwp4BwQUt7Bno
+        G4GyCWC5QfkPeCDAAy3sGaSXV6XKgBb2OkSO1zyhUp/3+NOrWR5zANoOWv6L1eAamfJ3AXJ772fHcoOy
+        Drj2mSKcBmhoVXsGXBe0HbTCAc1Hl/q8p+fpfZeUJrfPqMRqT+VlAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="CapTaiKhoan.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACfSURBVEhL7ZRRCsMwDENzwsB25JWda0tAKY1VGbVlP2UP9BH72RBoWv4cotbnu9bHR2SBZnvE
+        jjwFmu0RSoh11yPcQdcj3EHXI9xB1yOGoALN9ojWXKK8yQua7d2QMy8UM/r1bgkLKdAmsh6h5GxJ1iOU
+        HOuXf3Y4rsR6XzJqO9Gf6ZBwXFH1TtYjhqwCbSLrEU08fPVW7zN3fr2/pZQvW1NF+uzMYXIAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>72</value>
   </metadata>

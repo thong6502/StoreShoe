@@ -77,9 +77,40 @@ namespace shoe_store_manager
             TogglePasswordVisibility(tbx_NLMatKhauMoi, ref check_eye3);
         }
 
+        private void btn_XacNhan_Click(object sender, EventArgs e)
+        {
+            string MatKhau = tbx_matKhau.Text;
+            string MatKhauMoi = tbx_matKhuaMoi.Text;
+            string NLMatKhauMoi = tbx_NLMatKhauMoi.Text;
 
+            if(MatKhau != "" || MatKhauMoi != "" || NLMatKhauMoi != "") 
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin !!!");
+                return;
+            }
+            string query = "SELECT MatKhau FROM TaiKhoan WHERE MaTK = @MaTK";
+            object[] parameter = new object[] { GlobalVariables.MaTK };
+            bool check = MatKhau == DataProvider.Instance.ExcuteQuery(query, parameter).Rows[0]["MatKhau"].ToString();
 
-        
+            if(check)
+            {
+                if(MatKhauMoi == NLMatKhauMoi)
+                {
+                    string query_UpdateMK = "UPDATE TaiKhoan SET MatKhau = @MatKhau WHERE MaTK = @MaTK";
+                    object[] parameter_UpdateMK = new object[] { MatKhauMoi , GlobalVariables.MaTK };
+                    DataProvider.Instance.ExcuteNonQuery(query_UpdateMK, parameter_UpdateMK);
+                    MessageBox.Show("Đổi mật khẩu thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu nhập lại không giống nhau !!!");
+                }
+            }else
+            {
+                MessageBox.Show("Vui lòng nhập lại mật khẩu !!!");
+            }
+            
+        }
     }
 
 }

@@ -1007,7 +1007,7 @@
             // 
             this.Column2.DataPropertyName = "SoLuong";
             this.Column2.FillWeight = 50F;
-            this.Column2.HeaderText = "SoLuong";
+            this.Column2.HeaderText = "Số lượng";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -1015,7 +1015,7 @@
             // 
             this.Column3.DataPropertyName = "GiaMua";
             this.Column3.FillWeight = 50F;
-            this.Column3.HeaderText = "GiaMua";
+            this.Column3.HeaderText = "Giá mua";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
